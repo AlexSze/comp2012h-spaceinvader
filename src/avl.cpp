@@ -53,7 +53,7 @@ void AVL<T>::balance(){
 	else if (balance_factor == -2){
 		if (left_subtree().bfactor() > 0)
 			left_subtree().rotate_left();
-		return rotate_right;
+		return rotate_right();
 	}
 }
 
@@ -77,7 +77,7 @@ bool AVL<T>::contains(const T& x) const{
 }
 
 template <typename T>
-void AVL<T>::print(int depth = 0){
+void AVL<T>::print(int depth ) const{
 	if (is_empty())
 		return;
 
@@ -118,6 +118,7 @@ void AVL<T>::remove(const T& x){
 		if (!left_avl.is_empty() && !right_avl.is_empty()){
 			root->value = right_avl.find_min();
 			right_avl.remove(root->value);
+		}
 		else{
 			AVLnode* node_to_remove = root;
 			*this = left_avl.is_empty() ? right_avl : left_avl;
@@ -127,6 +128,6 @@ void AVL<T>::remove(const T& x){
 		}
 	}
 
-		balance();
+	balance();
 }
 

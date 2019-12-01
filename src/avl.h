@@ -25,7 +25,7 @@ class AVL{
 		void rotate_right();
 		void balance();
 
-	public
+	public:
 		AVL()=default;
 		~AVL(){delete root;}	//delete AVL
 		bool is_empty() const { return root == nullptr; }
@@ -34,5 +34,5 @@ class AVL{
 		void print(int depth = 0) const; // Print by rotating -90 degrees
 		void insert(const T& x); // Insert an item in sorted order
 		void remove(const T& x); // Remove an item
-}
+};
 
