@@ -8,4 +8,10 @@
 
 3. Owen
 
+## Game Description
+
 ## Game Controls
+
+## Data Structure
+
+## Division of Labor
