@@ -27,21 +27,20 @@ CONFIG += c++11
 SOURCES += \
         main.cpp \
         mainwindow.cpp \
-    abstractcharacter.cpp \
-    abstracttools.cpp \
-    protagonist.cpp \
     abstractenemy.cpp \
+    abstracttools.cpp \
     KeyPress.cpp \
-    laser.cpp
+    laser.cpp \
+    player.cpp
 
 HEADERS += \
         mainwindow.h \
-    abstractcharacter.h \
-    abstracttools.h \
-    protagonist.h \
     abstractenemy.h \
+    abstracttools.h \
     KeyPress.h \
-    laser.h
+    laser.h \
+    constants.h \
+    player.h
 
 FORMS += \
         mainwindow.ui

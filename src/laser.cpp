@@ -1,14 +1,18 @@
 #include "laser.h"
+#include "constants.h"
 
 #include <QTimer>
 #include <QGraphicsScene>
 #include <QList>
-//#include "Enemy.h"
-//#include "Player.h"
-//#include "Game.h"
+#include "abstractenemy.h"
+#include "player.h"
 
 #include <QDebug>
-Laser::Laser(int speed, QGraphicsItem *parent) : QObject(), QGraphicsPixmapItem(parent), speed(speed) {
+Laser::Laser(int speed, QGraphicsPixmapItem* parent, int horizontal_speed)
+    : QObject(),
+      QGraphicsPixmapItem(parent),
+      speed(speed),
+      horizontal_speed(horizontal_speed) {
     // set laser graphic
     setPixmap(QPixmap(":/images/laser.png"));
     // draw the rectangle in place for a laser
@@ -30,7 +34,7 @@ void Laser::move(){
     int size = colliding.size();
     for (int i=0; i<size; ++i) {
         // check colliding type
-        if (typeid(*(colliding[i])) == typeid(Enemy)) {
+        if (typeid(*(colliding[i])) == typeid(AbstractEnemy)) {
             // remove both laser and enemy type
             scene()->removeItem(this);
             scene()->removeItem(colliding[i]);
@@ -39,7 +43,7 @@ void Laser::move(){
             delete this;
             return;
         }
-        else if (typeid(*(colliding[i])) == typeid(Hero)) {
+        else if (typeid(*(colliding[i])) == typeid(Player)) {
             // hero is defeated
             // remove both laser and hero
             scene()->removeItem(this);
@@ -52,9 +56,9 @@ void Laser::move(){
     }
 
     // move laser
-    setPos(x(), y() + this->speed);
+    setPos(x() + this->horizontal_speed, y() + this->speed);
     // check out of frame
-    if (pos().y() + rect().height() < 0){
+    if (pos().y() > SCREEN_HEIGHT || pos().y() < 0) {
         // remove from scene and delete of out of frame
         scene()->removeItem(this);
         delete this;
