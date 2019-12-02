@@ -22,7 +22,7 @@ Player::Player(QGraphicsItem* parent)
         setPixmap(QPixmap(":/images/player.png"));
         setTransformOriginPoint(50,50);
         pew_sound = new QMediaPlayer();
-        pew_sound->setMedia(QUrl("src:/sounds/pew.wav"));
+        pew_sound->setMedia(QUrl(":/sounds/pew.wav"));
 }
 
 // Key Press Event Handler
