@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 #include <QApplication>
+#include "KeyPress.h"
 
 int main(int argc, char *argv[])
 {
@@ -7,6 +8,8 @@ int main(int argc, char *argv[])
     MainWindow w;
     w.show();
 
+    KeyPress *keyPress = new KeyPress();
+    keyPress->show();
     return a.exec();
 }
 

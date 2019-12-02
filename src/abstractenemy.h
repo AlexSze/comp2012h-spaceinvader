@@ -7,7 +7,7 @@
 class AbstractEnemy: public AbstractCharacter {
     public:
         // default constructor
-        AbstractEnemy();
+        AbstractEnemy(unsigned int, unsigned int, unsigned int);
         // destructor does nothing, no dynamically allocated variables
         virtual ~AbstractEnemy() {}
 

@@ -30,14 +30,18 @@ SOURCES += \
     abstractcharacter.cpp \
     abstracttools.cpp \
     protagonist.cpp \
-    abstractenemy.cpp
+    abstractenemy.cpp \
+    KeyPress.cpp \
+    laser.cpp
 
 HEADERS += \
         mainwindow.h \
     abstractcharacter.h \
     abstracttools.h \
     protagonist.h \
-    abstractenemy.h
+    abstractenemy.h \
+    KeyPress.h \
+    laser.h
 
 FORMS += \
         mainwindow.ui

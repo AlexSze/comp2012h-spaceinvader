@@ -11,6 +11,8 @@ class AbstractTools {
         unsigned int defense{0};
         unsigned int health{0};
     public:
+        AbstractTools();
+        ~AbstractTools();
         void attack();
         bool hit();
 };
