@@ -1,4 +1,5 @@
 /* AbstractEnemy.cpp */
+//fuck Owen
 
 #include "abstractenemy.h"
 #include "laser.h"
