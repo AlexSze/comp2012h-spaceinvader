@@ -35,16 +35,33 @@ void Laser::move() {
     for (int i=0; i<size; ++i) {
         // check colliding type
         if (
-                typeid(*(colliding[i])) == typeid(abstractEnemy)
-                &&
                 // make sure only bullet from the player hurts enemy
-                speed < 0
+                speed < 0 &&
+                typeid(*(colliding[i])) == typeid(abstractEnemy)
                 ) {
             // remove both laser and colliding object
             // delete collising object
             static_cast <abstractEnemy*>
-                (colliding[i])->destruct();
+                (colliding[i])->hurt();
             // delete laser
+            delete this;
+            return;
+        }
+        else if (
+                // make sure only bullet from enemies hurts the player
+                speed > 0 &&
+                typeid(*(colliding[i])) == typeid(Player)
+                ) {
+            // player loses one live
+            static_cast <Player*>
+                (colliding[i])->hurt();
+            // delete laser
+            delete this;
+            return;
+        }
+        else if (typeid(*(colliding[i])) == typeid(Laser)) {
+            // delete laser
+            // only deleting one laser creates randomness
             delete this;
             return;
         }

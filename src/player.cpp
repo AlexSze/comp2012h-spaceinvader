@@ -71,12 +71,30 @@ void Player::keyPressEvent(QKeyEvent* event) {
 
 }
 
-void Player::destruct() {
+void Player::hurt() {
     // end scene
-    //abstractobjects::destruct();
+    // abstractobjects::hurt();
+    delete this;
+
     // respawn if there's extra life left
+    if (true /* have extra life */) {
+        // allocate player of the game
+        Player* player = new Player();
+        // place the player in the bottom of screen
+        player->setPos(SCREEN_WIDTH/2, SCREEN_HEIGHT - PLAYER_HEIGHT);
+
+        // make it main window of focus
+        player->setFlag(QGraphicsItem::ItemIsFocusable);
+        player->setFocus();
+        // put player in scene
+        //scene()->addItem(player);
+    }
 }
 
+Player::~Player() {
+    // prepare removal from scene
+    QGraphicsItem::prepareGeometryChange();
+}
 unsigned int Player::get_health() const {
     return health;
 }

@@ -38,7 +38,7 @@ GameScene::GameScene(QWidget* parent) {
     // put player in scene
     scene->addItem(player);
 
-    for (int i=0; i<8; ++i) {
+    for (unsigned int i=0; i<8; ++i) {
         abstractEnemy* e = new abstractEnemy(2, 10, true);
         e->setPos(i*SCREEN_WIDTH/8, BASE_ENEMY_HEIGHT/2);
         scene->addItem(e);

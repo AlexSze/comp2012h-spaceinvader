@@ -43,7 +43,7 @@ abstractEnemy::abstractEnemy(unsigned int health, int speed, bool dir, QGraphics
         // connect a timer to call move()
         connect(t, SIGNAL(timeout()), this, SLOT(attack()));
         // start a timer for 10fps of motion
-        t->start((rand()%20) * 300);
+        t->start((rand()%20 + 1) * 300);
 }
 
 // copy constructor
@@ -93,7 +93,7 @@ void abstractEnemy::move() {
         delete this;
     }
 }
-void abstractEnemy::destruct() {
+void abstractEnemy::hurt() {
     if (--health == 0)
         delete this;
 }

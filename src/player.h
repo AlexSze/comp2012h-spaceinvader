@@ -24,6 +24,7 @@ class Player : public abstractobjects, public QGraphicsPixmapItem{
     public:
         // constructor
         Player(QGraphicsItem* parent=nullptr);
+        ~Player();
 
         unsigned int get_health() const;
         int get_attack_type() const;
@@ -37,7 +38,7 @@ class Player : public abstractobjects, public QGraphicsPixmapItem{
         // overriding key event handler
         void keyPressEvent(QKeyEvent* event);
 
-        void destruct();
+        virtual void hurt();
 
     public slots:
         //void revive();
