@@ -23,6 +23,14 @@ Player::Player(QGraphicsItem* parent)
         setTransformOriginPoint(50,50);
         pew_sound = new QMediaPlayer();
         pew_sound->setMedia(QUrl("qrc:/src/sounds/pew.wav"));
+
+        //proporty setup
+        health{1};
+        speed{20};
+        attack_type{0};
+        defence_type{0}
+
+        horizontal_beam{0};
 }
 
 // Key Press Event Handler
