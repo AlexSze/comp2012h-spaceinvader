@@ -27,6 +27,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 CONFIG += c++11
 
 SOURCES += \
+    abstractobjects.cpp \
         main.cpp \
         mainwindow.cpp \
     abstractenemy.cpp \
@@ -34,9 +35,11 @@ SOURCES += \
     KeyPress.cpp \
     laser.cpp \
     player.cpp \
-    gamescene.cpp \
+    gamescene.cpp \ \
+    toolattack.cpp
 
 HEADERS += \
+    abstractobjects.h \
         mainwindow.h \
     abstractenemy.h \
     abstracttools.h \
@@ -44,7 +47,8 @@ HEADERS += \
     laser.h \
     constants.h \
     player.h \
-    gamescene.h \
+    gamescene.h \ \
+    toolattack.h
 
 FORMS += \
         mainwindow.ui

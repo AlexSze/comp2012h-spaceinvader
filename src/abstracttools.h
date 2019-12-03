@@ -5,16 +5,15 @@
 #define ABSTRACTTOOLS_H
 
 
-class AbstractTools {
+class abstracttools {
     protected:
         unsigned int weapon{0};
         unsigned int defense{0};
         unsigned int health{0};
+
     public:
-        AbstractTools();
-        ~AbstractTools();
-        void attack();
-        bool hit();
+        abstracttools();
+        ~abstracttools();
 };
 
 #endif // ABSTRACTTOOLS_H

@@ -7,25 +7,24 @@
 #include <QGraphicsItem>
 #include <QGraphicsPixmapItem>
 
-class AbstractEnemy : public QObject, public QGraphicsPixmapItem{
-    protected:
-        unsigned int health{1};
-        const int speed;
+#include "abstractobjects.h"
+
+class abstractEnemy : public abstractobjects, public QObject, public QGraphicsPixmapItem{
     private:
         // true = move right (+ve)
         // false = move left (-ve)
         bool horizontal_dir{true};
+
+        int value{0};
+
     public:
 
         // constructor
-        AbstractEnemy(unsigned int health, int speed, QGraphicsItem* parent=nullptr);
+        abstractEnemy(unsigned int health=1, int speed=1, QGraphicsItem* parent=nullptr);
 
-        // copy constructor
-        //AbstractEnemy(AbstractEnemy&);
-
-        unsigned int get_health() const { return this->health; }
+        unsigned int get_health() const;
         // dying is handled by the bullet instead
-        // die();
+
     public slots:
         void move();
         void shoot();

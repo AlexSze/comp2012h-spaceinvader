@@ -52,19 +52,23 @@ OBJECTS_DIR   = ./
 
 ####### Files
 
-SOURCES       = ../src/main.cpp \
+SOURCES       = ../src/abstractobjects.cpp \
+		../src/main.cpp \
 		../src/mainwindow.cpp \
 		../src/abstractenemy.cpp \
 		../src/abstracttools.cpp \
 		../src/KeyPress.cpp \
 		../src/laser.cpp \
 		../src/player.cpp \
-		../src/gamescene.cpp qrc_resources.cpp \
+		../src/gamescene.cpp \
+		/ \
+		../src/toolattack.cpp qrc_resources.cpp \
 		moc_mainwindow.cpp \
 		moc_KeyPress.cpp \
 		moc_laser.cpp \
 		moc_player.cpp
-OBJECTS       = main.o \
+OBJECTS       = abstractobjects.o \
+		main.o \
 		mainwindow.o \
 		abstractenemy.o \
 		abstracttools.o \
@@ -72,6 +76,8 @@ OBJECTS       = main.o \
 		laser.o \
 		player.o \
 		gamescene.o \
+		.o \
+		toolattack.o \
 		qrc_resources.o \
 		moc_mainwindow.o \
 		moc_KeyPress.o \
@@ -221,6 +227,7 @@ DIST          = ../../../Qt/5.12.6/clang_64/mkspecs/features/spec_pre.prf \
 		../../../Qt/5.12.6/clang_64/mkspecs/features/qt_config.prf \
 		../../../Qt/5.12.6/clang_64/mkspecs/macx-clang/qmake.conf \
 		../../../Qt/5.12.6/clang_64/mkspecs/features/spec_post.prf \
+		../src/.qmake.stash \
 		../../../Qt/5.12.6/clang_64/mkspecs/features/exclusive_builds.prf \
 		../../../Qt/5.12.6/clang_64/mkspecs/features/mac/sdk.prf \
 		../../../Qt/5.12.6/clang_64/mkspecs/features/toolchain.prf \
@@ -248,21 +255,27 @@ DIST          = ../../../Qt/5.12.6/clang_64/mkspecs/features/spec_pre.prf \
 		../../../Qt/5.12.6/clang_64/mkspecs/features/exceptions.prf \
 		../../../Qt/5.12.6/clang_64/mkspecs/features/yacc.prf \
 		../../../Qt/5.12.6/clang_64/mkspecs/features/lex.prf \
-		../src/COMP2012H_Group_H20.pro ../src/mainwindow.h \
+		../src/COMP2012H_Group_H20.pro ../src/abstractobjects.h \
+		../src/mainwindow.h \
 		../src/abstractenemy.h \
 		../src/abstracttools.h \
 		../src/KeyPress.h \
 		../src/laser.h \
 		../src/constants.h \
 		../src/player.h \
-		../src/gamescene.h ../src/main.cpp \
+		../src/gamescene.h \
+		/ \
+		../src/toolattack.h ../src/abstractobjects.cpp \
+		../src/main.cpp \
 		../src/mainwindow.cpp \
 		../src/abstractenemy.cpp \
 		../src/abstracttools.cpp \
 		../src/KeyPress.cpp \
 		../src/laser.cpp \
 		../src/player.cpp \
-		../src/gamescene.cpp
+		../src/gamescene.cpp \
+		/ \
+		../src/toolattack.cpp
 QMAKE_TARGET  = COMP2012H_Group_H20
 DESTDIR       = 
 TARGET        = COMP2012H_Group_H20.app/Contents/MacOS/COMP2012H_Group_H20
@@ -429,6 +442,7 @@ Makefile: ../src/COMP2012H_Group_H20.pro ../../../Qt/5.12.6/clang_64/mkspecs/mac
 		../../../Qt/5.12.6/clang_64/mkspecs/features/qt_config.prf \
 		../../../Qt/5.12.6/clang_64/mkspecs/macx-clang/qmake.conf \
 		../../../Qt/5.12.6/clang_64/mkspecs/features/spec_post.prf \
+		.qmake.stash \
 		../../../Qt/5.12.6/clang_64/mkspecs/features/exclusive_builds.prf \
 		../../../Qt/5.12.6/clang_64/mkspecs/features/mac/sdk.prf \
 		../../../Qt/5.12.6/clang_64/mkspecs/features/toolchain.prf \
@@ -609,6 +623,7 @@ Makefile: ../src/COMP2012H_Group_H20.pro ../../../Qt/5.12.6/clang_64/mkspecs/mac
 ../../../Qt/5.12.6/clang_64/mkspecs/features/qt_config.prf:
 ../../../Qt/5.12.6/clang_64/mkspecs/macx-clang/qmake.conf:
 ../../../Qt/5.12.6/clang_64/mkspecs/features/spec_post.prf:
+.qmake.stash:
 ../../../Qt/5.12.6/clang_64/mkspecs/features/exclusive_builds.prf:
 ../../../Qt/5.12.6/clang_64/mkspecs/features/mac/sdk.prf:
 ../../../Qt/5.12.6/clang_64/mkspecs/features/toolchain.prf:
@@ -675,8 +690,8 @@ distdir: FORCE
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents ../src/resources.qrc $(DISTDIR)/
 	$(COPY_FILE) --parents ../../../Qt/5.12.6/clang_64/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../src/mainwindow.h ../src/abstractenemy.h ../src/abstracttools.h ../src/KeyPress.h ../src/laser.h ../src/constants.h ../src/player.h ../src/gamescene.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../src/main.cpp ../src/mainwindow.cpp ../src/abstractenemy.cpp ../src/abstracttools.cpp ../src/KeyPress.cpp ../src/laser.cpp ../src/player.cpp ../src/gamescene.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../src/abstractobjects.h ../src/mainwindow.h ../src/abstractenemy.h ../src/abstracttools.h ../src/KeyPress.h ../src/laser.h ../src/constants.h ../src/player.h ../src/gamescene.h / ../src/toolattack.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../src/abstractobjects.cpp ../src/main.cpp ../src/mainwindow.cpp ../src/abstractenemy.cpp ../src/abstracttools.cpp ../src/KeyPress.cpp ../src/laser.cpp ../src/player.cpp ../src/gamescene.cpp / ../src/toolattack.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents ../src/mainwindow.ui $(DISTDIR)/
 
 
@@ -687,6 +702,7 @@ clean: compiler_clean
 
 distclean: clean 
 	-$(DEL_FILE) -r COMP2012H_Group_H20.app
+	-$(DEL_FILE) .qmake.stash
 	-$(DEL_FILE) Makefile
 
 
@@ -888,6 +904,9 @@ compiler_lex_clean:
 compiler_clean: compiler_rcc_clean compiler_moc_predefs_clean compiler_moc_header_clean compiler_uic_clean 
 
 ####### Compile
+
+abstractobjects.o: ../src/abstractobjects.cpp ../src/abstractobjects.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o abstractobjects.o ../src/abstractobjects.cpp
 
 main.o: ../src/main.cpp ../src/mainwindow.h \
 		../../../Qt/5.12.6/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
@@ -1122,6 +1141,13 @@ gamescene.o: ../src/gamescene.cpp ../src/gamescene.h \
 		../src/abstractenemy.h \
 		../src/constants.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o gamescene.o ../src/gamescene.cpp
+
+.o: / 
+	$(CC) -c $(CFLAGS) $(INCPATH) -o .o /
+
+toolattack.o: ../src/toolattack.cpp ../src/toolattack.h \
+		../src/abstracttools.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o toolattack.o ../src/toolattack.cpp
 
 qrc_resources.o: qrc_resources.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o qrc_resources.o qrc_resources.cpp
