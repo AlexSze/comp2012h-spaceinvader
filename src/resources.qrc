@@ -1,11 +1,9 @@
 <RCC>
-    <qresource prefix="/images">
-        <file>background.png</file>
-        <file>base_enemy.png</file>
-        <file>laser.png</file>
-        <file>player.png</file>
-    </qresource>
-    <qresource prefix="/sounds">
-        <file>pew.wav</file>
+    <qresource prefix="/src">
+        <file>images/background.png</file>
+        <file>images/base_enemy.png</file>
+        <file>images/laser.png</file>
+        <file>images/player.png</file>
+        <file>sounds/pew.wav</file>
     </qresource>
 </RCC>

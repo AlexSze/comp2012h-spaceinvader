@@ -19,10 +19,10 @@ Player::Player(QGraphicsItem* parent)
         setPos(SCREEN_WIDTH/2, SCREEN_HEIGHT);
 
         // draw the character
-        setPixmap(QPixmap(":/images/player.png"));
+        setPixmap(QPixmap(":/src/images/player.png"));
         setTransformOriginPoint(50,50);
         pew_sound = new QMediaPlayer();
-        pew_sound->setMedia(QUrl("qrc:/sounds/pew.wav"));
+        pew_sound->setMedia(QUrl("qrc:/src/sounds/pew.wav"));
 }
 
 // Key Press Event Handler

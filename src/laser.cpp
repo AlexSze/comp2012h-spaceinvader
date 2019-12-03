@@ -14,7 +14,7 @@ Laser::Laser(int speed, QGraphicsPixmapItem* parent, int horizontal_speed)
       speed(speed),
       horizontal_speed(horizontal_speed) {
     // set laser graphic
-    setPixmap(QPixmap(":/images/laser.png"));
+    setPixmap(QPixmap(":/src/images/laser.png"));
     // draw the rectangle in place for a laser
     //setRect(0,0,5,40);
 

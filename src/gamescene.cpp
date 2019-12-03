@@ -17,7 +17,7 @@ GameScene::GameScene(QWidget* parent) {
     // set window size and coordinate
     scene->setSceneRect(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
     // set window background
-    setBackgroundBrush(QBrush(QImage(":/image/background.png")));
+    setBackgroundBrush(QBrush(QImage(":/src/image/background.png")));
 
     // show the scene
     setScene(scene);

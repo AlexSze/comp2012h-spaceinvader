@@ -22,7 +22,7 @@ AbstractEnemy::AbstractEnemy(unsigned int health, int speed, QGraphicsItem* pare
         setPos(xpos, 0);
 
         // draw the character
-        setPixmap(QPixmap(":/images/base_enemy.png"));
+        setPixmap(QPixmap(":/src/images/base_enemy.png"));
         setTransformOriginPoint(50,50);
 
         // create a timer
