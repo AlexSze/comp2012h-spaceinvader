@@ -1,5 +1,5 @@
 /* AbstractEnemy.cpp */
-//fuck Owen
+//fuck Alex instead
 
 #include "abstractenemy.h"
 #include "laser.h"
