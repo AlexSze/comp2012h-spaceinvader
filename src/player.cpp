@@ -73,3 +73,31 @@ void Player::keyPressEvent(QKeyEvent* event) {
     }
 
 }
+
+unsigned int Player::get_health() const {
+    return health;
+}
+
+int Player::get_attack_type() const{
+    return attact_type;
+}
+
+int Player::get_defence_type() const{
+    return defence_type;
+}
+
+void Player::heal(){
+    // TODO
+}
+
+void Player::attack(){
+    // TODO
+}
+
+void Player::get_tool(){
+    // TODO
+}
+
+void Player::get_mark(){
+    // TODO
+}

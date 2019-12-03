@@ -35,10 +35,7 @@ SOURCES += \
     KeyPress.cpp \
     laser.cpp \
     player.cpp \
-    gamescene.cpp \ \
-    toolattack.cpp \
-    tooldefence.cpp \
-    toolheal.cpp
+    gamescene.cpp \
 
 HEADERS += \
     abstractobjects.h \
