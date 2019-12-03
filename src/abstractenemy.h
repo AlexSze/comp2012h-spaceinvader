@@ -27,7 +27,7 @@ class abstractEnemy : public abstractobjects, public QObject, public QGraphicsPi
 
     public slots:
         void move();
-        void shoot();
+        void attack();
 };
 
 #endif // AbstractEnemy_H

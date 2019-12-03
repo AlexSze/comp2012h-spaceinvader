@@ -1,4 +1,4 @@
 #include "abstracttools.h"
 
-AbstractTools::AbstractTools() {}
-AbstractTools::~AbstractTools() {}
+abstracttools::abstracttools() {}
+abstracttools::~abstracttools() {}

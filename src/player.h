@@ -30,6 +30,7 @@ class Player : public abstractobjects, public QObject, public QGraphicsPixmapIte
         int get_defence_type() const;
 
         void heal();
+        void attack();
         void get_tool();
         void get_mark();
 

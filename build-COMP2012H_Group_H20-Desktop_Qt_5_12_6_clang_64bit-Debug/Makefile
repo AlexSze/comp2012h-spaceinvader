@@ -62,7 +62,9 @@ SOURCES       = ../src/abstractobjects.cpp \
 		../src/player.cpp \
 		../src/gamescene.cpp \
 		/ \
-		../src/toolattack.cpp qrc_resources.cpp \
+		../src/toolattack.cpp \
+		../src/tooldefence.cpp \
+		../src/toolheal.cpp qrc_resources.cpp \
 		moc_mainwindow.cpp \
 		moc_KeyPress.cpp \
 		moc_laser.cpp \
@@ -78,6 +80,8 @@ OBJECTS       = abstractobjects.o \
 		gamescene.o \
 		.o \
 		toolattack.o \
+		tooldefence.o \
+		toolheal.o \
 		qrc_resources.o \
 		moc_mainwindow.o \
 		moc_KeyPress.o \
@@ -263,9 +267,7 @@ DIST          = ../../../Qt/5.12.6/clang_64/mkspecs/features/spec_pre.prf \
 		../src/laser.h \
 		../src/constants.h \
 		../src/player.h \
-		../src/gamescene.h \
-		/ \
-		../src/toolattack.h ../src/abstractobjects.cpp \
+		../src/gamescene.h ../src/abstractobjects.cpp \
 		../src/main.cpp \
 		../src/mainwindow.cpp \
 		../src/abstractenemy.cpp \
@@ -275,7 +277,9 @@ DIST          = ../../../Qt/5.12.6/clang_64/mkspecs/features/spec_pre.prf \
 		../src/player.cpp \
 		../src/gamescene.cpp \
 		/ \
-		../src/toolattack.cpp
+		../src/toolattack.cpp \
+		../src/tooldefence.cpp \
+		../src/toolheal.cpp
 QMAKE_TARGET  = COMP2012H_Group_H20
 DESTDIR       = 
 TARGET        = COMP2012H_Group_H20.app/Contents/MacOS/COMP2012H_Group_H20
@@ -690,8 +694,8 @@ distdir: FORCE
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents ../src/resources.qrc $(DISTDIR)/
 	$(COPY_FILE) --parents ../../../Qt/5.12.6/clang_64/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../src/abstractobjects.h ../src/mainwindow.h ../src/abstractenemy.h ../src/abstracttools.h ../src/KeyPress.h ../src/laser.h ../src/constants.h ../src/player.h ../src/gamescene.h / ../src/toolattack.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../src/abstractobjects.cpp ../src/main.cpp ../src/mainwindow.cpp ../src/abstractenemy.cpp ../src/abstracttools.cpp ../src/KeyPress.cpp ../src/laser.cpp ../src/player.cpp ../src/gamescene.cpp / ../src/toolattack.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../src/abstractobjects.h ../src/mainwindow.h ../src/abstractenemy.h ../src/abstracttools.h ../src/KeyPress.h ../src/laser.h ../src/constants.h ../src/player.h ../src/gamescene.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../src/abstractobjects.cpp ../src/main.cpp ../src/mainwindow.cpp ../src/abstractenemy.cpp ../src/abstracttools.cpp ../src/KeyPress.cpp ../src/laser.cpp ../src/player.cpp ../src/gamescene.cpp / ../src/toolattack.cpp ../src/tooldefence.cpp ../src/toolheal.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents ../src/mainwindow.ui $(DISTDIR)/
 
 
@@ -871,6 +875,7 @@ moc_laser.cpp: ../src/laser.h \
 	/Users/alex/Qt/5.12.6/clang_64/bin/moc $(DEFINES) --include /Users/alex/Desktop/spaceinvader-/build-COMP2012H_Group_H20-Desktop_Qt_5_12_6_clang_64bit-Debug/moc_predefs.h -I/Users/alex/Qt/5.12.6/clang_64/mkspecs/macx-clang -I/Users/alex/Desktop/spaceinvader-/src -I/Users/alex/Qt/5.12.6/clang_64/lib/QtMultimediaWidgets.framework/Headers -I/Users/alex/Qt/5.12.6/clang_64/lib/QtMultimedia.framework/Headers -I/Users/alex/Qt/5.12.6/clang_64/lib/QtWidgets.framework/Headers -I/Users/alex/Qt/5.12.6/clang_64/lib/QtGui.framework/Headers -I/Users/alex/Qt/5.12.6/clang_64/lib/QtNetwork.framework/Headers -I/Users/alex/Qt/5.12.6/clang_64/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/11.0.0/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/usr/include -F/Users/alex/Qt/5.12.6/clang_64/lib ../src/laser.h -o moc_laser.cpp
 
 moc_player.cpp: ../src/player.h \
+		../src/abstractobjects.h \
 		../../../Qt/5.12.6/clang_64/lib/QtCore.framework/Headers/QObject \
 		../../../Qt/5.12.6/clang_64/lib/QtCore.framework/Headers/qobject.h \
 		../../../Qt/5.12.6/clang_64/lib/QtWidgets.framework/Headers/QGraphicsItem \
@@ -921,6 +926,7 @@ main.o: ../src/main.cpp ../src/mainwindow.h \
 		../../../Qt/5.12.6/clang_64/lib/QtWidgets.framework/Headers/QWidget \
 		../../../Qt/5.12.6/clang_64/lib/QtWidgets.framework/Headers/qwidget.h \
 		../src/player.h \
+		../src/abstractobjects.h \
 		../../../Qt/5.12.6/clang_64/lib/QtCore.framework/Headers/QObject \
 		../../../Qt/5.12.6/clang_64/lib/QtCore.framework/Headers/qobject.h \
 		../../../Qt/5.12.6/clang_64/lib/QtWidgets.framework/Headers/QGraphicsItem \
@@ -942,6 +948,7 @@ abstractenemy.o: ../src/abstractenemy.cpp ../src/abstractenemy.h \
 		../../../Qt/5.12.6/clang_64/lib/QtWidgets.framework/Headers/QGraphicsItem \
 		../../../Qt/5.12.6/clang_64/lib/QtWidgets.framework/Headers/qgraphicsitem.h \
 		../../../Qt/5.12.6/clang_64/lib/QtWidgets.framework/Headers/QGraphicsPixmapItem \
+		../src/abstractobjects.h \
 		../src/laser.h \
 		../src/constants.h \
 		../../../Qt/5.12.6/clang_64/lib/QtWidgets.framework/Headers/QGraphicsScene \
@@ -1089,6 +1096,7 @@ laser.o: ../src/laser.cpp ../src/laser.h \
 		../../../Qt/5.12.6/clang_64/lib/QtGui.framework/Headers/QList \
 		../../../Qt/5.12.6/clang_64/lib/QtGui.framework/Headers/qevent.h \
 		../src/abstractenemy.h \
+		../src/abstractobjects.h \
 		../src/player.h \
 		../../../Qt/5.12.6/clang_64/lib/QtMultimedia.framework/Headers/QMediaPlayer \
 		../../../Qt/5.12.6/clang_64/lib/QtMultimedia.framework/Headers/qmediaplayer.h \
@@ -1097,6 +1105,7 @@ laser.o: ../src/laser.cpp ../src/laser.h \
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o laser.o ../src/laser.cpp
 
 player.o: ../src/player.cpp ../src/player.h \
+		../src/abstractobjects.h \
 		../../../Qt/5.12.6/clang_64/lib/QtCore.framework/Headers/QObject \
 		../../../Qt/5.12.6/clang_64/lib/QtCore.framework/Headers/qobject.h \
 		../../../Qt/5.12.6/clang_64/lib/QtWidgets.framework/Headers/QGraphicsItem \
@@ -1122,6 +1131,7 @@ gamescene.o: ../src/gamescene.cpp ../src/gamescene.h \
 		../../../Qt/5.12.6/clang_64/lib/QtWidgets.framework/Headers/QWidget \
 		../../../Qt/5.12.6/clang_64/lib/QtWidgets.framework/Headers/qwidget.h \
 		../src/player.h \
+		../src/abstractobjects.h \
 		../../../Qt/5.12.6/clang_64/lib/QtCore.framework/Headers/QObject \
 		../../../Qt/5.12.6/clang_64/lib/QtCore.framework/Headers/qobject.h \
 		../../../Qt/5.12.6/clang_64/lib/QtWidgets.framework/Headers/QGraphicsItem \
@@ -1145,9 +1155,14 @@ gamescene.o: ../src/gamescene.cpp ../src/gamescene.h \
 .o: / 
 	$(CC) -c $(CFLAGS) $(INCPATH) -o .o /
 
-toolattack.o: ../src/toolattack.cpp ../src/toolattack.h \
-		../src/abstracttools.h
+toolattack.o: ../src/toolattack.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o toolattack.o ../src/toolattack.cpp
+
+tooldefence.o: ../src/tooldefence.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o tooldefence.o ../src/tooldefence.cpp
+
+toolheal.o: ../src/toolheal.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o toolheal.o ../src/toolheal.cpp
 
 qrc_resources.o: qrc_resources.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o qrc_resources.o qrc_resources.cpp

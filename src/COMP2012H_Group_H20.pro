@@ -36,7 +36,9 @@ SOURCES += \
     laser.cpp \
     player.cpp \
     gamescene.cpp \ \
-    toolattack.cpp
+    toolattack.cpp \
+    tooldefence.cpp \
+    toolheal.cpp
 
 HEADERS += \
     abstractobjects.h \
@@ -47,8 +49,7 @@ HEADERS += \
     laser.h \
     constants.h \
     player.h \
-    gamescene.h \ \
-    toolattack.h
+    gamescene.h \
 
 FORMS += \
         mainwindow.ui
