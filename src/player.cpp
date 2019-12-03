@@ -22,7 +22,7 @@ Player::Player(QGraphicsItem* parent)
         setPixmap(QPixmap(":/images/player.png"));
         setTransformOriginPoint(50,50);
         pew_sound = new QMediaPlayer();
-        pew_sound->setMedia(QUrl(":/sounds/pew.wav"));
+        pew_sound->setMedia(QUrl("qrc:/sounds/pew.wav"));
 }
 
 // Key Press Event Handler
@@ -35,14 +35,14 @@ void Player::keyPressEvent(QKeyEvent* event) {
         break;
     // move right
     case Qt::Key_Right:
-        if (x() <= SCREEN_WIDTH)
+        if (x() <= SCREEN_WIDTH - PLAYER_WIDTH)
             setPos(x()+this->speed, y());
         break;
     // shoot laser gun
     case Qt::Key_Space: {
         // create laser beam
         Laser* l = new Laser(-10, this, horizontal_beam);
-        l->setPos(this->x() + PLAYER_WIDTH/2, this->y());
+        l->setPos(this->x() + PLAYER_WIDTH/2, this->y() - PLAYER_HEIGHT);
         scene()->addItem(l);
         // no storage required, laser beam will be automatically deleted when
         // 1. beam hits somebody

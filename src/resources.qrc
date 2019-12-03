@@ -1,11 +1,11 @@
 <RCC>
     <qresource prefix="/images">
-        <file>images/background.png</file>
-        <file>images/base_enemy.png</file>
-        <file>images/laser.png</file>
-        <file>images/player.png</file>
+        <file>background.png</file>
+        <file>base_enemy.png</file>
+        <file>laser.png</file>
+        <file>player.png</file>
     </qresource>
     <qresource prefix="/sounds">
-        <file>sounds/pew.wav</file>
+        <file>pew.wav</file>
     </qresource>
 </RCC>
