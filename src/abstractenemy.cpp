@@ -22,7 +22,8 @@ AbstractEnemy::AbstractEnemy(unsigned int health, int speed, QGraphicsItem* pare
         setPos(xpos, 0);
 
         // draw the character
-        setPixmap(QPixmap(":/images/default_character.png"));
+        setPixmap(QPixmap(":/images/base_enemy.png"));
+        setPixmap(QPixmap(":/images/base_enemy.png"));
         setTransformOriginPoint(50,50);
 
         // create a timer
@@ -46,7 +47,9 @@ AbstractEnemy::AbstractEnemy(AbstractEnemy& a)
 // create laser beam or minions
 void AbstractEnemy::shoot() {
     // create laser beam
-    new Laser(10, this);
+    Laser* l = new Laser(10, this);
+    l->setPos(this->x() + BASE_ENEMY_WIDTH/2, this->y());
+    scene()->addItem(l);
     // no storage required, laser beam will be automatically deleted when
     // 1. beam hits somebody
     // 2. beam goes off screen

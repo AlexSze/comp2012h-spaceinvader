@@ -1,15 +1,17 @@
 #include "mainwindow.h"
 #include <QApplication>
-#include "KeyPress.h"
+#include "gamescene.h"
+//#include "KeyPress.h"
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    MainWindow w;
-    w.show();
+    //MainWindow w;
+    //w.show();
+    GameScene s;
+    s.show();
 
-    KeyPress *keyPress = new KeyPress();
-    keyPress->show();
+    //KeyPress *keyPress = new KeyPress();
     return a.exec();
 }
 

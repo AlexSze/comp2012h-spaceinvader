@@ -4,6 +4,7 @@
 #include <QApplication>
 #include <QKeyEvent>
 #include "KeyPress.h"
+#include "laser.h"
 
 KeyPress::KeyPress(QWidget *parent) :
     QWidget(parent) {

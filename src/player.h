@@ -22,7 +22,7 @@ class Player : public QObject, public QGraphicsPixmapItem{
         // overriding key event handler
         void keyPressEvent(QKeyEvent* event);
     public slots:
-        void revive();
+        //void revive();
 };
 
 #endif // PLAYER_H

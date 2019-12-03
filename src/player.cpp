@@ -1,6 +1,6 @@
 /* player.cpp */
 
-#include "abstractenemy.h"
+#include "player.h"
 #include "laser.h"
 #include "constants.h"
 #include <stdlib.h> // to get randomised starting position
@@ -26,7 +26,7 @@ Player::Player(QGraphicsItem* parent)
 }
 
 // Key Press Event Handler
-Player::keyPressEvent(QKeyEvent* event) {
+void Player::keyPressEvent(QKeyEvent* event) {
     switch (event->key()) {
     // move left
     case Qt::Key_Left:
@@ -39,25 +39,29 @@ Player::keyPressEvent(QKeyEvent* event) {
             setPos(x()+this->speed, y());
         break;
     // shoot laser gun
-    case Qt::Key_Space:
+    case Qt::Key_Space: {
         // create laser beam
-        new Laser(-10, this, horizontal_beam);
+        Laser* l = new Laser(-10, this, horizontal_beam);
+        l->setPos(this->x() + PLAYER_WIDTH/2, this->y());
+        scene()->addItem(l);
         // no storage required, laser beam will be automatically deleted when
         // 1. beam hits somebody
         // 2. beam goes off screen
         // 3. parent (this object) is deleted
         break;
+    }
     // move laser gun to the left
     case Qt::Key_Up:
         // change angle of laser gun
-        horizontal_beam -= 10;
+        if (horizontal_beam > -20)
+            horizontal_beam -= 10;
         break;
     // move laser gun to the right
     case Qt::Key_Down:
         // change angle of laser gun
-        horizontal_beam += 10;
+        if (horizontal_beam < 20)
+            horizontal_beam += 10;
         break;
-
     }
 
 }
