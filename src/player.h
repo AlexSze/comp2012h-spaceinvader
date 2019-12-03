@@ -10,11 +10,11 @@
 #include <QGraphicsPixmapItem>
 #include <QMediaPlayer>
 
-class Player : public abstractobjects, public QObject, public QGraphicsPixmapItem{
+class Player : public abstractobjects, public QGraphicsPixmapItem{
     Q_OBJECT
 
     private:
-        //what is it??
+        // horizontal vector of beam direction
         int horizontal_beam{0};
         int mark{0};
 
@@ -27,7 +27,7 @@ class Player : public abstractobjects, public QObject, public QGraphicsPixmapIte
 
         unsigned int get_health() const;
         int get_attack_type() const;
-        int get_defence_type() const;
+        int get_defense_type() const;
 
         void heal();
         void attack();
@@ -37,6 +37,7 @@ class Player : public abstractobjects, public QObject, public QGraphicsPixmapIte
         // overriding key event handler
         void keyPressEvent(QKeyEvent* event);
 
+        void destruct();
 
     public slots:
         //void revive();

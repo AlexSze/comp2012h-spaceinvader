@@ -32,7 +32,6 @@ SOURCES += \
         mainwindow.cpp \
     abstractenemy.cpp \
     abstracttools.cpp \
-    KeyPress.cpp \
     laser.cpp \
     player.cpp \
     gamescene.cpp \
@@ -42,7 +41,6 @@ HEADERS += \
         mainwindow.h \
     abstractenemy.h \
     abstracttools.h \
-    KeyPress.h \
     laser.h \
     constants.h \
     player.h \

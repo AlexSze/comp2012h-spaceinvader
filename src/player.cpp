@@ -3,34 +3,27 @@
 #include "player.h"
 #include "laser.h"
 #include "constants.h"
-#include <stdlib.h> // to get randomised starting position
 #include <QGraphicsPixmapItem>
 #include <QGraphicsScene>
 #include <QGraphicsItem>
 #include <QMediaPlayer>
-#include <QList>
+#include <QList> // QKeyEvent Key library
 #include <QTimer>
 
 // constructor
 Player::Player(QGraphicsItem* parent)
-    : QObject (),
-    QGraphicsPixmapItem(parent) {
-        // set the character at a random position at the top of the screen
+    : QGraphicsPixmapItem(),
+    //proporty setup
+    abstractobjects (1, 0, 0, 20) {
+        // set the character in the bottom middle of the screen
         setPos(SCREEN_WIDTH/2, SCREEN_HEIGHT);
 
         // draw the character
         setPixmap(QPixmap(":/src/images/player.png"));
         setTransformOriginPoint(50,50);
+        // setup sound oobject
         pew_sound = new QMediaPlayer();
         pew_sound->setMedia(QUrl("qrc:/src/sounds/pew.wav"));
-
-        //proporty setup
-        health{1};
-        speed{20};
-        attack_type{0};
-        defence_type{0}
-
-        horizontal_beam{0};
 }
 
 // Key Press Event Handler
@@ -56,6 +49,7 @@ void Player::keyPressEvent(QKeyEvent* event) {
         // 1. beam hits somebody
         // 2. beam goes off screen
         // 3. parent (this object) is deleted
+        pew_sound->play();
         break;
     }
     // move laser gun to the left
@@ -74,16 +68,22 @@ void Player::keyPressEvent(QKeyEvent* event) {
 
 }
 
+void Player::destruct() {
+    // end scene
+    abstractobjects::destruct();
+    // respawn if there's extra life left
+}
+
 unsigned int Player::get_health() const {
     return health;
 }
 
 int Player::get_attack_type() const{
-    return attact_type;
+    return attack_type;
 }
 
-int Player::get_defence_type() const{
-    return defence_type;
+int Player::get_defense_type() const{
+    return defense_type;
 }
 
 void Player::heal(){

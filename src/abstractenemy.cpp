@@ -1,4 +1,4 @@
-/* AbstractEnemy.cpp */
+/* abstractEnemy.cpp */
 
 
 
@@ -14,14 +14,13 @@
 //#include <main.h>
 
 // constructor
-AbstractEnemy::AbstractEnemy(unsigned int health, int speed, QGraphicsItem* parent)
-    : QObject (),
-    QGraphicsPixmapItem(parent),
-    health(health),
-    speed(speed) {
+// constructor
+abstractEnemy::abstractEnemy(unsigned int health, int speed, QGraphicsItem* parent)
+    : QGraphicsPixmapItem(parent),
+    abstractobjects(health, LASER, NUL, speed) {
         // set the character at a random position at the top of the screen
-        int xpos = rand()%600;
-        setPos(xpos, 0);
+        //int xpos = rand()%600;
+        //setPos(xpos, 0);
 
         // draw the character
         setPixmap(QPixmap(":/src/images/base_enemy.png"));
@@ -39,14 +38,14 @@ AbstractEnemy::AbstractEnemy(unsigned int health, int speed, QGraphicsItem* pare
 
 // copy constructor
 /*
-AbstractEnemy::AbstractEnemy(AbstractEnemy& a)
+abstractEnemy::abstractEnemy(abstractEnemy& a)
     : weaponType(a.weaponType),
     defenseType(a.defenseType),
     health(a.health) {}
     */
 
 // create laser beam or minions
-void AbstractEnemy::shoot() {
+void abstractEnemy::shoot() {
     // create laser beam
     Laser* l = new Laser(10, this);
     l->setPos(this->x() + BASE_ENEMY_WIDTH/2, this->y() + BASE_ENEMY_HEIGHT);
@@ -58,7 +57,7 @@ void AbstractEnemy::shoot() {
 }
 
 // move character
-void AbstractEnemy::move() {
+void abstractEnemy::move() {
     // move character
     if (x() > SCREEN_WIDTH || x() <= 0) {
         // swap direction when reached an edge

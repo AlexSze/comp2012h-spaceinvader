@@ -13,11 +13,11 @@
 
 GameScene::GameScene(QWidget* parent) {
     // allocate scene for game
-    scene = new QGraphicsScene();
+    scene = new QGraphicsScene(parent);
     // set window size and coordinate
     scene->setSceneRect(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
     // set window background
-    setBackgroundBrush(QBrush(QImage(":/src/image/background.png")));
+    setBackgroundBrush(QBrush(QImage(":/src/images/background.png")));
 
     // show the scene
     setScene(scene);
@@ -39,7 +39,7 @@ GameScene::GameScene(QWidget* parent) {
     scene->addItem(player);
 
     for (int i=0; i<10; ++i) {
-        AbstractEnemy* e = new AbstractEnemy(1, 10);
+        abstractEnemy* e = new abstractEnemy(1, 10);
         e->setPos(i*SCREEN_WIDTH/10, 0);
         scene->addItem(e);
     }

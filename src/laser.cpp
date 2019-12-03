@@ -34,23 +34,17 @@ void Laser::move(){
     int size = colliding.size();
     for (int i=0; i<size; ++i) {
         // check colliding type
-        if (typeid(*(colliding[i])) == typeid(AbstractEnemy)) {
-            // remove both laser and enemy type
+        if (
+                typeid(*(colliding[i])) == typeid(abstractEnemy) ||
+                typeid(*(colliding[i])) == typeid(Player)
+                ) {
+            // remove both laser and colliding object
             scene()->removeItem(this);
             scene()->removeItem(colliding[i]);
-            // delete both
-            delete colliding[i];
+            // delete collising object
+            //colliding[i]->destruct();
+            // delete laser
             delete this;
-            return;
-        }
-        else if (typeid(*(colliding[i])) == typeid(Player)) {
-            // hero is defeated
-            // remove both laser and hero
-            scene()->removeItem(this);
-            scene()->removeItem(colliding[i]);
-            // delete laser and call end game
-            delete this;
-            // lose_a_life();
             return;
         }
     }
