@@ -21,8 +21,6 @@ class abstractobjects : public QObject {
 
         ~abstractobjects();
 
-        void destruct();
-
         bool alive();
         void attack();
         void hurt();

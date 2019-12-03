@@ -15,9 +15,10 @@
 
 // constructor
 // constructor
-abstractEnemy::abstractEnemy(unsigned int health, int speed, QGraphicsItem* parent)
+abstractEnemy::abstractEnemy(unsigned int health, int speed, bool dir, QGraphicsItem* parent)
     : QGraphicsPixmapItem(parent),
-    abstractobjects(health, LASER, NUL, speed) {
+    abstractobjects(health, LASER, NUL, speed),
+    horizontal_dir(dir) {
         // set the character at a random position at the top of the screen
         //int xpos = rand()%600;
         //setPos(xpos, 0);
@@ -29,11 +30,20 @@ abstractEnemy::abstractEnemy(unsigned int health, int speed, QGraphicsItem* pare
         // create a timer
         // since timer has this object as parent, it will be
         // killed automatically when this object is killed
-        QTimer * t = new QTimer(this);
+
+        // create timer for movement
+        QTimer* t = new QTimer(this);
         // connect a timer to call move()
         connect(t, SIGNAL(timeout()), this, SLOT(move()));
         // start a timer for 10fps of motion
         t->start(100);
+
+        // create timer for shooting
+        t = new QTimer(this);
+        // connect a timer to call move()
+        connect(t, SIGNAL(timeout()), this, SLOT(attack()));
+        // start a timer for 10fps of motion
+        t->start((rand()%20) * 300);
 }
 
 // copy constructor
@@ -45,9 +55,9 @@ abstractEnemy::abstractEnemy(abstractEnemy& a)
     */
 
 // create laser beam or minions
-void abstractEnemy::shoot() {
+void abstractEnemy::attack() {
     // create laser beam
-    Laser* l = new Laser(10, this);
+    Laser* l = new Laser(10, 0);
     l->setPos(this->x() + BASE_ENEMY_WIDTH/2, this->y() + BASE_ENEMY_HEIGHT);
     scene()->addItem(l);
     // no storage required, laser beam will be automatically deleted when
@@ -59,11 +69,17 @@ void abstractEnemy::shoot() {
 // move character
 void abstractEnemy::move() {
     // move character
-    if (x() > SCREEN_WIDTH || x() <= 0) {
+    if (
+            (horizontal_dir &&
+            x() + this->speed > SCREEN_WIDTH)
+            ||
+            (!horizontal_dir &&
+            x() - this->speed <= 0)
+            ) {
         // swap direction when reached an edge
         horizontal_dir = !horizontal_dir;
         // move down
-        setPos(x(), y() + this->speed * 20 );
+        setPos(x(), y() + BASE_ENEMY_HEIGHT);
     }
     else {
         // moove horizontally
@@ -76,4 +92,13 @@ void abstractEnemy::move() {
         scene()->removeItem(this);
         delete this;
     }
+}
+void abstractEnemy::destruct() {
+    if (--health == 0)
+        delete this;
+}
+
+abstractEnemy::~abstractEnemy() {
+    // prepare removal from scene
+    QGraphicsItem::prepareGeometryChange();
 }

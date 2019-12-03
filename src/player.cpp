@@ -42,27 +42,30 @@ void Player::keyPressEvent(QKeyEvent* event) {
     // shoot laser gun
     case Qt::Key_Space: {
         // create laser beam
-        Laser* l = new Laser(-10, this, horizontal_beam);
+        Laser* l = new Laser(-10, horizontal_beam);
         l->setPos(this->x() + PLAYER_WIDTH/2, this->y() - PLAYER_HEIGHT);
         scene()->addItem(l);
         // no storage required, laser beam will be automatically deleted when
         // 1. beam hits somebody
         // 2. beam goes off screen
         // 3. parent (this object) is deleted
-        pew_sound->play();
+        if (pew_sound->state() == QMediaPlayer::StoppedState)
+            pew_sound->play();
+        else
+            pew_sound->setPosition(0);
         break;
     }
     // move laser gun to the left
     case Qt::Key_Up:
         // change angle of laser gun
         if (horizontal_beam > -20)
-            horizontal_beam -= 10;
+            horizontal_beam -= 5;
         break;
     // move laser gun to the right
     case Qt::Key_Down:
         // change angle of laser gun
         if (horizontal_beam < 20)
-            horizontal_beam += 10;
+            horizontal_beam += 5;
         break;
     }
 
@@ -70,7 +73,7 @@ void Player::keyPressEvent(QKeyEvent* event) {
 
 void Player::destruct() {
     // end scene
-    abstractobjects::destruct();
+    //abstractobjects::destruct();
     // respawn if there's extra life left
 }
 

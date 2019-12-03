@@ -12,7 +12,8 @@ class Laser: public QObject, public QGraphicsPixmapItem {
         const int speed;
         const int horizontal_speed;
     public:
-        Laser(int speed, QGraphicsPixmapItem* parent=nullptr, int horizontal_speed = 0);
+        Laser(int speed, int horizontal_speed = 0, QGraphicsPixmapItem* parent=nullptr);
+        ~Laser();
     public slots:
         void move();
 };

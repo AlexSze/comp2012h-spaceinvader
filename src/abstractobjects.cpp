@@ -13,9 +13,6 @@ abstractobjects::abstractobjects(unsigned int health, int attack_type, int defen
     defense_type(defense_type),
     speed(speed) {}
 
-abstractobjects::~abstractobjects() {}
-
-void abstractobjects::destruct() {
-    if (--health == 0)
-        delete this;
+abstractobjects::~abstractobjects() {
 }
+

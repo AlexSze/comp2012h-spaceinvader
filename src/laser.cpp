@@ -8,7 +8,7 @@
 #include "player.h"
 
 #include <QDebug>
-Laser::Laser(int speed, QGraphicsPixmapItem* parent, int horizontal_speed)
+Laser::Laser(int speed, int horizontal_speed, QGraphicsPixmapItem* parent)
     : QObject(),
       QGraphicsPixmapItem(parent),
       speed(speed),
@@ -21,28 +21,29 @@ Laser::Laser(int speed, QGraphicsPixmapItem* parent, int horizontal_speed)
     // create a timer
     // since timer has this object as parent, it will be
     // killed automatically when this object is killed
-    QTimer * t = new QTimer(this);
+    QTimer* t = new QTimer(this);
     // connect a timer to call move()
     connect(t, SIGNAL(timeout()), this, SLOT(move()));
     // start a timer for 25fps of motion
     t->start(40);
 }
 
-void Laser::move(){
+void Laser::move() {
     // check if laser collided with anything
     QList<QGraphicsItem *> colliding = collidingItems();
     int size = colliding.size();
     for (int i=0; i<size; ++i) {
         // check colliding type
         if (
-                typeid(*(colliding[i])) == typeid(abstractEnemy) ||
-                typeid(*(colliding[i])) == typeid(Player)
+                typeid(*(colliding[i])) == typeid(abstractEnemy)
+                &&
+                // make sure only bullet from the player hurts enemy
+                speed < 0
                 ) {
             // remove both laser and colliding object
-            scene()->removeItem(this);
-            scene()->removeItem(colliding[i]);
             // delete collising object
-            //colliding[i]->destruct();
+            static_cast <abstractEnemy*>
+                (colliding[i])->destruct();
             // delete laser
             delete this;
             return;
@@ -57,4 +58,9 @@ void Laser::move(){
         scene()->removeItem(this);
         delete this;
     }
+}
+
+Laser::~Laser() {
+    // prepare removal from scene
+    QGraphicsItem::prepareGeometryChange();
 }
