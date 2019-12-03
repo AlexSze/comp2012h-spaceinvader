@@ -13,7 +13,8 @@ class abstractobjects{
         ~abstractobjects();
 
         bool alive();
-        void attacked();
+        void attack();
+        void hurt();
 };
 
 
