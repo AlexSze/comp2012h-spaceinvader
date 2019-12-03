@@ -1,5 +1,7 @@
 /* AbstractEnemy.cpp */
 
+
+
 #include "abstractenemy.h"
 #include "laser.h"
 #include "constants.h"
