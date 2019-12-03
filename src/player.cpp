@@ -98,6 +98,6 @@ void Player::get_tool(){
     // TODO
 }
 
-void Player::get_mark(){
-    // TODO
+int Player::get_mark() const {
+    return mark;
 }

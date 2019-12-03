@@ -32,7 +32,7 @@ class Player : public abstractobjects, public QObject, public QGraphicsPixmapIte
         void heal();
         void attack();
         void get_tool();
-        void get_mark();
+        int get_mark() const;
 
         // overriding key event handler
         void keyPressEvent(QKeyEvent* event);
