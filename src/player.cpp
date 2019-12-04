@@ -68,27 +68,26 @@ void Player::keyPressEvent(QKeyEvent* event) {
             horizontal_beam += 5;
         break;
     }
-
 }
 
 void Player::hurt() {
     // end scene
-    // abstractobjects::hurt();
-    delete this;
-
-    // respawn if there's extra life left
+    // spawn a new player if there's extra life left
     if (true /* have extra life */) {
         // allocate player of the game
-        Player* player = new Player();
+        Player* p= new Player();
         // place the player in the bottom of screen
-        player->setPos(SCREEN_WIDTH/2, SCREEN_HEIGHT - PLAYER_HEIGHT);
+        p->setPos(SCREEN_WIDTH/2, SCREEN_HEIGHT - PLAYER_HEIGHT);
 
-        // make it main window of focus
-        player->setFlag(QGraphicsItem::ItemIsFocusable);
-        player->setFocus();
+        // make it main window focusable
+        p->setFlag(QGraphicsItem::ItemIsFocusable);
         // put player in scene
-        //scene()->addItem(player);
+        scene()->addItem(p);
+        // make it main window of focus
+        p->setFocus();
     }
+    // self destruction
+    delete this;
 }
 
 Player::~Player() {

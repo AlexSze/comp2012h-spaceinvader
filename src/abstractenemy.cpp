@@ -1,9 +1,8 @@
 /* abstractEnemy.cpp */
 
-
-
 #include "abstractenemy.h"
 #include "laser.h"
+#include "player.h"
 #include "constants.h"
 #include <stdlib.h> // to get randomised starting position
 #include <QGraphicsPixmapItem>
@@ -86,10 +85,22 @@ void abstractEnemy::move() {
         setPos(x() + this->speed * (horizontal_dir? 1: -1), y());
     }
 
+    // check collision with player
+    QList<QGraphicsItem *> colliding = collidingItems();
+    int size = colliding.size();
+    for (int i=0; i<size; ++i) {
+        // check colliding type
+        if (typeid(*(colliding[i])) == typeid(Player)) {
+            // kill player if hit
+            static_cast<Player*>(colliding[i])->hurt();
+            // end level
+            // TODO
+        }
+    }
+
     // check out of frame
     if (pos().y() > SCREEN_HEIGHT){
         // remove from scene and delete of out of frame
-        scene()->removeItem(this);
         delete this;
     }
 }
