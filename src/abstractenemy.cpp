@@ -104,6 +104,7 @@ void abstractEnemy::move() {
         delete this;
     }
 }
+
 void abstractEnemy::hurt() {
     if (--health == 0)
         delete this;

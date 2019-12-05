@@ -39,6 +39,9 @@ void Laser::move() {
                 speed < 0 &&
                 typeid(*(colliding[i])) == typeid(abstractEnemy)
                 ) {
+            //add score
+            //Player::increase_score();
+
             // remove both laser and colliding object
             // delete collising object
             static_cast <abstractEnemy*>

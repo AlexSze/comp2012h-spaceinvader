@@ -9,6 +9,9 @@
 #include <QMediaPlayer>
 #include <QList> // QKeyEvent Key library
 #include <QTimer>
+#include <QDebug>
+#include <iostream>
+using namespace std;
 
 // constructor
 Player::Player(QGraphicsItem* parent)
@@ -30,14 +33,24 @@ Player::Player(QGraphicsItem* parent)
 void Player::keyPressEvent(QKeyEvent* event) {
     switch (event->key()) {
     // move left
-    case Qt::Key_Left:
+    case Qt::Key_A:
         if (x() >= 0)
             setPos(x()-this->speed, y());
         break;
     // move right
-    case Qt::Key_Right:
+    case Qt::Key_D:
         if (x() <= SCREEN_WIDTH - PLAYER_WIDTH)
             setPos(x()+this->speed, y());
+        break;
+    //move up
+    case Qt::Key_W:
+        if (y() >= 0)
+            setPos(x(), y()-this->speed);
+        break;
+    //move down
+    case Qt::Key_S:
+        if (y() <= SCREEN_HEIGHT - PLAYER_HEIGHT)
+            setPos(x(), y()+this->speed);
         break;
     // shoot laser gun
     case Qt::Key_Space: {
@@ -107,7 +120,7 @@ int Player::get_defense_type() const{
 }
 
 void Player::heal(){
-    // TODO
+    health++;
 }
 
 void Player::attack(){
@@ -118,6 +131,12 @@ void Player::get_tool(){
     // TODO
 }
 
-int Player::get_mark() const {
-    return mark;
+void Player::increase_score()
+{
+    score++;
+    cout<<score<<endl;
+}
+
+int Player::get_score() const {
+    return score;
 }

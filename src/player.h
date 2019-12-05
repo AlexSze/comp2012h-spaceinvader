@@ -9,6 +9,8 @@
 #include <QGraphicsItem>
 #include <QGraphicsPixmapItem>
 #include <QMediaPlayer>
+#include <QFont>
+#include <QGraphicsTextItem>
 
 class Player : public abstractobjects, public QGraphicsPixmapItem{
     Q_OBJECT
@@ -16,7 +18,7 @@ class Player : public abstractobjects, public QGraphicsPixmapItem{
     private:
         // horizontal vector of beam direction
         int horizontal_beam{0};
-        int mark{0};
+        int score{0};
 
         // audio player object
         QMediaPlayer* pew_sound;
@@ -33,7 +35,8 @@ class Player : public abstractobjects, public QGraphicsPixmapItem{
         void heal();
         void attack();
         void get_tool();
-        int get_mark() const;
+        void increase_score();
+        int get_score() const;
 
         // overriding key event handler
         void keyPressEvent(QKeyEvent* event);
