@@ -45,7 +45,7 @@ void Laser::move() {
                 typeid(*(colliding[i])) == typeid(abstractEnemy)
                 ) {
             //add score
-            //s->score->increase();
+            s->score->increase();
 
             // remove both laser and colliding object
             // delete collising object
@@ -61,7 +61,7 @@ void Laser::move() {
                 typeid(*(colliding[i])) == typeid(Player)
                 ) {
             //decrease health
-            //s->health->decrease();
+            s->health->decrease();
 
             // player loses one live
             static_cast <Player*>

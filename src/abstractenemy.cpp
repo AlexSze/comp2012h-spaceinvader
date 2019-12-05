@@ -14,7 +14,7 @@
 #include <QTimer>
 //#include <main.h>
 
-//extern GameScene* s;
+extern GameScene* s;
 
 // constructor
 abstractEnemy::abstractEnemy(unsigned int health, int speed, bool dir, QGraphicsItem* parent)
@@ -104,7 +104,7 @@ void abstractEnemy::move() {
     // check out of frame
     if (pos().y() > SCREEN_HEIGHT){
         //decrease health
-        //s->health->decrease();
+        s->health->decrease();
 
         // remove from scene and delete of out of frame
         delete this;

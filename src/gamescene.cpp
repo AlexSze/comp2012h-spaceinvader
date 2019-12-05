@@ -4,7 +4,9 @@
 #include <QTimer>
 #include <QImage>
 #include <QBrush>
+#include <QGraphicsTextItem>
 
+#include "button.h"
 #include "gamescene.h"
 #include "abstractenemy.h"
 #include "constants.h"
@@ -58,3 +60,25 @@ GameScene::GameScene(QWidget* parent) {
     }
     show();
 }
+
+/*void GameScene::drawPanel(int x, int y, int width, int height, QColor color, double opacity){
+    // draws a panel at the specified location with the specified properties
+    QGraphicsRectItem* panel = new QGraphicsRectItem(x,y,width,height);
+    QBrush brush;
+    brush.setStyle(Qt::SolidPattern);
+    brush.setColor(color);
+    panel->setBrush(brush);
+    panel->setOpacity(opacity);
+    scene->addItem(panel);
+}
+
+void GameScene::mainwindow()
+{
+    drawPanel(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT, Qt::lightGray, 1);
+
+    Button* start = new Button(QString("Start"));
+    start->setPos(410,300);
+    scene->addItem(start);
+    connect(start, SIGNAL(clicked()), this, SLOT(startgame()));
+
+}*/

@@ -28,6 +28,7 @@ CONFIG += c++11
 
 SOURCES += \
     abstractobjects.cpp \
+    button.cpp \
     health.cpp \
         main.cpp \
         mainwindow.cpp \
@@ -40,6 +41,7 @@ SOURCES += \
 
 HEADERS += \
     abstractobjects.h \
+    button.h \
     health.h \
         mainwindow.h \
     abstractenemy.h \

@@ -14,17 +14,11 @@ int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
 
-    MainWindow* w;
-    w->show();
+    //MainWindow* w;
+    //w->show();
 
-    QPushButton button;
-    button.setText("Start");
-    button.setToolTip("SpaceInvader++");
-    //w->addItem(button);
-    button.show();
-
-    GameScene s;
-    s.show();
+    s= new GameScene;
+    s->show();
 
     //KeyPress *keyPress = new KeyPress();
     return a.exec();
