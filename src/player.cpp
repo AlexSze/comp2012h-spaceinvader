@@ -3,6 +3,8 @@
 #include "player.h"
 #include "laser.h"
 #include "constants.h"
+#include "gamescene.h"
+
 #include <QGraphicsPixmapItem>
 #include <QGraphicsScene>
 #include <QGraphicsItem>
@@ -12,6 +14,8 @@
 #include <QDebug>
 #include <iostream>
 using namespace std;
+
+//extern GameScene* s;
 
 // constructor
 Player::Player(QGraphicsItem* parent)
@@ -88,6 +92,8 @@ void Player::hurt() {
     // spawn a new player if there's extra life left
     if (true /* have extra life */) {
         // allocate player of the game
+        //s->health->reset();
+
         Player* p= new Player();
         // place the player in the bottom of screen
         p->setPos(SCREEN_WIDTH/2, SCREEN_HEIGHT - PLAYER_HEIGHT);
@@ -106,9 +112,6 @@ void Player::hurt() {
 Player::~Player() {
     // prepare removal from scene
     QGraphicsItem::prepareGeometryChange();
-}
-unsigned int Player::get_health() const {
-    return health;
 }
 
 int Player::get_attack_type() const{

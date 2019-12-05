@@ -28,6 +28,7 @@ CONFIG += c++11
 
 SOURCES += \
     abstractobjects.cpp \
+    health.cpp \
         main.cpp \
         mainwindow.cpp \
     abstractenemy.cpp \
@@ -35,9 +36,11 @@ SOURCES += \
     laser.cpp \
     player.cpp \
     gamescene.cpp \
+    score.cpp \
 
 HEADERS += \
     abstractobjects.h \
+    health.h \
         mainwindow.h \
     abstractenemy.h \
     abstracttools.h \
@@ -45,6 +48,8 @@ HEADERS += \
     constants.h \
     player.h \
     gamescene.h \
+    score.h \
+    avl.h
 
 FORMS += \
         mainwindow.ui

@@ -1,13 +1,18 @@
-#include "laser.h"
-#include "constants.h"
-
 #include <QTimer>
 #include <QGraphicsScene>
 #include <QList>
+
+#include "score.h"
+#include "laser.h"
+#include "constants.h"
 #include "abstractenemy.h"
 #include "player.h"
+#include "gamescene.h"
 
 #include <QDebug>
+
+extern GameScene* s;
+
 Laser::Laser(int speed, int horizontal_speed, QGraphicsPixmapItem* parent)
     : QObject(),
       QGraphicsPixmapItem(parent),
@@ -40,7 +45,7 @@ void Laser::move() {
                 typeid(*(colliding[i])) == typeid(abstractEnemy)
                 ) {
             //add score
-            //Player::increase_score();
+            //s->score->increase();
 
             // remove both laser and colliding object
             // delete collising object
@@ -55,6 +60,9 @@ void Laser::move() {
                 speed > 0 &&
                 typeid(*(colliding[i])) == typeid(Player)
                 ) {
+            //decrease health
+            //s->health->decrease();
+
             // player loses one live
             static_cast <Player*>
                 (colliding[i])->hurt();

@@ -1,5 +1,3 @@
-#include "gamescene.h"
-
 #include <QGraphicsTextItem>
 #include <QMediaPlayer>
 #include <QFont>
@@ -7,10 +5,11 @@
 #include <QImage>
 #include <QBrush>
 
+#include "gamescene.h"
 #include "abstractenemy.h"
 #include "constants.h"
-/* game element classes here */
 
+/* game element classes here */
 GameScene::GameScene(QWidget* parent) {
     // allocate scene for game
     scene = new QGraphicsScene(parent);
@@ -37,6 +36,16 @@ GameScene::GameScene(QWidget* parent) {
     player->setFocus();
     // put player in scene
     scene->addItem(player);
+
+    //create score
+    score = new Score();
+    scene->addItem(score);
+
+    //create health
+    health = new Health();
+    health->setPos(health->x(), health->y() + 25);
+    scene->addItem(health);
+
 
     for (unsigned int i=0; i<8; ++i) {
         abstractEnemy* e = new abstractEnemy(2, 10, true);

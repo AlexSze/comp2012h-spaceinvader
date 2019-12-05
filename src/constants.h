@@ -9,5 +9,6 @@ const unsigned int BASE_ENEMY_WIDTH = 50;
 const unsigned int BASE_ENEMY_HEIGHT = 30;
 const unsigned int ADVANCED_ENEMY_WIDTH = 100;
 const unsigned int ADVANCED_ENEMY_HEIGHT = 60;
+const unsigned int playerhealth = 3;
 
 #endif // CONSTANTS_H

@@ -28,7 +28,6 @@ class Player : public abstractobjects, public QGraphicsPixmapItem{
         Player(QGraphicsItem* parent=nullptr);
         ~Player();
 
-        unsigned int get_health() const;
         int get_attack_type() const;
         int get_defense_type() const;
 

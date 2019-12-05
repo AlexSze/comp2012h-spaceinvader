@@ -4,6 +4,8 @@
 #include "laser.h"
 #include "player.h"
 #include "constants.h"
+#include "gamescene.h"
+
 #include <stdlib.h> // to get randomised starting position
 #include <QGraphicsPixmapItem>
 #include <QGraphicsScene>
@@ -12,7 +14,8 @@
 #include <QTimer>
 //#include <main.h>
 
-// constructor
+//extern GameScene* s;
+
 // constructor
 abstractEnemy::abstractEnemy(unsigned int health, int speed, bool dir, QGraphicsItem* parent)
     : QGraphicsPixmapItem(parent),
@@ -100,6 +103,9 @@ void abstractEnemy::move() {
 
     // check out of frame
     if (pos().y() > SCREEN_HEIGHT){
+        //decrease health
+        //s->health->decrease();
+
         // remove from scene and delete of out of frame
         delete this;
     }
