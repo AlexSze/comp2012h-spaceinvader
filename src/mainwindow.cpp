@@ -25,3 +25,9 @@ void MainWindow::on_pushButton_clicked()
     s= new GameScene;
     s->show();
 }
+
+void MainWindow::on_pushButton_3_clicked()
+{
+    delete this;
+    exit(0);
+}

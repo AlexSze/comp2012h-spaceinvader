@@ -1,0 +1,17 @@
+release/Globalfunctions.o
+release/abstractobjects.o
+release/health.o
+release/mainwindow.o
+release/abstractenemy.o
+release/abstracttools.o
+release/laser.o
+release/player.o
+release/gamescene.o
+release/score.o
+release/avlwindow.o
+release/qrc_resources.o
+release/moc_mainwindow.o
+release/moc_abstractenemy.o
+release/moc_laser.o
+release/moc_player.o
+release/moc_avlwindow.o
