@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "avlwindow.h"
 #include "ui_mainwindow.h"
+#include "constants.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -14,20 +15,25 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::on_pushButton_2_clicked()
-{
-    w= new avlWindow;
-    w->show();
-}
-
-void MainWindow::on_pushButton_clicked()
+void MainWindow::on_pushButton_game_clicked()
 {
     s= new GameScene;
     s->show();
 }
 
-void MainWindow::on_pushButton_3_clicked()
+void MainWindow::on_pushButton_scoreboard_clicked()
+{
+    w= new avlWindow;
+    w->show();
+}
+
+void MainWindow::on_pushButton_quit_clicked()
 {
     delete this;
     exit(0);
+}
+
+void MainWindow::on_actionAbout_triggered()
+{ /* new window with credits */
+    QMessageBox::about(this, "About", ABOUT_MSG);
 }

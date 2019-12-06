@@ -1,6 +1,7 @@
 #include "avlwindow.h"
 #include "ui_avlwindow.h"
 #include "main.cpp"
+#include "constants.h"
 
 avlWindow::avlWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -79,7 +80,7 @@ void avlWindow::print_avl()
     ui->plainTextEdit->setPlainText(text);
 }
 
-void avlWindow::on_pushButton_2_clicked(){
+void avlWindow::on_pushButton_write_clicked(){
     write_to_file();
 
     read_as_num();
@@ -87,27 +88,27 @@ void avlWindow::on_pushButton_2_clicked(){
     insert_num_to_avl();
 }
 
-void avlWindow::on_pushButton_clicked(){
+void avlWindow::on_pushButton_print_clicked(){
     print_avl();
 
     insert_num_to_avl();
 }
 
 
-void avlWindow::on_pushButton_4_clicked()
+void avlWindow::on_pushButton_max_clicked()
 {
     text=QString::number(avl_tree.find_max());
 
     ui->plainTextEdit->setPlainText(text);
 }
 
-void avlWindow::on_pushButton_5_clicked()
+void avlWindow::on_pushButton_min_clicked()
 {
     text=QString::number(avl_tree.find_min());
     ui->plainTextEdit->setPlainText(text);
 }
 
-void avlWindow::on_pushButton_6_clicked()
+void avlWindow::on_pushButton_score_clicked()
 {
     QString text = ui->plainTextEdit->toPlainText();
 
@@ -115,4 +116,19 @@ void avlWindow::on_pushButton_6_clicked()
 
     ui->plainTextEdit->setPlainText(boolText);
 
+}
+
+void avlWindow::on_actionOpen_triggered()
+{ // TODO
+    /* choose file */
+}
+
+void avlWindow::on_actionSave_triggered()
+{ // TODO
+    /* save to file */
+}
+
+void avlWindow::on_actionAbout_triggered()
+{ /* new window with credits */
+    QMessageBox::about(this, "About", ABOUT_MSG);
 }

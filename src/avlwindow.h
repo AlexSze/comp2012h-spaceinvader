@@ -32,15 +32,21 @@ public:
     void print_avl();
 
 private slots:
-    void on_pushButton_2_clicked();
+    void on_pushButton_write_clicked();
 
-    void on_pushButton_clicked();
+    void on_pushButton_print_clicked();
 
-    void on_pushButton_4_clicked();
+    void on_pushButton_max_clicked();
 
-    void on_pushButton_5_clicked();
+    void on_pushButton_min_clicked();
 
-    void on_pushButton_6_clicked();
+    void on_pushButton_score_clicked();
+
+    void on_actionOpen_triggered();
+
+    void on_actionSave_triggered();
+
+    void on_actionAbout_triggered();
 
 private:
     Ui::avlWindow *ui;
