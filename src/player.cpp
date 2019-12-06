@@ -60,7 +60,7 @@ void Player::keyPressEvent(QKeyEvent* event) {
     case Qt::Key_Space: {
         // create laser beam
         Laser* l = new Laser(-10, horizontal_beam);
-        l->setPos(this->x() + PLAYER_WIDTH/2, this->y() - PLAYER_HEIGHT);
+        l->setPos(this->x() + PLAYER_WIDTH/2, this->y() - PLAYER_HEIGHT/2);
         scene()->addItem(l);
         // no storage required, laser beam will be automatically deleted when
         // 1. beam hits somebody
