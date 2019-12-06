@@ -3,8 +3,8 @@
 
 #include <QObject>
 
-enum ATTACK_TYPE {LASER /* default */, MINION, COLLISION};
-enum DEFENSE_TYPE {NUL /* default */, BARRIER};
+enum ATTACK {LASER /* default */, MINION, COLLISION};
+enum DEFENSE {NUL /* default */, BARRIER};
 
 class abstractobjects : public QObject {
     protected:

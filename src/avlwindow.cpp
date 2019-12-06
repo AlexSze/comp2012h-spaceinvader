@@ -2,6 +2,7 @@
 #include "ui_avlwindow.h"
 #include "main.cpp"
 #include "constants.h"
+#include <QFileDialog>
 
 avlWindow::avlWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -39,7 +40,7 @@ void avlWindow::read_as_num()
 }
 
 void avlWindow::write_to_file()
-{
+{ // TODO create popup dialog and write as csv
     QFile file("/Users/alex/Desktop/avlresult.txt");
 
     if (!file.open(QFile::WriteOnly| QFile::Text)){
@@ -119,13 +120,39 @@ void avlWindow::on_pushButton_score_clicked()
 }
 
 void avlWindow::on_actionOpen_triggered()
-{ // TODO
-    /* choose file */
+{
+    // create pop-up to prompt for filename with full directory
+    QString filename =
+        QFileDialog::getOpenFileName(this,
+                                     "Choose Scoreboard CSV", //&caption = QString()
+                                     QString(), //&dir = QString()
+                                     "*.csv" //&filter = QString()
+                                     //*selectedFilter = Q_NULLPTR
+                                     //options = Options())
+                                     );
+    // return if no file selected
+    if (filename.trimmed().isEmpty())
+        return;
+    // open such file
+    QFile file(filename);
+    // shows error if file cannot be opened
+    if (!file.open(QIODevice::WriteOnly)) {
+        QMessageBox::information(this, tr("Unable to open file"),
+                                 file.errorString());
+        return;
+    }
+    // parse csv
+    QStringList wordList;
+    while (!file.atEnd()) {
+        QByteArray line = file.readLine();
+        wordList.append(line.split(',').first());
+    }
+    // TODO unfinished
 }
 
 void avlWindow::on_actionSave_triggered()
-{ // TODO
-    /* save to file */
+{ /* save to file */
+    write_to_file();
 }
 
 void avlWindow::on_actionAbout_triggered()
