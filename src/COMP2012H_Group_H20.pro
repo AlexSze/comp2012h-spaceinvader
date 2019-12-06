@@ -27,8 +27,8 @@ DEFINES += QT_DEPRECATED_WARNINGS
 CONFIG += c++11
 
 SOURCES += \
+    Globalfunctions.cpp \
     abstractobjects.cpp \
-    button.cpp \
     health.cpp \
         main.cpp \
         mainwindow.cpp \
@@ -38,10 +38,10 @@ SOURCES += \
     player.cpp \
     gamescene.cpp \
     score.cpp \
+    avlwindow.cpp \
 
 HEADERS += \
     abstractobjects.h \
-    button.h \
     health.h \
         mainwindow.h \
     abstractenemy.h \
@@ -51,10 +51,12 @@ HEADERS += \
     player.h \
     gamescene.h \
     score.h \
-    avl.h
+    avl.h \
+    avlwindow.h \
 
 FORMS += \
-        mainwindow.ui
+        mainwindow.ui \
+        avlwindow.ui \
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

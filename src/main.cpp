@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 #include "gamescene.h"
+#include "avlwindow.h"
 
 #include <QApplication>
 #include <QPushButton>
@@ -8,17 +9,17 @@
 #include <QWidget>
 //#include "KeyPress.h"
 
+MainWindow* m;
 GameScene* s;
+avlWindow* w;
+AVL<int> avl_tree;
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
 
-    //MainWindow* w;
-    //w->show();
-
-    s= new GameScene;
-    s->show();
+    m= new MainWindow;
+    m->show();
 
     //KeyPress *keyPress = new KeyPress();
     return a.exec();

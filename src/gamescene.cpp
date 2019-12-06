@@ -6,7 +6,6 @@
 #include <QBrush>
 #include <QGraphicsTextItem>
 
-#include "button.h"
 #include "gamescene.h"
 #include "abstractenemy.h"
 #include "constants.h"
