@@ -1,12 +1,12 @@
 # Space Invader++
 
-## Contributors
+## Contributors (in alphabetical order)
 
-1. Sze Yuk Yin
+1. Lee Ho Wan Owen
 
-2. Tsang Cheuk Nam
+2. Sze Yuk Yin
 
-3. Owen
+3. Tsang Cheuk Nam
 
 ## Game Description
 

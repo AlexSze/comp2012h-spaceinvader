@@ -19,7 +19,7 @@ const QString ABOUT_MSG = "Space Invader++\n"
                           "by Team H20 in Fall 2019\n"
                           "\n"
                           "Contributing members:\n"
+                          "Lee Ho Wan Owen\n";
                           "Sze Yuk Yin\n"
                           "Tsang Cheuk Nam\n"
-                          "Owen";
 #endif // CONSTANTS_H
