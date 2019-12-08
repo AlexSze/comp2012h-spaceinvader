@@ -32,11 +32,13 @@ void avlWindow::read_as_num()
             QString line = in.readLine();
             QString line2= in.readLine();
 
+            /* commented out for data type changes
             tempnum= line.toULong(&convertOK);
             temptext= line2.toUtf8().constData();
             tempdata= new player_record(tempnum, temptext);
 
             data.push_back(*tempdata);
+            */
         }
 
         file.close();
@@ -80,8 +82,9 @@ void avlWindow::print_avl()
 
         temp=avl_tree.find_max();
         avl_tree.remove(temp);
-        text=text+ "Rank "+ QString::number(rank)+ ": "+ QString::number(temp.get_score())+ " Player: "+ QString::fromStdString(temp.get_name())+ "\n";
+        text=text+ "Rank "+ QString::number(rank)+ ": "+ QString::number(temp.get_score())+ " Player: "+ temp.get_name().join('\n')+ "\n";
     }
+
 
     ui->plainTextEdit->setPlainText(text);
 }
@@ -150,12 +153,27 @@ void avlWindow::on_actionOpen_triggered()
         return;
     }
     // parse csv
-    QStringList wordList;
     while (!file.atEnd()) {
-        QByteArray line = file.readLine();
-        wordList.append(line.split(',').first());
+        // parse line into array
+        //QList<QString> wordList = static_cast<QString>(file.readLine()).split(',');
+        QList<QByteArray> wordList = file.readLine().split(',');
+        // parse first column into unsigned int
+        unsigned int tmpScore = wordList[0].toUInt();
+        // format the rest of the columns into usernames
+        // cut off the first element
+        wordList = wordList.mid(0,1);
+        // convert QList<QByteArray> to QStringList
+        QStringList tmpNames;
+        foreach (const QByteArray &item, wordList) {
+            tmpNames.append(QString::fromLocal8Bit(item)); // Assuming local 8-bit.
+        }
+        // add to data
+        data.push_back(*(new player_record(tmpScore, tmpNames)));
     }
+    // close file
+    file.close();
     // TODO unfinished
+
 }
 
 void avlWindow::on_actionSave_triggered()
