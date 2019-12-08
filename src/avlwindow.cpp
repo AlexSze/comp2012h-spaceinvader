@@ -22,8 +22,7 @@ void avlWindow::read_as_num()
     if (!file.open(QFile::ReadOnly| QFile::Text)){
         QMessageBox::warning(this, "title", "file not open");
     }else{
-        number.clear();
-        text="";
+        data.clear();
 
         QTextStream in(&file);
         //QString text = in.readAll();
@@ -31,8 +30,13 @@ void avlWindow::read_as_num()
         while (!in.atEnd())
         {
             QString line = in.readLine();
+            QString line2= in.readLine();
+
             tempnum= line.toULong(&convertOK);
-            number.push_back(tempnum);
+            temptext= line2.toUtf8().constData();
+            tempdata= new player_record(tempnum, temptext);
+
+            data.push_back(*tempdata);
         }
 
         file.close();
@@ -57,25 +61,26 @@ void avlWindow::write_to_file()
 
 void avlWindow::insert_num_to_avl()
 {
-    list<int>::const_iterator p;
-    for (p= number.begin(); p!= number.end(); ++p){
+    list<player_record>::const_iterator p;
+    for (p= data.begin(); p!= data.end(); ++p){
         avl_tree.insert(*p);
     }
 }
 
 void avlWindow::print_avl()
 {
-    int temp;
+    player_record temp{0};
 
     rank=0;
     text="";
+    data.clear();
 
     while (!avl_tree.is_empty()){
         rank++;
 
         temp=avl_tree.find_max();
         avl_tree.remove(temp);
-        text=text+ "Rank "+ QString::number(rank)+ ": "+ QString::number(temp)+ "\n";
+        text=text+ "Rank "+ QString::number(rank)+ ": "+ QString::number(temp.get_score())+ " Player: "+ QString::fromStdString(temp.get_name())+ "\n";
     }
 
     ui->plainTextEdit->setPlainText(text);
@@ -98,14 +103,17 @@ void avlWindow::on_pushButton_print_clicked(){
 
 void avlWindow::on_pushButton_max_clicked()
 {
-    text=QString::number(avl_tree.find_max());
+    player_record temp= avl_tree.find_max();
+    text=QString::number(temp.get_score());
 
     ui->plainTextEdit->setPlainText(text);
 }
 
 void avlWindow::on_pushButton_min_clicked()
 {
-    text=QString::number(avl_tree.find_min());
+    player_record temp= avl_tree.find_min();
+    text=QString::number(temp.get_score());
+
     ui->plainTextEdit->setPlainText(text);
 }
 

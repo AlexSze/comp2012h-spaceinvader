@@ -1,4 +1,7 @@
 #include <iostream>
+
+#include "player_record.h"
+
 using namespace std;
 
 template <typename T>
@@ -31,10 +34,10 @@ class AVL{
         bool is_empty() const { return root == nullptr; }
         const T& find_min() const; // Find the minimum value in an AVL
         const T& find_max() const;
-        bool contains(const T& x) const; // Search an item
+        bool contains(const int & x) const; // Search an item
         void print(int depth = 0) const; // Print by rotating -90 degrees
-        void insert(const T& x); // Insert an item in sorted order
-        void remove(const T& x); // Remove an item
+        void insert(player_record x); // Insert an item in sorted order
+        void remove(player_record x); // Remove an item
 };
 
 template <typename T>
@@ -112,12 +115,12 @@ const T& AVL<T>::find_max() const
 }
 
 template <typename T>
-bool AVL<T>::contains(const T& x) const{
+bool AVL<T>::contains(const int & x) const{
     if (is_empty())
         return false;
-    else if (x == root->value)
+    else if (x == root->value.get_score())
         return true;
-    else if (x < root->value)
+    else if (x < root->value.get_score())
          return left_subtree().contains(x);
     else return right_subtree().contains(x);
 }
@@ -137,25 +140,25 @@ void AVL<T>::print(int depth ) const{
 }*/
 
 template <typename T>
-void AVL<T>::insert(const T& x){
+void AVL<T>::insert(player_record x){
     if (is_empty())
         root = new AVLnode(x);
-    else if (x > root->value)
+    else if (x.get_score() > root->value.get_score())
         right_subtree().insert(x);
-    else if (x < root->value)
+    else if (x.get_score() < root->value.get_score())
         left_subtree().insert(x);
 
     balance();
 }
 
 template <typename T>
-void AVL<T>::remove(const T& x){
+void AVL<T>::remove(player_record x){
     if (is_empty())
         return;
 
-    if (x < root->value)
+    if (x.get_score() < root->value.get_score())
         left_subtree().remove(x);
-    else if (x > root->value)
+    else if (x.get_score() > root->value.get_score())
         right_subtree().remove(x);
     else{
         AVL& left_avl = left_subtree();

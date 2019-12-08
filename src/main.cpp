@@ -12,7 +12,7 @@
 MainWindow* m;
 GameScene* s;
 avlWindow* w;
-AVL<int> avl_tree;
+AVL<player_record> avl_tree;
 
 int main(int argc, char *argv[])
 {

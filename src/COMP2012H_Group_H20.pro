@@ -39,11 +39,12 @@ SOURCES += \
     gamescene.cpp \
     score.cpp \
     avlwindow.cpp \
+    player_record.cpp \
 
 HEADERS += \
     abstractobjects.h \
     health.h \
-        mainwindow.h \
+    mainwindow.h \
     abstractenemy.h \
     abstracttools.h \
     laser.h \
@@ -53,6 +54,7 @@ HEADERS += \
     score.h \
     avl.h \
     avlwindow.h \
+    player_record.h \
 
 FORMS += \
         mainwindow.ui \

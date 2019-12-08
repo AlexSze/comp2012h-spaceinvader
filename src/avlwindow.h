@@ -9,6 +9,7 @@
 #include <QMessageBox>
 
 #include "avl.h"
+#include "player_record.h"
 
 using namespace std;
 
@@ -16,7 +17,7 @@ QT_BEGIN_NAMESPACE
 namespace Ui { class avlWindow; }
 QT_END_NAMESPACE
 
-extern AVL<int> avl_tree;
+extern AVL<player_record> avl_tree;
 
 class avlWindow : public QMainWindow
 {
@@ -50,9 +51,14 @@ private slots:
 
 private:
     Ui::avlWindow *ui;
-    list<int> number;
-    QString text;
+
+    list<player_record> data;
+
     int tempnum;
+    string temptext;
+    player_record* tempdata;
+
+    QString text;
     int rank;
     bool convertOK;
 
