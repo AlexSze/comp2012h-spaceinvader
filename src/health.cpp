@@ -18,7 +18,17 @@ void Health::decrease(){
     setPlainText(QString("Health: ") + QString::number(health)); // Health: 2
 }
 
+void Health::increase()
+{
+    health++;
+}
+
 void Health::reset()
 {
     health = playerhealth;
+}
+
+int Health::get_health()
+{
+    return health;
 }

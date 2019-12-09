@@ -1,10 +1,4 @@
 /* player.cpp */
-
-#include "player.h"
-#include "laser.h"
-#include "constants.h"
-#include "gamescene.h"
-
 #include <QGraphicsPixmapItem>
 #include <QGraphicsScene>
 #include <QGraphicsItem>
@@ -13,9 +7,10 @@
 #include <QTimer>
 #include <QDebug>
 #include <iostream>
-using namespace std;
 
-//extern GameScene* s;
+#include "player.h"
+
+using namespace std;
 
 // constructor
 Player::Player(QGraphicsItem* parent)
@@ -104,7 +99,16 @@ void Player::hurt() {
         scene()->addItem(p);
         // make it main window of focus
         p->setFocus();
-    }
+    }//else if (s->health->get_health()==0){
+
+        //s->close();
+        //delete s;
+
+        //n= new defeat_screen;
+        //n->show();
+   // }
+
+
     // self destruction
     delete this;
 }
@@ -123,7 +127,8 @@ int Player::get_defense_type() const{
 }
 
 void Player::heal(){
-    health++;
+    //s->health->increase();
+    //TODO, cannot include gamescene as gamescene included player
 }
 
 void Player::attack(){

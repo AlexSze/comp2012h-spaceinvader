@@ -28,6 +28,7 @@ CONFIG += c++11
 
 SOURCES += \
     abstractobjects.cpp \
+    defeat_screen.cpp \
     health.cpp \
         main.cpp \
         mainwindow.cpp \
@@ -39,9 +40,11 @@ SOURCES += \
     score.cpp \
     avlwindow.cpp \
     player_record.cpp \
+    win_screen.cpp
 
 HEADERS += \
     abstractobjects.h \
+    defeat_screen.h \
     health.h \
     mainwindow.h \
     abstractenemy.h \
@@ -54,10 +57,13 @@ HEADERS += \
     avl.h \
     avlwindow.h \
     player_record.h \
+    win_screen.h
 
 FORMS += \
+        defeat_screen.ui \
         mainwindow.ui \
         avlwindow.ui \
+        win_screen.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

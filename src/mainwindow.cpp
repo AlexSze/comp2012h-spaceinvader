@@ -19,12 +19,18 @@ void MainWindow::on_pushButton_game_clicked()
 {
     s= new GameScene;
     s->show();
+
+    this->close();
+    delete this;
 }
 
 void MainWindow::on_pushButton_scoreboard_clicked()
 {
     w= new avlWindow;
     w->show();
+
+    this->close();
+    delete this;
 }
 
 void MainWindow::on_pushButton_quit_clicked()
