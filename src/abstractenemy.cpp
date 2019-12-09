@@ -66,6 +66,8 @@ void abstractEnemy::attack() {
     // 1. beam hits somebody
     // 2. beam goes off screen
     // 3. parent (this object) is deleted
+
+    }
 }
 
 // move character

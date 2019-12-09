@@ -16,3 +16,10 @@ abstractobjects::abstractobjects(unsigned int health, int attack_type, int defen
 abstractobjects::~abstractobjects() {
 }
 
+bool abstractobjects::alive(){
+    return health;
+}
+
+void abstractobjects::attack(){
+
+}
