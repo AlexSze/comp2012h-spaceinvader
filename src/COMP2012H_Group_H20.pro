@@ -27,7 +27,6 @@ DEFINES += QT_DEPRECATED_WARNINGS
 CONFIG += c++11
 
 SOURCES += \
-    Globalfunctions.cpp \
     abstractobjects.cpp \
     health.cpp \
         main.cpp \

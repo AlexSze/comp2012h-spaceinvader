@@ -34,10 +34,10 @@ class AVL{
         bool is_empty() const { return root == nullptr; }
         const T& find_min() const; // Find the minimum value in an AVL
         const T& find_max() const;
-        bool contains(const int & x) const; // Search an item
-        void print(int depth = 0) const; // Print by rotating -90 degrees
+        bool contains(T & x) const; // Search an item
         void insert(player_record x); // Insert an item in sorted order
-        void remove(player_record x); // Remove an item
+        void remove(player_record& x); // Remove an item
+        QString dump_csv() const; // Print by rotating 90 degrees
 };
 
 template <typename T>
@@ -83,7 +83,8 @@ rotate_right(){
 template <typename T>
 void AVL<T>::balance(){
     if (is_empty())
-        return; fix_height();
+        return;
+    fix_height();
     int balance_factor = bfactor();
     if (balance_factor == 2){
         if (right_subtree().bfactor() < 0)
@@ -115,14 +116,15 @@ const T& AVL<T>::find_max() const
 }
 
 template <typename T>
-bool AVL<T>::contains(const int & x) const{
+bool AVL<T>::contains(T & x) const{
     if (is_empty())
         return false;
-    else if (x == root->value.get_score())
+    else if (x == root->value)
         return true;
-    else if (x < root->value.get_score())
-         return left_subtree().contains(x);
-    else return right_subtree().contains(x);
+    else if (x < root->value)
+        return left_subtree().contains(x);
+    else
+        return right_subtree().contains(x);
 }
 
 /*template <typename T>
@@ -143,22 +145,22 @@ template <typename T>
 void AVL<T>::insert(player_record x){
     if (is_empty())
         root = new AVLnode(x);
-    else if (x.get_score() > root->value.get_score())
+    else if (x > root->value)
         right_subtree().insert(x);
-    else if (x.get_score() < root->value.get_score())
+    else if (x < root->value)
         left_subtree().insert(x);
 
     balance();
 }
 
 template <typename T>
-void AVL<T>::remove(player_record x){
+void AVL<T>::remove(player_record& x){
     if (is_empty())
         return;
 
-    if (x.get_score() < root->value.get_score())
+    if (x < root->value)
         left_subtree().remove(x);
-    else if (x.get_score() > root->value.get_score())
+    else if (x > root->value)
         right_subtree().remove(x);
     else{
         AVL& left_avl = left_subtree();
@@ -178,4 +180,20 @@ void AVL<T>::remove(player_record x){
     }
 
     balance();
+}
+
+template <typename T>
+QString AVL<T>::dump_csv() const {
+    if (is_empty())
+        return "";
+    QString output;
+    // add the larger values
+    output.append(right_subtree().dump_csv());
+    // add this data
+    output.append(root->value.get_score() + ',' +
+                  root->value.get_name().join(',') + "\n"
+                  );
+    // add the lower values
+    output.append(left_subtree().dump_csv());
+    return output;
 }

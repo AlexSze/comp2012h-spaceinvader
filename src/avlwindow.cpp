@@ -3,6 +3,7 @@
 #include "main.cpp"
 #include "constants.h"
 #include <QFileDialog>
+#include <QDebug>
 
 avlWindow::avlWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -18,45 +19,82 @@ avlWindow::~avlWindow()
 
 void avlWindow::read_as_num()
 {
-    QFile file("/Users/alex/Desktop/avlresult.txt");
-    if (!file.open(QFile::ReadOnly| QFile::Text)){
-        QMessageBox::warning(this, "title", "file not open");
-    }else{
-        data.clear();
-
-        QTextStream in(&file);
-        //QString text = in.readAll();
-
-        while (!in.atEnd())
-        {
-            QString line = in.readLine();
-            QString line2= in.readLine();
-
-            /* commented out for data type changes
-            tempnum= line.toULong(&convertOK);
-            temptext= line2.toUtf8().constData();
-            tempdata= new player_record(tempnum, temptext);
-
-            data.push_back(*tempdata);
-            */
-        }
-
-        file.close();
+    // create pop-up to prompt for filename with full directory
+    QString filename =
+        QFileDialog::getOpenFileName(this,
+                                     "Choose Scoreboard CSV", //&caption = QString()
+                                     QString(), //&dir = QString()
+                                     "*.csv" //&filter = QString()
+                                     //*selectedFilter = Q_NULLPTR
+                                     //options = Options())
+                                     );
+    // return if no file selected
+    if (filename.trimmed().isEmpty())
+        return;
+    // open such file
+    QFile file(filename);
+    // shows error if file cannot be opened
+    if (!file.open(QIODevice::ReadOnly)) {
+        QMessageBox::information(this, tr("Unable to open file"),
+                                 file.errorString());
+        return;
     }
+    // parse csv
+    while (!file.atEnd()) {
+        // parse line into array
+        //QList<QString> wordList = static_cast<QString>(file.readLine()).split(',');
+        QList<QByteArray> wordList = file.readLine().split(',');
+        // parse first column into unsigned int
+        unsigned int tmpScore = wordList[0].toUInt();
+        // format the rest of the columns into usernames
+        // cut off the first element
+        //wordList = wordList.mid(0,1);
+        // convert QList<QByteArray> to QStringList
+        QStringList tmpNames;
+        foreach (const QByteArray &item, wordList.mid(1)) {
+            tmpNames.append(QString::fromLocal8Bit(item).trimmed()); // Assuming local 8-bit.
+        }
+        // remove null strings
+        tmpNames.removeAll(QString(""));
+        qDebug() << tmpScore << tmpNames;
+        player_record* tmp_player = new player_record(tmpScore, tmpNames);
+        // add to data
+        data.push_back(*tmp_player);
+        avl_tree.insert(*tmp_player);
+    }
+    // close file
+    file.close();
+    // print what is read
+    print_avl();
 }
 
 void avlWindow::write_to_file()
 { // TODO create popup dialog and write as csv
-    QFile file("/Users/alex/Desktop/avlresult.txt");
-
-    if (!file.open(QFile::WriteOnly| QFile::Text)){
-        QMessageBox::warning(this, "title", "file not open");
+    QString filename =
+        QFileDialog::getSaveFileName(this,
+                                     "Save Scoreboard CSV", //&caption = QString()
+                                     QString(), //&dir = QString()
+                                     "*.csv" //&filter = QString()
+                                     //*selectedFilter = Q_NULLPTR
+                                     //options = Options())
+                                     );
+    // return if no file selected
+    if (filename.trimmed().isEmpty())
+        return;
+    // open such file
+    QFile file(filename);
+    // shows error if file cannot be opened
+    if (!file.open(QIODevice::WriteOnly)){// || QFile::Text) {
+        QMessageBox::information(this, tr("Unable to save to file"),
+                                 file.errorString());
+        return;
     }
-
+    // write to file
     QTextStream out(&file);
-    QString text = ui->plainTextEdit->toPlainText();
-
+    QString text = avl_tree.dump_csv();
+    //QString text = ui->plainTextEdit->toPlainText();
     out << text;
+    // close file
     file.flush();
     file.close();
 }
@@ -82,7 +120,7 @@ void avlWindow::print_avl()
 
         temp=avl_tree.find_max();
         avl_tree.remove(temp);
-        text=text+ "Rank "+ QString::number(rank)+ ": "+ QString::number(temp.get_score())+ " Player: "+ temp.get_name().join('\n')+ "\n";
+        text=text+ "Rank "+ QString::number(rank)+ ": "+ QString::number(temp.get_score())+ " Player: "+ temp.get_name().join(' ')+ "\n";
     }
 
 
@@ -124,56 +162,15 @@ void avlWindow::on_pushButton_score_clicked()
 {
     QString text = ui->plainTextEdit->toPlainText();
 
-    QString boolText = avl_tree.contains(text.toULong(&convertOK)) ? "true" : "false";
+    player_record tmp_player(text.toULong(&convertOK));
+    QString boolText = avl_tree.contains(tmp_player) ? "true" : "false";
 
     ui->plainTextEdit->setPlainText(boolText);
 
 }
-
 void avlWindow::on_actionOpen_triggered()
 {
-    // create pop-up to prompt for filename with full directory
-    QString filename =
-        QFileDialog::getOpenFileName(this,
-                                     "Choose Scoreboard CSV", //&caption = QString()
-                                     QString(), //&dir = QString()
-                                     "*.csv" //&filter = QString()
-                                     //*selectedFilter = Q_NULLPTR
-                                     //options = Options())
-                                     );
-    // return if no file selected
-    if (filename.trimmed().isEmpty())
-        return;
-    // open such file
-    QFile file(filename);
-    // shows error if file cannot be opened
-    if (!file.open(QIODevice::WriteOnly)) {
-        QMessageBox::information(this, tr("Unable to open file"),
-                                 file.errorString());
-        return;
-    }
-    // parse csv
-    while (!file.atEnd()) {
-        // parse line into array
-        //QList<QString> wordList = static_cast<QString>(file.readLine()).split(',');
-        QList<QByteArray> wordList = file.readLine().split(',');
-        // parse first column into unsigned int
-        unsigned int tmpScore = wordList[0].toUInt();
-        // format the rest of the columns into usernames
-        // cut off the first element
-        wordList = wordList.mid(0,1);
-        // convert QList<QByteArray> to QStringList
-        QStringList tmpNames;
-        foreach (const QByteArray &item, wordList) {
-            tmpNames.append(QString::fromLocal8Bit(item)); // Assuming local 8-bit.
-        }
-        // add to data
-        data.push_back(*(new player_record(tmpScore, tmpNames)));
-    }
-    // close file
-    file.close();
-    // TODO unfinished
-
+    read_as_num();
 }
 
 void avlWindow::on_actionSave_triggered()
