@@ -149,6 +149,10 @@ void AVL<T>::insert(player_record x){
         right_subtree().insert(x);
     else if (x < root->value)
         left_subtree().insert(x);
+    else /* x == root->value */ {
+        root->value += x;
+        return;
+    }
 
     balance();
 }
