@@ -12,6 +12,10 @@
 #include <QFont>
 #include <QGraphicsTextItem>
 
+#include "laser.h"
+#include "constants.h"
+#include "health.h"
+
 class Player : public abstractobjects, public QGraphicsPixmapItem{
     Q_OBJECT
 

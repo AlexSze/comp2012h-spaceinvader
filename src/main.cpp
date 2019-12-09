@@ -1,6 +1,8 @@
 #include "mainwindow.h"
 #include "gamescene.h"
 #include "avlwindow.h"
+#include "win_screen.h"
+#include "defeat_screen.h"
 
 #include <QApplication>
 #include <QPushButton>
@@ -12,6 +14,9 @@
 MainWindow* m;
 GameScene* s;
 avlWindow* w;
+win_screen* a;
+defeat_screen* n;
+
 AVL<player_record> avl_tree;
 
 int main(int argc, char *argv[])
