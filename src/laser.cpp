@@ -14,7 +14,6 @@
 #include <QDebug>
 
 extern GameScene* s;
-extern defeat_screen* n;
 
 Laser::Laser(int speed, int horizontal_speed, QGraphicsPixmapItem* parent)
     : QObject(),
@@ -67,38 +66,20 @@ void Laser::move() {
             //decrease health
             s->health->decrease();
 
-            // player loses one live
-            if (s->health->get_health()==0){
-                static_cast <Player*>(colliding[i])->decrease_live();
-
-                //check if there are live left
-                if (!(static_cast <Player*>(colliding[i])->get_live()==0)){
-                     static_cast <Player*>(colliding[i])->hurt();
+            if (s->health->get_health()==0) {
+                if (static_cast <Player*>(colliding[i])->hurt()) {
+                    // player still have lives, reset health
                     s->health->reset();
-
-                }else{
+                }
+                else {
                     //show defeat screen
-                    n= new defeat_screen;
+                    defeat_screen* n= new defeat_screen;
                     n->show();
 
                     s->close();
                     //delete s; it is deleted on defeat screen
                 }
-            }/*else if (speed < 0 &&
-                      typeid(*(colliding[i])) == typeid(boss)){
-                //add score
-                s->score->increase();
-
-                // remove both laser and colliding object
-                // delete collising object
-
-                static_cast <boss*>
-                    (colliding[i])->hurt();
-                // delete laser
-                delete this;
-                return;
-            }*/
-
+            }
             // delete laser
             delete this;
             return;

@@ -5,6 +5,7 @@
 #include "player.h"
 #include "constants.h"
 #include "gamescene.h"
+#include "defeat_screen.h"
 
 #include <stdlib.h> // to get randomised starting position
 #include <QGraphicsPixmapItem>
@@ -94,10 +95,26 @@ void abstractEnemy::move() {
     for (int i=0; i<size; ++i) {
         // check colliding type
         if (typeid(*(colliding[i])) == typeid(Player)) {
-            // kill player if hit
-            static_cast<Player*>(colliding[i])->hurt();
-            // end level
-            // TODO
+            //decrease health
+            s->health->decrease();
+
+            if (s->health->get_health()==0) {
+                if (static_cast <Player*>(colliding[i])->hurt()) {
+                    // player still have lives, reset health
+                    s->health->reset();
+                }
+                else {
+                    //show defeat screen
+                    defeat_screen* n= new defeat_screen;
+                    n->show();
+
+                    s->close();
+                    //delete s; it is deleted on defeat screen
+                }
+            }
+            // delete enemy
+            delete this;
+            return;
         }
     }
 
@@ -111,7 +128,7 @@ void abstractEnemy::move() {
     }
 }
 
-void abstractEnemy::hurt() {
+bool abstractEnemy::hurt() {
     if (--health == 0)
         delete this;
 }

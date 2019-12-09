@@ -49,7 +49,7 @@ class Player : public abstractobjects, public QGraphicsPixmapItem{
         // overriding key event handler
         void keyPressEvent(QKeyEvent* event);
 
-        virtual void hurt(); //TODO: change name to respawn
+        virtual bool hurt(); //TODO: change name to respawn
 
     public slots:
         //void revive();

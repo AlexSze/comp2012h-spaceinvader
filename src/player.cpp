@@ -9,6 +9,8 @@
 #include <iostream>
 
 #include "player.h"
+#include "gamescene.h"
+#include "defeat_screen.h"
 
 using namespace std;
 
@@ -82,12 +84,14 @@ void Player::keyPressEvent(QKeyEvent* event) {
     }
 }
 
-void Player::hurt() {
-    // end scene
-    // spawn a new player if there's extra life left
+bool Player::hurt() {
+    //check if there are lives left
+    if (--live != 0) {
+        // end scene
+        // spawn a new player if there's extra life left
         Player* p= new Player();
-        p->set_live(this->get_live());
         //live
+        p->set_live(live);
 
         // place the player in the bottom of screen
         p->setPos(SCREEN_WIDTH/2, SCREEN_HEIGHT - PLAYER_HEIGHT);
@@ -99,8 +103,12 @@ void Player::hurt() {
         // make it main window of focus
         p->setFocus();
 
-    // self destruction
-    delete this;
+        // self destruction
+        delete this;
+        // signal revival, reset health
+        return true;
+    }
+    return false;
 }
 
 Player::~Player() {

@@ -13,7 +13,7 @@ defeat_screen::~defeat_screen()
     delete ui;
 }
 
-void defeat_screen::on_pushButton_clicked()//restart
+void defeat_screen::on_pushButton_restart_clicked()
 {
     //TODO change it for all three scene
     //TODO player cannot move, player health is not acting normal
@@ -29,7 +29,7 @@ void defeat_screen::on_pushButton_clicked()//restart
     delete this;
 }
 
-void defeat_screen::on_pushButton_2_clicked()//quit
+void defeat_screen::on_pushButton_quit_clicked()
 {
     delete this;
     exit(0);

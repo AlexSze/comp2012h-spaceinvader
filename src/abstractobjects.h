@@ -23,7 +23,7 @@ class abstractobjects : public QObject {
 
         bool alive();
         void attack();
-        virtual void hurt()=0;
+        virtual bool hurt()=0;
 };
 
 
