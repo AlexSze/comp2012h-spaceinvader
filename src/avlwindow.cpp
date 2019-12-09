@@ -139,6 +139,10 @@ void avlWindow::on_pushButton_print_clicked(){
 
 void avlWindow::on_pushButton_max_clicked()
 {
+    if (avl_tree.is_empty()) {
+        ui->plainTextEdit->setPlainText("");
+        return;
+    }
     player_record temp= avl_tree.find_max();
     QString text = " Score: " + QString::number(temp.get_score())
             + " Player: " + temp.get_name().join(" ") + "\n";
@@ -147,6 +151,10 @@ void avlWindow::on_pushButton_max_clicked()
 
 void avlWindow::on_pushButton_min_clicked()
 {
+    if (avl_tree.is_empty()) {
+        ui->plainTextEdit->setPlainText("");
+        return;
+    }
     player_record temp= avl_tree.find_min();
     QString text = " Score: " + QString::number(temp.get_score())
             + " Player: " + temp.get_name().join(" ") + "\n";
