@@ -58,7 +58,7 @@ private:
     string temptext;
     player_record* tempdata;
 
-    QString text;
+    //QString text;
     //int rank;
     bool convertOK;
 

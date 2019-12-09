@@ -107,15 +107,12 @@ void avlWindow::insert_num_to_avl()
 
 void avlWindow::print_avl()
 {
-    player_record temp{0};
-
-    text="";
-    data.clear();
-
+    // create temp text string
+    QString text;
     // read data
     QStringList treeData = avl_tree.dump_csv().split('\n');
     // iterate through it
-    for (int rank=1; rank<=treeData.size(); ++rank) {
+    for (int rank=1; rank<treeData.size(); ++rank) {
         text.append(
                     "Rank: " + QString::number(rank) + " Score: "
                     + treeData[rank-1].split(",").first() + " Player: "
@@ -143,16 +140,16 @@ void avlWindow::on_pushButton_print_clicked(){
 void avlWindow::on_pushButton_max_clicked()
 {
     player_record temp= avl_tree.find_max();
-    text=QString::number(temp.get_score());
-
+    QString text = " Score: " + QString::number(temp.get_score())
+            + " Player: " + temp.get_name().join(" ") + "\n";
     ui->plainTextEdit->setPlainText(text);
 }
 
 void avlWindow::on_pushButton_min_clicked()
 {
     player_record temp= avl_tree.find_min();
-    text=QString::number(temp.get_score());
-
+    QString text = " Score: " + QString::number(temp.get_score())
+            + " Player: " + temp.get_name().join(" ") + "\n";
     ui->plainTextEdit->setPlainText(text);
 }
 
