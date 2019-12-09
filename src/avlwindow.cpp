@@ -3,7 +3,6 @@
 #include "main.cpp"
 #include "constants.h"
 #include <QFileDialog>
-#include <QDebug>
 
 avlWindow::avlWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -64,7 +63,7 @@ void avlWindow::read_as_num()
     // close file
     file.close();
     // print what is read
-    //print_avl();
+    print_avl();
 }
 
 void avlWindow::write_to_file()
@@ -92,7 +91,6 @@ void avlWindow::write_to_file()
     QTextStream out(&file);
     QString text = avl_tree.dump_csv();
     //QString text = ui->plainTextEdit->toPlainText();
-    qDebug() << text;
     out << text;
     // close file
     file.flush();
@@ -111,19 +109,19 @@ void avlWindow::print_avl()
 {
     player_record temp{0};
 
-    rank=0;
     text="";
     data.clear();
 
-    while (!avl_tree.is_empty()){
-        rank++;
-
-        temp=avl_tree.find_max();
-        avl_tree.remove(temp);
-        text=text+ "Rank "+ QString::number(rank)+ ": "+ QString::number(temp.get_score())+ " Player: "+ temp.get_name().join(' ')+ "\n";
+    // read data
+    QStringList treeData = avl_tree.dump_csv().split('\n');
+    // iterate through it
+    for (int rank=1; rank<=treeData.size(); ++rank) {
+        text.append(
+                    "Rank: " + QString::number(rank) + " Score: "
+                    + treeData[rank-1].split(",").first() + " Player: "
+                    + treeData[rank-1].split(",").mid(1).join(" ") + "\n"
+                    );
     }
-
-
     ui->plainTextEdit->setPlainText(text);
 }
 

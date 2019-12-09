@@ -59,7 +59,7 @@ private:
     player_record* tempdata;
 
     QString text;
-    int rank;
+    //int rank;
     bool convertOK;
 
 };
