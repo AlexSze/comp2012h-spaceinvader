@@ -56,7 +56,6 @@ void avlWindow::read_as_num()
         }
         // remove null strings
         tmpNames.removeAll(QString(""));
-        qDebug() << tmpScore << tmpNames;
         player_record* tmp_player = new player_record(tmpScore, tmpNames);
         // add to data
         data.push_back(*tmp_player);
@@ -65,7 +64,7 @@ void avlWindow::read_as_num()
     // close file
     file.close();
     // print what is read
-    print_avl();
+    //print_avl();
 }
 
 void avlWindow::write_to_file()
@@ -93,6 +92,7 @@ void avlWindow::write_to_file()
     QTextStream out(&file);
     QString text = avl_tree.dump_csv();
     //QString text = ui->plainTextEdit->toPlainText();
+    qDebug() << text;
     out << text;
     // close file
     file.flush();
