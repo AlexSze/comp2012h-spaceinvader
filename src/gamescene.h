@@ -20,6 +20,7 @@ public:
 
     void drawPanel(int x, int y, int width, int height, QColor color, double opacity);
     void mainwindow();
+
 };
 
 #endif // GAMESCENE_H

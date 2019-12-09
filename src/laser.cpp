@@ -1,6 +1,7 @@
 #include <QTimer>
 #include <QGraphicsScene>
 #include <QList>
+#include <QGraphicsView>
 
 #include "score.h"
 #include "laser.h"
@@ -8,10 +9,12 @@
 #include "abstractenemy.h"
 #include "player.h"
 #include "gamescene.h"
+#include "defeat_screen.h"
 
 #include <QDebug>
 
 extern GameScene* s;
+extern defeat_screen* n;
 
 Laser::Laser(int speed, int horizontal_speed, QGraphicsPixmapItem* parent)
     : QObject(),
@@ -49,6 +52,7 @@ void Laser::move() {
 
             // remove both laser and colliding object
             // delete collising object
+
             static_cast <abstractEnemy*>
                 (colliding[i])->hurt();
             // delete laser
@@ -64,8 +68,37 @@ void Laser::move() {
             s->health->decrease();
 
             // player loses one live
-            static_cast <Player*>
-                (colliding[i])->hurt();
+            if (s->health->get_health()==0){
+                static_cast <Player*>(colliding[i])->decrease_live();
+
+                //check if there are live left
+                if (!(static_cast <Player*>(colliding[i])->get_live()==0)){
+                     static_cast <Player*>(colliding[i])->hurt();
+                    s->health->reset();
+
+                }else{
+                    //show defeat screen
+                    n= new defeat_screen;
+                    n->show();
+
+                    s->close();
+                    //delete s; it is deleted on defeat screen
+                }
+            }/*else if (speed < 0 &&
+                      typeid(*(colliding[i])) == typeid(boss)){
+                //add score
+                s->score->increase();
+
+                // remove both laser and colliding object
+                // delete collising object
+
+                static_cast <boss*>
+                    (colliding[i])->hurt();
+                // delete laser
+                delete this;
+                return;
+            }*/
+
             // delete laser
             delete this;
             return;

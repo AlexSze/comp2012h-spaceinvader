@@ -16,6 +16,7 @@ win_screen::~win_screen()
 void win_screen::on_pushButton_clicked()
 {
     //TODO change it for all three scene
+    delete s;
 
     s= new GameScene;
     s->show();

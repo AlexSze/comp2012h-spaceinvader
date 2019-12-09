@@ -15,3 +15,8 @@ void Score::increase(){
     score++;
     setPlainText(QString("Score: ") + QString::number(score)); // Score: 1
 }
+
+void Score::reset()
+{
+    score=0;
+}

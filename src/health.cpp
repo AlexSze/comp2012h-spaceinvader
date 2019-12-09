@@ -26,6 +26,10 @@ void Health::increase()
 void Health::reset()
 {
     health = playerhealth;
+
+    setPlainText(QString("Health: ") + QString::number(health)); // Health: 3
+    setDefaultTextColor(Qt::red);
+    setFont(QFont("times",16));
 }
 
 int Health::get_health()

@@ -85,11 +85,10 @@ void Player::keyPressEvent(QKeyEvent* event) {
 void Player::hurt() {
     // end scene
     // spawn a new player if there's extra life left
-    if (true /* have extra life */) {
-        // allocate player of the game
-        //s->health->reset();
-
         Player* p= new Player();
+        p->set_live(this->get_live());
+        //live
+
         // place the player in the bottom of screen
         p->setPos(SCREEN_WIDTH/2, SCREEN_HEIGHT - PLAYER_HEIGHT);
 
@@ -99,15 +98,6 @@ void Player::hurt() {
         scene()->addItem(p);
         // make it main window of focus
         p->setFocus();
-    }//else if (s->health->get_health()==0){
-
-        //s->close();
-        //delete s;
-
-        //n= new defeat_screen;
-        //n->show();
-   // }
-
 
     // self destruction
     delete this;
@@ -142,9 +132,28 @@ void Player::get_tool(){
 void Player::increase_score()
 {
     score++;
-    cout<<score<<endl;
 }
 
 int Player::get_score() const {
     return score;
+}
+
+int Player::get_live()
+{
+    return live;
+}
+
+void Player::set_live(int a)
+{
+    live=a;
+}
+
+void Player::decrease_live()
+{
+    live--;
+}
+
+void Player::increase_live()
+{
+    live++;
 }
