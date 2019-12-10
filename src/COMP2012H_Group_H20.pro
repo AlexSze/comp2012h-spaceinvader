@@ -41,8 +41,7 @@ SOURCES += \
     score.cpp \
     avlwindow.cpp \
     player_record.cpp \
-    win_screen.cpp \
-    boss.cpp
+    win_screen.cpp
 
 HEADERS += \
     abstractobjects.h \

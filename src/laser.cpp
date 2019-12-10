@@ -10,10 +10,13 @@
 #include "player.h"
 #include "gamescene.h"
 #include "defeat_screen.h"
+#include "win_screen.h"
 
 #include <QDebug>
 
 extern GameScene* s;
+extern defeat_screen* n;
+extern win_screen* a;
 
 Laser::Laser(int speed, int horizontal_speed, QGraphicsPixmapItem* parent)
     : QObject(),
@@ -73,7 +76,7 @@ void Laser::move() {
                 }
                 else {
                     //show defeat screen
-                    defeat_screen* n= new defeat_screen;
+                    n= new defeat_screen;
                     n->show();
 
                     s->close();
@@ -90,6 +93,14 @@ void Laser::move() {
             delete this;
             return;
         }
+        /*else if (typeid(*(colliding[i])) == typeid(boss)){
+              //show defeat screen
+              a= new win_screen;
+              a->show();
+
+              s->close();
+              //delete s; it is deleted on win screen
+        }*/
     }
 
     // move laser
