@@ -38,7 +38,7 @@ void win_screen::on_pushButton_clicked()
 void win_screen::on_pushButton_2_clicked()
 {
     //generate another game, there are three scene
-    if (typeid (*s)==typeid(GameScene)){
+    if (typeid (* s)==typeid(GameScene)){
         delete s;
 
         s= new gamescene2;
@@ -49,8 +49,10 @@ void win_screen::on_pushButton_2_clicked()
         this->close();
         delete this;
 
-    }else if (typeid (s)==typeid(gamescene2)){
+    }else if (typeid (* s)==typeid(gamescene2)){
         delete s;
+
+        qDebug()<<"ys";
 
         s= new gamescene3;
         s->show();

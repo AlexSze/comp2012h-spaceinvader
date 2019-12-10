@@ -38,8 +38,6 @@ class Player : public abstractobjects, public QGraphicsPixmapItem{
         void heal();
         void attack();
         void get_tool();
-        void increase_score();
-        int get_score() const;
 
         // overriding key event handler
         void keyPressEvent(QKeyEvent* event);

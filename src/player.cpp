@@ -124,12 +124,3 @@ void Player::attack(){
 void Player::get_tool(){
     // TODO
 }
-
-void Player::increase_score()
-{
-    score++;
-}
-
-int Player::get_score() const {
-    return score;
-}

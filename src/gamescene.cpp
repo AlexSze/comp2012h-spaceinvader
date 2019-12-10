@@ -21,11 +21,24 @@ GameScene::GameScene(QWidget* parent) {
 
     setBackgroundBrush(QBrush(QImage(":/src/images/background.png")));
 
+    score = new Score();
+    score->setPos(score->x(), score->y());
+
+    lifes = new life();
+    lifes->setPos(lifes->x(), lifes->y() + 50);
+
     screen_construction();
 
     character_construction();
 
     show();
+}
+
+GameScene::~GameScene()
+{
+    delete health;
+    delete player;
+    e.clear();
 }
 
 void GameScene::screen_construction()
@@ -39,8 +52,6 @@ void GameScene::screen_construction()
     setFixedSize(SCREEN_WIDTH, SCREEN_HEIGHT);
 
     //create score
-    score = new Score();
-    score->setPos(score->x(), score->y());
     scene->addItem(score);
 
     //create health
@@ -49,8 +60,6 @@ void GameScene::screen_construction()
     scene->addItem(health);
 
     //create life
-    lifes = new life();
-    lifes->setPos(lifes->x(), lifes->y() + 50);
     scene->addItem(lifes);
 }
 
@@ -61,13 +70,13 @@ void GameScene::character_construction()
 
 
     for (unsigned int i=0; i<8; ++i) {
-        abstractEnemy* e = new abstractEnemy(2, 10, true);
-        e->setPos(i*SCREEN_WIDTH/8, BASE_ENEMY_HEIGHT/2);
-        scene->addItem(e);
+        e.push_back(new abstractEnemy(2, 10, true));
+        e.back()->setPos(i*SCREEN_WIDTH/8, BASE_ENEMY_HEIGHT/2);
+        scene->addItem(e.back());
 
-        e = new abstractEnemy(1, 10, false);
-        e->setPos(i*SCREEN_WIDTH/8, BASE_ENEMY_HEIGHT*3/2);
-        scene->addItem(e);
+        e.push_back(new abstractEnemy(1, 10, false));
+        e.back()->setPos(i*SCREEN_WIDTH/8, BASE_ENEMY_HEIGHT*3/2);
+        scene->addItem(e.back());
     }
 
     boss= new Boss(5, 4, true);

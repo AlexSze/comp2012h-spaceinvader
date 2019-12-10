@@ -106,7 +106,7 @@ void Laser::move() {
                   (colliding[i])->hurt();
 
               //show win_screen
-              if (typeid (s)==typeid(gamescene3)){
+              if (typeid (*s)==typeid(gamescene3)){
                 u= new win_scene_gs3;
                 u->show();
               }else{
