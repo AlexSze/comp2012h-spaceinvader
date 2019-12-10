@@ -86,12 +86,11 @@ void Player::keyPressEvent(QKeyEvent* event) {
 
 bool Player::hurt() {
     //check if there are lives left
-    if (--live != 0) {
+    s->lifes->decrease();
+    if (s->lifes->get_life() != 0) {
         // end scene
         // spawn a new player if there's extra life left
         Player* p= new Player();
-        //live
-        p->set_live(live);
 
         // place the player in the bottom of screen
         p->setPos(SCREEN_WIDTH/2, SCREEN_HEIGHT - PLAYER_HEIGHT);
@@ -144,24 +143,4 @@ void Player::increase_score()
 
 int Player::get_score() const {
     return score;
-}
-
-int Player::get_live()
-{
-    return live;
-}
-
-void Player::set_live(int a)
-{
-    live=a;
-}
-
-void Player::decrease_live()
-{
-    live--;
-}
-
-void Player::increase_live()
-{
-    live++;
 }

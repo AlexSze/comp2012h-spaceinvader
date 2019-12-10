@@ -30,6 +30,7 @@ SOURCES += \
     abstractobjects.cpp \
     defeat_screen.cpp \
     health.cpp \
+    life.cpp \
         main.cpp \
         mainwindow.cpp \
     abstractenemy.cpp \
@@ -40,12 +41,14 @@ SOURCES += \
     score.cpp \
     avlwindow.cpp \
     player_record.cpp \
-    win_screen.cpp
+    win_screen.cpp \
+    boss.cpp
 
 HEADERS += \
     abstractobjects.h \
     defeat_screen.h \
     health.h \
+    life.h \
     mainwindow.h \
     abstractenemy.h \
     abstracttools.h \

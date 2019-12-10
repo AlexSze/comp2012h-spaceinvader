@@ -7,6 +7,7 @@
 #include "player.h"
 #include "score.h"
 #include "health.h"
+#include "life.h"
 
 /* game element class here */
 
@@ -17,6 +18,7 @@ public:
     Player* player;
     Score* score;
     Health* health;
+    life* lifes;
 
     void drawPanel(int x, int y, int width, int height, QColor color, double opacity);
     void mainwindow();

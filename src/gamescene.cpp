@@ -47,6 +47,11 @@ GameScene::GameScene(QWidget* parent) {
     health->setPos(health->x(), health->y() + 25);
     scene->addItem(health);
 
+    //create life
+    lifes = new life();
+    lifes->setPos(lifes->x(), lifes->y() + 50);
+    scene->addItem(lifes);
+
 
     for (unsigned int i=0; i<8; ++i) {
         abstractEnemy* e = new abstractEnemy(2, 10, true);
@@ -57,6 +62,11 @@ GameScene::GameScene(QWidget* parent) {
         e->setPos(i*SCREEN_WIDTH/8, BASE_ENEMY_HEIGHT*3/2);
         scene->addItem(e);
     }
+
+    abstractEnemy* boss= new abstractEnemy(5, 4, true);
+    boss->setPos(SCREEN_WIDTH/2, BASE_ENEMY_HEIGHT/2);
+    scene->addItem(boss);
+
     show();
 }
 
