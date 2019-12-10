@@ -21,9 +21,11 @@ GameScene::GameScene(QWidget* parent) {
 
     setBackgroundBrush(QBrush(QImage(":/src/images/background.png")));
 
+    //create score
     score= new Score();
     score->setPos(score->x(), score->y());
 
+    //create life
     lifes= new life();
     lifes->setPos(lifes->x(), lifes->y() + 50);
 
@@ -51,16 +53,13 @@ void GameScene::screen_construction()
     // set window size
     setFixedSize(SCREEN_WIDTH, SCREEN_HEIGHT);
 
-    //create score
     scene->addItem(score);
+    scene->addItem(lifes);
 
     //create health
     health = new Health();
     health->setPos(health->x(), health->y() + 25);
     scene->addItem(health);
-
-    //create life
-    scene->addItem(lifes);
 }
 
 void GameScene::character_construction()
