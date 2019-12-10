@@ -16,8 +16,6 @@
 using namespace std;
 
 /* game element class here */
-extern Score* score;
-extern life* lifes;
 
 class GameScene : public QGraphicsView {
 public:
