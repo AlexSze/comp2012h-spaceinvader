@@ -7,5 +7,8 @@
         <file>sounds/pew.wav</file>
         <file>images/background2.png</file>
         <file>images/background3.png</file>
+        <file>images/tool_defense.png</file>
+        <file>images/tool_life.png</file>
+        <file>images/tool_weapon.png</file>
     </qresource>
 </RCC>
