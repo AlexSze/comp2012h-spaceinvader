@@ -23,6 +23,7 @@ class Player : public abstractobjects, public QGraphicsPixmapItem{
         // horizontal vector of beam direction
         int horizontal_beam{0};
         int score{0};
+        unsigned int atk{1};
 
         // audio player object
         QMediaPlayer* pew_sound;
@@ -35,9 +36,8 @@ class Player : public abstractobjects, public QGraphicsPixmapItem{
         int get_attack_type() const;
         int get_defense_type() const;
 
-        void heal();
-        void attack();
-        void get_tool();
+        void increase_atk();
+        int get_atk();
 
         // overriding key event handler
         void keyPressEvent(QKeyEvent* event);

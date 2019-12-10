@@ -112,15 +112,12 @@ int Player::get_defense_type() const{
     return defense_type;
 }
 
-void Player::heal(){
-    //s->health->increase();
-    //TODO, cannot include gamescene as gamescene included player
+void Player::increase_atk()
+{
+    atk++;
 }
 
-void Player::attack(){
-    // TODO
-}
-
-void Player::get_tool(){
-    // TODO
+int Player::get_atk()
+{
+    return atk;
 }

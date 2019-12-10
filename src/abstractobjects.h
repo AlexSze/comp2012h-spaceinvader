@@ -8,7 +8,7 @@ enum DEFENSE {NUL /* default */, BARRIER};
 
 class abstractobjects : public QObject {
     protected:
-        unsigned int health;
+        int health;
         const int attack_type;
         const int defense_type;
         int speed;

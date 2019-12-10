@@ -42,6 +42,7 @@ SOURCES += \
     score.cpp \
     avlwindow.cpp \
     player_record.cpp \
+    tool_atk.cpp \
     tool_life.cpp \
     win_scene_gs3.cpp \
     win_screen.cpp \
@@ -67,6 +68,7 @@ HEADERS += \
     avl.h \
     avlwindow.h \
     player_record.h \
+    tool_atk.h \
     tool_life.h \
     win_scene_gs3.h \
     win_screen.h \

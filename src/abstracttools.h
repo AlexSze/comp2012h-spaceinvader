@@ -6,6 +6,7 @@
 
 #include <QGraphicsItem>
 #include <QGraphicsPixmapItem>
+#include "player.h"
 
 class abstracttools : public QObject, public QGraphicsPixmapItem{
     Q_OBJECT
@@ -16,9 +17,10 @@ class abstracttools : public QObject, public QGraphicsPixmapItem{
 
     public:
         abstracttools(QGraphicsItem* parent=nullptr);
+        void move_timer();
 
     public slots:
-        void move();
+        virtual void move();
 };
 
 #endif // ABSTRACTTOOLS_H

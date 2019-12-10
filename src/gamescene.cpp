@@ -11,6 +11,8 @@
 #include "abstractenemy.h"
 #include "constants.h"
 #include "boss.h"
+#include "tool_life.h"
+#include "tool_atk.h"
 
 /* game element classes here */
 GameScene::GameScene(QWidget* parent) {
@@ -25,7 +27,6 @@ GameScene::GameScene(QWidget* parent) {
     score->setPos(score->x(), score->y());
 
     //create life
-    qDebug()<<"1";
     lifes->setPos(0, 50);
 
     screen_construction();
@@ -82,8 +83,13 @@ void GameScene::character_construction()
     scene->addItem(boss);
 
     int random= rand()% SCREEN_WIDTH;
-    tt.push_back(new abstracttools());
+    tt.push_back(new tool_life());
     tt.back()->setPos(random, 0);
+    scene->addItem(tt.back());
+
+    int random1= rand()% SCREEN_WIDTH;
+    tt.push_back(new tool_atk());
+    tt.back()->setPos(random1, 0);
     scene->addItem(tt.back());
 
 

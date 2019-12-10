@@ -22,7 +22,6 @@ void life::decrease()
 void life::increase()
 {
     lifes++;
-
     setPlainText(QString("Live(s): ") + QString::number(lifes));
 }
 

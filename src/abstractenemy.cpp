@@ -13,6 +13,7 @@
 #include <QGraphicsItem>
 #include <QList>
 #include <QTimer>
+#include <QDebug>
 
 extern GameScene* s;
 
@@ -124,7 +125,8 @@ void abstractEnemy::move() {
 }
 
 bool abstractEnemy::hurt() {
-    if (--health == 0)
+    health= health - s->player->get_atk();
+    if (health <= 0)
         delete this;
 }
 
