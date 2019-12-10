@@ -43,7 +43,6 @@ SOURCES += \
     score.cpp \
     avlwindow.cpp \
     player_record.cpp \
-    tools.cpp \
     win_scene_gs3.cpp \
     win_screen.cpp
 

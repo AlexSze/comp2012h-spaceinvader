@@ -21,10 +21,10 @@ GameScene::GameScene(QWidget* parent) {
 
     setBackgroundBrush(QBrush(QImage(":/src/images/background.png")));
 
-    Score* score= new Score();
+    score= new Score();
     score->setPos(score->x(), score->y());
 
-    life* lifes= new life();
+    lifes= new life();
     lifes->setPos(lifes->x(), lifes->y() + 50);
 
     screen_construction();
