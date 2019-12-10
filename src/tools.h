@@ -4,10 +4,8 @@
 #include "abstracttools.h"
 
 class Tools : public abstracttools {
-private:
 public:
-    Tools();
-    ~Tools();
+private:
 };
 
 #endif // TOOLS_H
