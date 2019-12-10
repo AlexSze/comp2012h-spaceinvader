@@ -37,21 +37,21 @@
       <item>
        <widget class="QPushButton" name="pushButton_max">
         <property name="text">
-         <string>find max</string>
+         <string>Find max</string>
         </property>
        </widget>
       </item>
       <item>
        <widget class="QPushButton" name="pushButton_min">
         <property name="text">
-         <string>find min</string>
+         <string>Find min</string>
         </property>
        </widget>
       </item>
       <item>
        <widget class="QPushButton" name="pushButton_score">
         <property name="text">
-         <string>find score</string>
+         <string>Find score</string>
         </property>
        </widget>
       </item>
@@ -65,7 +65,7 @@
      <x>0</x>
      <y>0</y>
      <width>629</width>
-     <height>27</height>
+     <height>26</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFiles">
