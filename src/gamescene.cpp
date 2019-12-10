@@ -27,21 +27,6 @@ GameScene::GameScene(QWidget* parent) {
     // set window size
     setFixedSize(SCREEN_WIDTH, SCREEN_HEIGHT);
 
-    // allocate player of the game
-    player = new Player();
-    // place the player in the bottom of screen
-    player->setPos(SCREEN_WIDTH/2, SCREEN_HEIGHT - PLAYER_HEIGHT);
-
-    // make it main window of focus
-    player->setFlag(QGraphicsItem::ItemIsFocusable);
-    player->setFocus();
-    // put player in scene
-    scene->addItem(player);
-
-    //create score
-    score = new Score();
-    scene->addItem(score);
-
     //create health
     health = new Health();
     health->setPos(health->x(), health->y() + 25);
@@ -51,6 +36,9 @@ GameScene::GameScene(QWidget* parent) {
     lifes = new life();
     lifes->setPos(lifes->x(), lifes->y() + 50);
     scene->addItem(lifes);
+
+    // setup player
+    newPlayer();
 
 
     for (unsigned int i=0; i<8; ++i) {
@@ -91,3 +79,26 @@ void GameScene::mainwindow()
     connect(start, SIGNAL(clicked()), this, SLOT(startgame()));
 
 }*/
+
+void GameScene::newPlayer() {
+
+    // remove existing player
+    delete player;
+
+    // spawn a new player
+    player = new Player();
+
+    // place the player in the bottom of screen
+    player->setPos(SCREEN_WIDTH/2, SCREEN_HEIGHT - PLAYER_HEIGHT);
+
+    // make it main window focusable
+    player->setFlag(QGraphicsItem::ItemIsFocusable);
+
+    // make it main window of focus
+    player->setFocus();
+
+    // put player in scene
+    scene->addItem(player);
+
+    health->reset();
+}

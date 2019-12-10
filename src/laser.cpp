@@ -15,7 +15,6 @@
 #include <QDebug>
 
 extern GameScene* s;
-extern defeat_screen* n;
 extern win_screen* a;
 
 Laser::Laser(int speed, int horizontal_speed, QGraphicsPixmapItem* parent)
@@ -70,13 +69,9 @@ void Laser::move() {
             s->health->decrease();
 
             if (s->health->get_health()==0) {
-                if (static_cast <Player*>(colliding[i])->hurt()) {
-                    // player still have lives, reset health
-                    s->health->reset();
-                }
-                else {
+                if (!(static_cast <Player*>(colliding[i])->hurt())) {
                     //show defeat screen
-                    n= new defeat_screen;
+                    defeat_screen* n = new defeat_screen;
                     n->show();
 
                     s->close();

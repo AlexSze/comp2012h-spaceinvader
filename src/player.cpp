@@ -89,21 +89,10 @@ bool Player::hurt() {
     s->lifes->decrease();
     if (s->lifes->get_life() != 0) {
         // end scene
+
         // spawn a new player if there's extra life left
-        Player* p= new Player();
+        s->newPlayer();
 
-        // place the player in the bottom of screen
-        p->setPos(SCREEN_WIDTH/2, SCREEN_HEIGHT - PLAYER_HEIGHT);
-
-        // make it main window focusable
-        p->setFlag(QGraphicsItem::ItemIsFocusable);
-        // put player in scene
-        scene()->addItem(p);
-        // make it main window of focus
-        p->setFocus();
-
-        // self destruction
-        delete this;
         // signal revival, reset health
         return true;
     }

@@ -14,15 +14,16 @@
 class GameScene : public QGraphicsView {
 public:
     GameScene(QWidget* parent = nullptr);
-    QGraphicsScene* scene;
-    Player* player;
-    Score* score;
-    Health* health;
-    life* lifes;
+    QGraphicsScene* scene{nullptr};
+    Player* player{nullptr};
+    Score* score{nullptr};
+    Health* health{nullptr};
+    life* lifes{nullptr};
 
     void drawPanel(int x, int y, int width, int height, QColor color, double opacity);
     void mainwindow();
 
+    void newPlayer();
 };
 
 #endif // GAMESCENE_H

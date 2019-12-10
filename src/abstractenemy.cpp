@@ -99,11 +99,7 @@ void abstractEnemy::move() {
             s->health->decrease();
 
             if (s->health->get_health()==0) {
-                if (static_cast <Player*>(colliding[i])->hurt()) {
-                    // player still have lives, reset health
-                    s->health->reset();
-                }
-                else {
+                if (!(static_cast <Player*>(colliding[i])->hurt())) {
                     //show defeat screen
                     defeat_screen* n= new defeat_screen;
                     n->show();
