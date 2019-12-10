@@ -124,18 +124,3 @@ void Player::attack(){
 void Player::get_tool(){
     // TODO
 }
-
-int Player::get_score()
-{
-    return score;
-}
-
-void Player::reset_score()
-{
-    score=0;
-}
-
-void Player::set_score(int a)
-{
-    score=a;
-}
