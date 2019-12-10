@@ -17,9 +17,18 @@ void defeat_screen::on_pushButton_restart_clicked()
 {
     //TODO change it for all three scene
     //TODO player cannot move, player health is not acting normal
-    delete s;
+    s->close();
 
-    s= new GameScene;
+    if (typeid (*s)==typeid(GameScene)){
+        delete s;
+        s= new GameScene;}
+    if (typeid (*s)==typeid(gamescene2)){
+        delete s;
+        s= new gamescene2;}
+    if (typeid (*s)==typeid(gamescene3)){
+        delete s;
+        s= new gamescene3;}
+
     s->show();
 
     s->health->reset();

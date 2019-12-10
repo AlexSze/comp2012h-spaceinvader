@@ -12,11 +12,14 @@
 #include "defeat_screen.h"
 #include "win_screen.h"
 #include "boss.h"
+#include "gamescene3.h"
+#include "win_scene_gs3.h"
 
 #include <QDebug>
 
 extern GameScene* s;
 extern win_screen* a;
+extern win_scene_gs3* u;
 
 Laser::Laser(int speed, int horizontal_speed, QGraphicsPixmapItem* parent)
     : QObject(),
@@ -103,8 +106,13 @@ void Laser::move() {
                   (colliding[i])->hurt();
 
               //show win_screen
-              a= new win_screen;
-              a->show();
+              if (typeid (s)==typeid(gamescene3)){
+                u= new win_scene_gs3;
+                u->show();
+              }else{
+                a= new win_screen;
+                a->show();
+              }
 
               s->close();
               //delete s; it is deleted on win_screen

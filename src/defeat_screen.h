@@ -4,6 +4,8 @@
 #include <QDialog>
 
 #include "gamescene.h"
+#include "gamescene2.h"
+#include "gamescene3.h"
 
 extern GameScene* s;
 

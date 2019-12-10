@@ -3,6 +3,7 @@
 #include "avlwindow.h"
 #include "win_screen.h"
 #include "defeat_screen.h"
+#include "win_scene_gs3.h"
 
 #include <QApplication>
 #include <QPushButton>
@@ -16,6 +17,7 @@ GameScene* s;
 avlWindow* w;
 win_screen* a;
 defeat_screen* n;
+win_scene_gs3* u;
 
 AVL<player_record> avl_tree;
 

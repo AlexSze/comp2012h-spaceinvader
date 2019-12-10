@@ -22,9 +22,11 @@ public:
     life* lifes{nullptr};
     abstractEnemy* boss;
 
-    virtual void set_bg();
     void drawPanel(int x, int y, int width, int height, QColor color, double opacity);
     void mainwindow();
+
+    void screen_construction();
+    void character_construction();
 
     void newPlayer();
 };

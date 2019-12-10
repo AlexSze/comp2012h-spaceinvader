@@ -1,14 +1,13 @@
-#include "gamescene2.h"
-#include <QDebug>
+#include "gamescene3.h"
 
-gamescene2::gamescene2(QWidget *parent)
+gamescene3::gamescene3(QWidget *parent)
 {
     // allocate scene for game
     scene = new QGraphicsScene(parent);
     // set window size and coordinate
     scene->setSceneRect(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
 
-    setBackgroundBrush(QBrush(QImage(":/src/images/background2.png")));
+    setBackgroundBrush(QBrush(QImage(":/src/images/background3.png")));
 
     screen_construction();
 

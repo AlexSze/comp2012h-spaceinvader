@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>win_screen</class>
- <widget class="QDialog" name="win_screen">
+ <class>win_scene_gs3</class>
+ <widget class="QDialog" name="win_scene_gs3">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -16,8 +16,8 @@
   <widget class="QTextBrowser" name="textBrowser">
    <property name="geometry">
     <rect>
-     <x>90</x>
-     <y>60</y>
+     <x>100</x>
+     <y>70</y>
      <width>231</width>
      <height>41</height>
     </rect>
@@ -30,32 +30,32 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'.AppleSystemUIFont'; font-size:24pt; font-weight:600; font-style:italic;&quot;&gt;Conget! You Won!&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </widget>
-  <widget class="QWidget" name="layoutWidget">
+  <widget class="QWidget" name="">
    <property name="geometry">
     <rect>
-     <x>150</x>
+     <x>140</x>
      <y>130</y>
-     <width>105</width>
+     <width>124</width>
      <height>100</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
+     <widget class="QPushButton" name="pushButton_3">
+      <property name="text">
+       <string>Restart level</string>
+      </property>
+     </widget>
+    </item>
+    <item>
      <widget class="QPushButton" name="pushButton">
       <property name="text">
-       <string>Restart</string>
+       <string>Restart Game</string>
       </property>
      </widget>
     </item>
     <item>
      <widget class="QPushButton" name="pushButton_2">
-      <property name="text">
-       <string>Next Level</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QPushButton" name="pushButton_3">
       <property name="text">
        <string>Quit</string>
       </property>

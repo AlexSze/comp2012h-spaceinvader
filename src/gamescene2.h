@@ -6,7 +6,7 @@
 class gamescene2: public GameScene
 {
 public:
-    virtual void set_bg() override;
+    gamescene2(QWidget* parent = nullptr);
 };
 
 #endif // GAMESCENE2_H

@@ -30,6 +30,7 @@ SOURCES += \
     abstractobjects.cpp \
     defeat_screen.cpp \
     gamescene2.cpp \
+    gamescene3.cpp \
     health.cpp \
     life.cpp \
         main.cpp \
@@ -42,6 +43,7 @@ SOURCES += \
     score.cpp \
     avlwindow.cpp \
     player_record.cpp \
+    win_scene_gs3.cpp \
     win_screen.cpp
 
 HEADERS += \
@@ -49,6 +51,7 @@ HEADERS += \
     boss.h \
     defeat_screen.h \
     gamescene2.h \
+    gamescene3.h \
     health.h \
     life.h \
     mainwindow.h \
@@ -62,12 +65,14 @@ HEADERS += \
     avl.h \
     avlwindow.h \
     player_record.h \
+    win_scene_gs3.h \
     win_screen.h
 
 FORMS += \
         defeat_screen.ui \
         mainwindow.ui \
         avlwindow.ui \
+        win_scene_gs3.ui \
         win_screen.ui
 
 # Default rules for deployment.

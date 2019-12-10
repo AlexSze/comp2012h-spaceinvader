@@ -2,6 +2,7 @@
 #include "ui_win_screen.h"
 #include "gamescene.h"
 #include "gamescene2.h"
+#include "gamescene3.h"
 
 win_screen::win_screen(QWidget *parent) :
     QDialog(parent),
@@ -18,10 +19,17 @@ win_screen::~win_screen()
 void win_screen::on_pushButton_clicked()
 {
     //TODO change it for all three scene
-    delete s;
+    s->close();
 
-    s= new GameScene;
+    if (typeid (*s)==typeid(GameScene)){
+        delete s;
+        s= new GameScene;}
+    if (typeid (*s)==typeid(gamescene2)){
+        delete s;
+        s= new gamescene2;}
+
     s->show();
+    s->health->reset();
 
     this->close();
     delete this;
@@ -35,18 +43,25 @@ void win_screen::on_pushButton_2_clicked()
 
         s= new gamescene2;
         s->show();
-    }/*else if (typeid (s)==typeid(gamescene2)){
+
+        s->health->reset();
+
+        this->close();
+        delete this;
+
+    }else if (typeid (s)==typeid(gamescene2)){
         delete s;
 
-        s= new GameScene3;
+        s= new gamescene3;
         s->show();
-    }else{
-        //TODO message "highest level"
-        delete s;
 
-        s= new GameScene3;
-        s->show();
-    }*/
+        s->health->reset();
+
+        //TODO write score into record
+
+        this->close();
+        delete this;
+    }
 }
 
 void win_screen::on_pushButton_3_clicked()

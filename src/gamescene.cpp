@@ -19,8 +19,17 @@ GameScene::GameScene(QWidget* parent) {
     // set window size and coordinate
     scene->setSceneRect(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
 
-    set_bg();
+    setBackgroundBrush(QBrush(QImage(":/src/images/background.png")));
 
+    screen_construction();
+
+    character_construction();
+
+    show();
+}
+
+void GameScene::screen_construction()
+{
     // show the scene
     setScene(scene);
     // hide scrollbars
@@ -43,7 +52,10 @@ GameScene::GameScene(QWidget* parent) {
     lifes = new life();
     lifes->setPos(lifes->x(), lifes->y() + 50);
     scene->addItem(lifes);
+}
 
+void GameScene::character_construction()
+{
     // setup player
     newPlayer();
 
@@ -61,14 +73,6 @@ GameScene::GameScene(QWidget* parent) {
     boss= new Boss(5, 4, true);
     boss->setPos(SCREEN_WIDTH/2, BASE_ENEMY_HEIGHT/2);
     scene->addItem(boss);
-
-    show();
-}
-
-void GameScene::set_bg()
-{
-    // set window background
-    setBackgroundBrush(QBrush(QImage(":/src/images/background.png")));
 }
 
 /*void GameScene::drawPanel(int x, int y, int width, int height, QColor color, double opacity){
