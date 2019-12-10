@@ -81,7 +81,10 @@ void GameScene::character_construction()
     boss->setPos(SCREEN_WIDTH/2, BASE_ENEMY_HEIGHT/2);
     scene->addItem(boss);
 
-    //tt.push_back(new abstracttools());
+    int random= rand()% SCREEN_WIDTH;
+    tt.push_back(new abstracttools());
+    tt.back()->setPos(random, 0);
+    scene->addItem(tt.back());
 
 
 }

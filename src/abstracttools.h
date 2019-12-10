@@ -7,9 +7,7 @@
 #include <QGraphicsItem>
 #include <QGraphicsPixmapItem>
 
-#include "abstractobjects.h"
-
-class abstracttools : public abstractobjects, public QGraphicsPixmapItem{
+class abstracttools : public QObject, public QGraphicsPixmapItem{
     Q_OBJECT
     protected:
         unsigned int weapon{0};
@@ -17,7 +15,7 @@ class abstracttools : public abstractobjects, public QGraphicsPixmapItem{
         unsigned int heal{0};
 
     public:
-        abstracttools();
+        abstracttools(QGraphicsItem* parent=nullptr);
 
     public slots:
         void move();
