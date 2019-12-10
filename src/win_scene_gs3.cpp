@@ -35,6 +35,7 @@ void win_scene_gs3::on_pushButton_clicked()
 
 void win_scene_gs3::on_pushButton_2_clicked()
 {
+    delete s;
     delete this;
     exit(0);
 }
