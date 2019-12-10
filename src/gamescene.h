@@ -12,6 +12,7 @@
 #include "health.h"
 #include "life.h"
 #include "abstractenemy.h"
+#include "abstracttools.h"
 
 using namespace std;
 
@@ -26,11 +27,10 @@ public:
     ~GameScene();
     QGraphicsScene* scene{nullptr};
     Player* player{nullptr};
-    //Score* score{nullptr};
     Health* health{nullptr};
-    //life* lifes{nullptr};
     abstractEnemy* boss;
     list<abstractEnemy*> e;
+    list<abstracttools*> tt;
 
     void drawPanel(int x, int y, int width, int height, QColor color, double opacity);
     void mainwindow();

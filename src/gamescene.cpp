@@ -80,6 +80,10 @@ void GameScene::character_construction()
     boss= new Boss(5, 4, true);
     boss->setPos(SCREEN_WIDTH/2, BASE_ENEMY_HEIGHT/2);
     scene->addItem(boss);
+
+    //tt.push_back(new abstracttools());
+
+
 }
 
 /*void GameScene::drawPanel(int x, int y, int width, int height, QColor color, double opacity){
