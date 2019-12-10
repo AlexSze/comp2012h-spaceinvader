@@ -5,5 +5,7 @@
         <file>images/laser.png</file>
         <file>images/player.png</file>
         <file>sounds/pew.wav</file>
+        <file>images/background2.png</file>
+        <file>images/background3.png</file>
     </qresource>
 </RCC>

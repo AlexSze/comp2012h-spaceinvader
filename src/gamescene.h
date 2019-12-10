@@ -8,6 +8,7 @@
 #include "score.h"
 #include "health.h"
 #include "life.h"
+#include "abstractenemy.h"
 
 /* game element class here */
 
@@ -19,7 +20,9 @@ public:
     Score* score{nullptr};
     Health* health{nullptr};
     life* lifes{nullptr};
+    abstractEnemy* boss;
 
+    virtual void set_bg();
     void drawPanel(int x, int y, int width, int height, QColor color, double opacity);
     void mainwindow();
 

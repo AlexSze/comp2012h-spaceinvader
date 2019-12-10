@@ -28,8 +28,8 @@ CONFIG += c++11
 
 SOURCES += \
     abstractobjects.cpp \
-    boss.cpp \
     defeat_screen.cpp \
+    gamescene2.cpp \
     health.cpp \
     life.cpp \
         main.cpp \
@@ -48,6 +48,7 @@ HEADERS += \
     abstractobjects.h \
     boss.h \
     defeat_screen.h \
+    gamescene2.h \
     health.h \
     life.h \
     mainwindow.h \

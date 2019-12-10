@@ -5,10 +5,12 @@
 #include <QImage>
 #include <QBrush>
 #include <QGraphicsTextItem>
+#include <QDebug>
 
 #include "gamescene.h"
 #include "abstractenemy.h"
 #include "constants.h"
+#include "boss.h"
 
 /* game element classes here */
 GameScene::GameScene(QWidget* parent) {
@@ -16,8 +18,8 @@ GameScene::GameScene(QWidget* parent) {
     scene = new QGraphicsScene(parent);
     // set window size and coordinate
     scene->setSceneRect(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
-    // set window background
-    setBackgroundBrush(QBrush(QImage(":/src/images/background.png")));
+
+    set_bg();
 
     // show the scene
     setScene(scene);
@@ -26,6 +28,11 @@ GameScene::GameScene(QWidget* parent) {
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     // set window size
     setFixedSize(SCREEN_WIDTH, SCREEN_HEIGHT);
+
+    //create score
+    score = new Score();
+    score->setPos(score->x(), score->y());
+    scene->addItem(score);
 
     //create health
     health = new Health();
@@ -51,11 +58,17 @@ GameScene::GameScene(QWidget* parent) {
         scene->addItem(e);
     }
 
-    abstractEnemy* boss= new abstractEnemy(5, 4, true);
+    boss= new Boss(5, 4, true);
     boss->setPos(SCREEN_WIDTH/2, BASE_ENEMY_HEIGHT/2);
     scene->addItem(boss);
 
     show();
+}
+
+void GameScene::set_bg()
+{
+    // set window background
+    setBackgroundBrush(QBrush(QImage(":/src/images/background.png")));
 }
 
 /*void GameScene::drawPanel(int x, int y, int width, int height, QColor color, double opacity){

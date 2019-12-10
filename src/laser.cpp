@@ -11,6 +11,7 @@
 #include "gamescene.h"
 #include "defeat_screen.h"
 #include "win_screen.h"
+#include "boss.h"
 
 #include <QDebug>
 
@@ -88,14 +89,34 @@ void Laser::move() {
             delete this;
             return;
         }
-        /*else if (typeid(*(colliding[i])) == typeid(boss)){
-              //show defeat screen
+        else if (speed < 0 && typeid(*(colliding[i])) == typeid(Boss)){
+            //add score
+            s->score->increase();
+
+            // remove both laser and colliding object
+            // delete collising object
+
+            if (static_cast <abstractEnemy*>
+                    (colliding[i])->get_health()==1){
+              //delete boss
+              static_cast <abstractEnemy*>
+                  (colliding[i])->hurt();
+
+              //show win_screen
               a= new win_screen;
               a->show();
 
               s->close();
-              //delete s; it is deleted on win screen
-        }*/
+              //delete s; it is deleted on win_screen
+            }else{
+                static_cast <abstractEnemy*>
+                    (colliding[i])->hurt();
+            }
+
+              // delete laser
+              delete this;
+              return;
+        }
     }
 
     // move laser

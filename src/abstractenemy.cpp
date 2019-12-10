@@ -108,9 +108,9 @@ void abstractEnemy::move() {
                     //delete s; it is deleted on defeat screen
                 }
             }
-            // delete enemy
-            delete this;
-            return;
+            // delete enemy do not need to delete enemy
+            //delete this;
+            //return;
         }
     }
 
@@ -132,4 +132,9 @@ bool abstractEnemy::hurt() {
 abstractEnemy::~abstractEnemy() {
     // prepare removal from scene
     QGraphicsItem::prepareGeometryChange();
+}
+
+unsigned int abstractEnemy::get_health() const
+{
+    return health;
 }

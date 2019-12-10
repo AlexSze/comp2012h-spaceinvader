@@ -6,10 +6,6 @@
 #include "abstractenemy.h"
 
 class Boss : public abstractEnemy {
-    private:
-        //TODO
-    public:
-        Boss();
-        ~Boss();
-        //TODO
+public:
+    explicit Boss(unsigned int health=5, int speed=10, bool dir=true, QGraphicsItem* parent=nullptr) : abstractEnemy(health, speed, dir) { }
 };
