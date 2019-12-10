@@ -26,7 +26,7 @@ class abstractEnemy : public abstractobjects, public QGraphicsPixmapItem{
         unsigned int get_health() const;
         // dying is handled by the bullet instead
 
-        virtual void hurt();
+        virtual bool hurt();
 
     public slots:
         void move();

@@ -30,6 +30,7 @@ SOURCES += \
     abstractobjects.cpp \
     defeat_screen.cpp \
     health.cpp \
+    life.cpp \
         main.cpp \
         mainwindow.cpp \
     abstractenemy.cpp \
@@ -46,6 +47,7 @@ HEADERS += \
     abstractobjects.h \
     defeat_screen.h \
     health.h \
+    life.h \
     mainwindow.h \
     abstractenemy.h \
     abstracttools.h \

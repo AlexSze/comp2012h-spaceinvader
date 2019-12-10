@@ -26,11 +26,13 @@ void MainWindow::on_pushButton_game_clicked()
 
 void MainWindow::on_pushButton_scoreboard_clicked()
 {
-    w= new avlWindow;
+    w= new avlWindow(this);
     w->show();
 
+    /*
     this->close();
     delete this;
+    */
 }
 
 void MainWindow::on_pushButton_quit_clicked()

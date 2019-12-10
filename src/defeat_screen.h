@@ -20,9 +20,9 @@ public:
     ~defeat_screen();
 
 private slots:
-    void on_pushButton_clicked();
+    void on_pushButton_restart_clicked();
 
-    void on_pushButton_2_clicked();
+    void on_pushButton_quit_clicked();
 
 private:
     Ui::defeat_screen *ui;

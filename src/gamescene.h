@@ -7,20 +7,23 @@
 #include "player.h"
 #include "score.h"
 #include "health.h"
+#include "life.h"
 
 /* game element class here */
 
 class GameScene : public QGraphicsView {
 public:
     GameScene(QWidget* parent = nullptr);
-    QGraphicsScene* scene;
-    Player* player;
-    Score* score;
-    Health* health;
+    QGraphicsScene* scene{nullptr};
+    Player* player{nullptr};
+    Score* score{nullptr};
+    Health* health{nullptr};
+    life* lifes{nullptr};
 
     void drawPanel(int x, int y, int width, int height, QColor color, double opacity);
     void mainwindow();
 
+    void newPlayer();
 };
 
 #endif // GAMESCENE_H

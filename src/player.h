@@ -23,7 +23,6 @@ class Player : public abstractobjects, public QGraphicsPixmapItem{
         // horizontal vector of beam direction
         int horizontal_beam{0};
         int score{0};
-        int live{2};
 
         // audio player object
         QMediaPlayer* pew_sound;
@@ -41,15 +40,11 @@ class Player : public abstractobjects, public QGraphicsPixmapItem{
         void get_tool();
         void increase_score();
         int get_score() const;
-        int get_live();
-        void set_live(int a);
-        void decrease_live();
-        void increase_live();
 
         // overriding key event handler
         void keyPressEvent(QKeyEvent* event);
 
-        virtual void hurt(); //TODO: change name to respawn
+        virtual bool hurt(); //TODO: change name to respawn
 
     public slots:
         //void revive();
