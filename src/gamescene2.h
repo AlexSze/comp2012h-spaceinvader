@@ -6,7 +6,6 @@
 class gamescene2: public GameScene
 {
 public:
-    explicit gamescene2(): GameScene() {}
     virtual void set_bg() override;
 };
 
