@@ -39,6 +39,8 @@ public:
     void character_construction();
 
     void newPlayer();
+
+    bool enemyExist();
 };
 
 #endif // GAMESCENE_H

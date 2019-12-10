@@ -14,6 +14,7 @@
 #include "boss.h"
 #include "gamescene3.h"
 #include "win_scene_gs3.h"
+#include "enemy.h"
 
 #include <QDebug>
 
@@ -50,16 +51,20 @@ void Laser::move() {
         if (
                 // make sure only bullet from the player hurts enemy
                 speed < 0 &&
-                typeid(*(colliding[i])) == typeid(abstractEnemy)
-                ) {
+                // kill collided enemies
+                (typeid(*colliding[i]) == typeid(Enemy) ||
+                 typeid(*colliding[i]) == typeid(Boss))) {
             //add score
             score->increase();
 
             // remove both laser and colliding object
-            // delete collising object
+            // delete colliding object
 
-            static_cast <abstractEnemy*>
-                (colliding[i])->hurt();
+            if (static_cast <abstractEnemy*>
+                    (colliding[i])->get_health()==1){
+                static_cast <abstractEnemy*>
+                    (colliding[i])->hurt();
+            }
             // delete laser
             delete this;
             return;
@@ -92,31 +97,7 @@ void Laser::move() {
             delete this;
             return;
         }
-        else if (speed < 0 && typeid(*(colliding[i])) == typeid(Boss)){
-            //add score
-            score->increase();
-
-            // remove both laser and colliding object
-            // delete collising object
-
-            if (static_cast <abstractEnemy*>
-                    (colliding[i])->get_health()==1){
-              //delete boss
-              static_cast <abstractEnemy*>
-                  (colliding[i])->hurt();
-
-              //show win_screen
-              if (typeid (*s)==typeid(gamescene3)){
-                u= new win_scene_gs3;
-                u->show();
-              }else{
-                a= new win_screen;
-                a->show();
-              }
-
-              s->close();
-              //delete s; it is deleted on win_screen
-            }else{
+        else {
                 static_cast <abstractEnemy*>
                     (colliding[i])->hurt();
             }
@@ -125,6 +106,21 @@ void Laser::move() {
               delete this;
               return;
         }
+
+    // check if all enemies are killed
+    if (!s->enemyExist()){
+        //show win_screen
+        if (typeid (*s)==typeid(gamescene3)){
+            u= new win_scene_gs3;
+            u->show();
+        }else{
+            a= new win_screen;
+            a->show();
+        }
+
+        s->close();
+        //delete s; it is deleted on win_screen
+        return;
     }
 
     // move laser

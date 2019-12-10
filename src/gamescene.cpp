@@ -4,8 +4,10 @@
 #include <QTimer>
 #include <QImage>
 #include <QBrush>
-#include <QGraphicsTextItem>
 #include <QDebug>
+#include <QGraphicsScene>
+#include <QList>
+#include <QGraphicsView>
 
 #include "gamescene.h"
 #include "abstractenemy.h"
@@ -13,6 +15,7 @@
 #include "boss.h"
 #include "tool_life.h"
 #include "tool_atk.h"
+#include "enemy.h"
 
 /* game element classes here */
 GameScene::GameScene(QWidget* parent) {
@@ -69,11 +72,11 @@ void GameScene::character_construction()
 
 
     for (unsigned int i=0; i<8; ++i) {
-        e.push_back(new abstractEnemy(2, 10, true));
+        e.push_back(new Enemy(2, 10, true));
         e.back()->setPos(i*SCREEN_WIDTH/8, BASE_ENEMY_HEIGHT/2);
         scene->addItem(e.back());
 
-        e.push_back(new abstractEnemy(1, 10, false));
+        e.push_back(new Enemy(1, 10, false));
         e.back()->setPos(i*SCREEN_WIDTH/8, BASE_ENEMY_HEIGHT*3/2);
         scene->addItem(e.back());
     }
@@ -138,4 +141,17 @@ void GameScene::newPlayer() {
     scene->addItem(player);
 
     health->reset();
+}
+
+bool GameScene::enemyExist() {
+    QList<QGraphicsItem *> objectList = items();
+    int size = objectList.size();
+    for (int i = 0; i < size; ++i){
+        // check enemy types
+        if (typeid (objectList[i]) == typeid(Boss) || typeid(objectList[i]) == typeid(Enemy)){
+            return true;
+        }
+    }
+    // if no more enemies exist, return false and go on to win screen
+    return false;
 }
