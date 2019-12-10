@@ -66,6 +66,7 @@ void win_screen::on_pushButton_2_clicked()
 
 void win_screen::on_pushButton_3_clicked()
 {
+    delete s;
     delete this;
     exit(0);
 }
