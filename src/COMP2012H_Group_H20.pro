@@ -50,6 +50,7 @@ HEADERS += \
     abstractobjects.h \
     boss.h \
     defeat_screen.h \
+    enemy.h \
     gamescene2.h \
     gamescene3.h \
     health.h \
@@ -66,6 +67,7 @@ HEADERS += \
     avlwindow.h \
     player_record.h \
     win_scene_gs3.h \
+    tools.h \
     win_screen.h
 
 FORMS += \
