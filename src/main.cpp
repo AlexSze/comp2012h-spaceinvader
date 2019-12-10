@@ -18,12 +18,17 @@ avlWindow* w;
 win_screen* a;
 defeat_screen* n;
 win_scene_gs3* u;
+Score* score;
+life* lifes;
 
 AVL<player_record> avl_tree;
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
+
+    score = new Score();
+    lifes = new life();
 
     m= new MainWindow;
     m->show();

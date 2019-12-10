@@ -15,3 +15,5 @@ gamescene3::gamescene3(QWidget *parent)
 
     show();
 }
+
+//TODO destructor;
