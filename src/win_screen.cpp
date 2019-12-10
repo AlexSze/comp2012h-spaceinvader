@@ -52,8 +52,6 @@ void win_screen::on_pushButton_2_clicked()
     }else if (typeid (* s)==typeid(gamescene2)){
         delete s;
 
-        qDebug()<<"ys";
-
         s= new gamescene3;
         s->show();
 

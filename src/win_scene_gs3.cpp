@@ -25,9 +25,9 @@ void win_scene_gs3::on_pushButton_clicked()
         s= new GameScene;
         s->show();
 
-        s->score->reset();
+        score->reset();
         s->health->reset();
-        s->lifes->reset();
+        lifes->reset();
 
         this->close();
         delete this;

@@ -4,8 +4,13 @@
 #ifndef ABSTRACTTOOLS_H
 #define ABSTRACTTOOLS_H
 
+#include <QGraphicsItem>
+#include <QGraphicsPixmapItem>
 
-class abstracttools {
+#include "abstractobjects.h"
+
+class abstracttools : public abstractobjects, public QGraphicsPixmapItem{
+    Q_OBJECT
     protected:
         unsigned int weapon{0};
         unsigned int defense{0};
@@ -13,7 +18,9 @@ class abstracttools {
 
     public:
         abstracttools();
-        ~abstracttools();
+
+    public slots:
+        void move();
 };
 
 #endif // ABSTRACTTOOLS_H

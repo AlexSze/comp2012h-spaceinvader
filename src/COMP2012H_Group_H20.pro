@@ -33,10 +33,9 @@ SOURCES += \
     gamescene3.cpp \
     health.cpp \
     life.cpp \
-        main.cpp \
-        mainwindow.cpp \
+    main.cpp \
+    mainwindow.cpp \
     abstractenemy.cpp \
-    abstracttools.cpp \
     laser.cpp \
     player.cpp \
     gamescene.cpp \
@@ -44,7 +43,9 @@ SOURCES += \
     avlwindow.cpp \
     player_record.cpp \
     win_scene_gs3.cpp \
-    win_screen.cpp
+    win_screen.cpp \
+    abstracttools.cpp
+
 
 HEADERS += \
     abstractobjects.h \
@@ -57,7 +58,6 @@ HEADERS += \
     life.h \
     mainwindow.h \
     abstractenemy.h \
-    abstracttools.h \
     laser.h \
     constants.h \
     player.h \
@@ -67,8 +67,8 @@ HEADERS += \
     avlwindow.h \
     player_record.h \
     win_scene_gs3.h \
-    tools.h \
-    win_screen.h
+    win_screen.h \
+    abstracttools.h
 
 FORMS += \
         defeat_screen.ui \

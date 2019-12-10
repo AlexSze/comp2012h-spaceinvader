@@ -53,7 +53,7 @@ void Laser::move() {
                 typeid(*(colliding[i])) == typeid(abstractEnemy)
                 ) {
             //add score
-            s->score->increase();
+            score->increase();
 
             // remove both laser and colliding object
             // delete collising object
@@ -94,7 +94,7 @@ void Laser::move() {
         }
         else if (speed < 0 && typeid(*(colliding[i])) == typeid(Boss)){
             //add score
-            s->score->increase();
+            score->increase();
 
             // remove both laser and colliding object
             // delete collising object

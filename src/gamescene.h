@@ -15,6 +15,9 @@
 
 using namespace std;
 
+extern Score* score;
+extern life* lifes;
+
 /* game element class here */
 
 class GameScene : public QGraphicsView {
@@ -23,9 +26,9 @@ public:
     ~GameScene();
     QGraphicsScene* scene{nullptr};
     Player* player{nullptr};
-    Score* score{nullptr};
+    //Score* score{nullptr};
     Health* health{nullptr};
-    life* lifes{nullptr};
+    //life* lifes{nullptr};
     abstractEnemy* boss;
     list<abstractEnemy*> e;
 

@@ -86,8 +86,8 @@ void Player::keyPressEvent(QKeyEvent* event) {
 
 bool Player::hurt() {
     //check if there are lives left
-    s->lifes->decrease();
-    if (s->lifes->get_life() != 0) {
+    lifes->decrease();
+    if (lifes->get_life() != 0) {
         // end scene
 
         // spawn a new player if there's extra life left

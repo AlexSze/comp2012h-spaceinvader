@@ -13,7 +13,6 @@
 #include <QGraphicsItem>
 #include <QList>
 #include <QTimer>
-//#include <main.h>
 
 extern GameScene* s;
 

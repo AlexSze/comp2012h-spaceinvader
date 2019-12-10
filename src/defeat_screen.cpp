@@ -32,7 +32,7 @@ void defeat_screen::on_pushButton_restart_clicked()
     s->show();
 
     s->health->reset();
-    s->score->reset();
+    score->reset();
 
     this->close();
     delete this;
