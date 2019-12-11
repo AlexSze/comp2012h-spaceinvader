@@ -1,11 +1,14 @@
 #include "defeat_screen.h"
 #include "ui_defeat_screen.h"
 
+extern Score* score;
 defeat_screen::defeat_screen(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::defeat_screen)
 {
     ui->setupUi(this);
+    // reset score
+    score->reset();
 }
 
 defeat_screen::~defeat_screen()
@@ -32,7 +35,6 @@ void defeat_screen::on_pushButton_restart_clicked()
     s->show();
 
     s->health->reset();
-    score->reset();
 
     this->close();
     delete this;

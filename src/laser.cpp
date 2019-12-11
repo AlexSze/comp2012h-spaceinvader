@@ -95,7 +95,7 @@ void Laser::move() {
                 speed > 0 &&
                 typeid(*(colliding[i])) == typeid(Player)
                 ) {
-            //decrease health
+            // decrease health
             s->health->decrease();
 
             if (s->health->get_health()==0) {
@@ -124,6 +124,9 @@ void Laser::move() {
     setPos(x() + this->horizontal_speed, y() + this->speed);
     // check out of frame
     if (pos().y() > SCREEN_HEIGHT || pos().y() < 0) {
+        // player wasted a bullet, mark panelty
+        if (pos().y() < 0)
+            score->increase(PENALTY_WASTING_BULLET);
         // remove from scene and delete of out of frame
         scene()->removeItem(this);
         delete this;

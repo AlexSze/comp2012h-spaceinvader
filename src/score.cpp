@@ -11,8 +11,12 @@ Score::Score(QGraphicsItem *parent): QGraphicsTextItem(parent){
     setFont(QFont("times",16));
 }
 
-void Score::increase(){
-    score++;
+void Score::increase(int increment){
+    // cap score at 0 minimum, no underflow
+    if ((int)score + increment < 0)
+        score = 0;
+    else
+        score += increment;
     setPlainText(QString("Score: ") + QString::number(score)); // Score: 1
 }
 

@@ -10,6 +10,7 @@
 
 #include "player.h"
 #include "gamescene.h"
+#include "score.h"
 
 extern GameScene* s;
 
@@ -86,8 +87,9 @@ void Player::keyPressEvent(QKeyEvent* event) {
 }
 
 bool Player::hurt() {
-    //check if there are lives left
+    // check if there are lives left
     lifes->decrease();
+
     if (lifes->get_life() != 0) {
         // end scene
 
