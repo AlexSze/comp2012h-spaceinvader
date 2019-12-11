@@ -87,7 +87,7 @@ void GameScene::character_construction(unsigned int level)
     }
 
     //more pick-ups as levels become more difficult
-    for (unsigned int i = 0; i < level; ++i) {
+    for (unsigned int i = 0; i < (level + 1) / 2; ++i) {
         int random= rand()% SCREEN_WIDTH;
         tt.push_back(new tool_life());
         tt.back()->setPos(random, 0);
