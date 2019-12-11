@@ -19,7 +19,10 @@ avlWindow::avlWindow(QWidget *parent)
 avlWindow::~avlWindow()
 {
     delete ui;
+    // reset global pointer variable
     w = nullptr;
+    // save data to file
+    write_file();
 }
 
 void avlWindow::read_file(bool prompt)
