@@ -31,6 +31,7 @@ SOURCES += \
     defeat_screen.cpp \
     gamescene2.cpp \
     gamescene3.cpp \
+    gamesceneinfinity.cpp \
     health.cpp \
     life.cpp \
     main.cpp \
@@ -56,6 +57,7 @@ HEADERS += \
     enemy.h \
     gamescene2.h \
     gamescene3.h \
+    gamesceneinfinity.h \
     health.h \
     life.h \
     mainwindow.h \

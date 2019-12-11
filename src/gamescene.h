@@ -40,7 +40,7 @@ public:
 
     void newPlayer();
 
-    int enemyExist();
+    unsigned int enemyCount();
 };
 
 #endif // GAMESCENE_H

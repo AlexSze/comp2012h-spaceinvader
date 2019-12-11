@@ -147,7 +147,7 @@ void GameScene::newPlayer() {
     health->reset();
 }
 
-int GameScene::enemyExist() {
+unsigned int GameScene::enemyCount() {
     QList<QGraphicsItem *> objectList = items();
     int size = objectList.size();
     int count = 0;
