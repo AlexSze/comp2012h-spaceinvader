@@ -40,6 +40,17 @@ void defeat_screen::on_pushButton_restart_clicked()
 
 void defeat_screen::on_pushButton_quit_clicked()
 {
+    delete s;
+    this->close();
     delete this;
     exit(0);
+}
+
+void defeat_screen::on_pushButton_backToMain_clicked()
+{
+    m = new MainWindow;
+    this->close();
+    m->show();
+    delete s;
+    delete this;
 }
