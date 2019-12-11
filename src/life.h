@@ -16,7 +16,7 @@ public:
     int get_life();
 
 private:
-    int lifes;
+    unsigned int lifes;
 };
 
 #endif // LIVE_H

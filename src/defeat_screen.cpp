@@ -48,6 +48,11 @@ void defeat_screen::on_pushButton_quit_clicked()
 
 void defeat_screen::on_pushButton_backToMain_clicked()
 {
+    score->reset();
+    while (lifes->get_life() > 2)
+        lifes->decrease();
+    while (lifes->get_life() < 2)
+        lifes->increase();
     m = new MainWindow;
     this->close();
     m->show();
