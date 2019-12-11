@@ -29,6 +29,7 @@ CONFIG += c++11
 SOURCES += \
     abstractobjects.cpp \
     defeat_screen.cpp \
+    gamemode.cpp \
     gamescene2.cpp \
     gamescene3.cpp \
     gamesceneinfinity.cpp \
@@ -55,6 +56,7 @@ HEADERS += \
     boss.h \
     defeat_screen.h \
     enemy.h \
+    gamemode.h \
     gamescene2.h \
     gamescene3.h \
     gamesceneinfinity.h \
@@ -78,6 +80,7 @@ HEADERS += \
 
 FORMS += \
         defeat_screen.ui \
+        game_mode.ui \
         mainwindow.ui \
         avlwindow.ui \
         win_scene_gs3.ui \

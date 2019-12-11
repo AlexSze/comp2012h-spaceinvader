@@ -4,6 +4,7 @@
 #include "win_screen.h"
 #include "defeat_screen.h"
 #include "win_scene_gs3.h"
+#include "gamemode.h"
 
 #include <QApplication>
 #include <QPushButton>
@@ -18,6 +19,7 @@ avlWindow* w{nullptr};
 win_screen* a{nullptr};
 defeat_screen* n{nullptr};
 win_scene_gs3* u{nullptr};
+GameMode* g{nullptr};
 
 Score* score;
 life* lifes;

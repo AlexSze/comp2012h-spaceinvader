@@ -2,6 +2,7 @@
 #include "avlwindow.h"
 #include "ui_mainwindow.h"
 #include "constants.h"
+#include "gamemode.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
