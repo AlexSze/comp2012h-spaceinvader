@@ -63,11 +63,6 @@ void Laser::move() {
             static_cast <abstractEnemy*>
                 (colliding[i])->hurt();
 
-
-
-            /* TODO */
-
-
             // check if all enemies are killed
             if (!(s->enemyExist())) {
                 //show win_screen
@@ -90,8 +85,6 @@ void Laser::move() {
                 //delete s; it is deleted on win_screen
                 return;
             }
-
-
 
             // delete laser
             delete this;
