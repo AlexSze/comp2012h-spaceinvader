@@ -36,11 +36,11 @@ public:
     void mainwindow();
 
     void screen_construction();
-    void character_construction();
+    void character_construction(unsigned int = 1);
 
     void newPlayer();
 
-    bool enemyExist();
+    int enemyExist();
 };
 
 #endif // GAMESCENE_H

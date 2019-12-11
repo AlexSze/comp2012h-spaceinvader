@@ -12,7 +12,7 @@ gamescene2::gamescene2(QWidget *parent)
 
     screen_construction();
 
-    character_construction();
+    character_construction(2);
 
     show();
 }

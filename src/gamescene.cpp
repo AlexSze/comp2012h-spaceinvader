@@ -65,35 +65,39 @@ void GameScene::screen_construction()
     scene->addItem(health);
 }
 
-void GameScene::character_construction()
+void GameScene::character_construction(unsigned int level)
 {
     // setup player
     newPlayer();
 
-
-    for (unsigned int i=0; i<8; ++i) {
-        e.push_back(new Enemy(2, 10, true));
-        e.back()->setPos(i*SCREEN_WIDTH/8, BASE_ENEMY_HEIGHT/2);
-        scene->addItem(e.back());
-
-        e.push_back(new Enemy(1, 10, false));
-        e.back()->setPos(i*SCREEN_WIDTH/8, BASE_ENEMY_HEIGHT*3/2);
-        scene->addItem(e.back());
+    // designing each level with increased difficulty, with an increased amount of enemies
+    for (unsigned int i = 0; i < 8; ++i) {
+        for (unsigned int j = level + 1; j > 0; --j) {
+            e.push_back(new Enemy(j, 10, (j + 1) % 2));
+            e.back()->setPos(i*SCREEN_WIDTH/8, BASE_ENEMY_HEIGHT*(2 * level - 2 * j + 3)/2);
+            scene->addItem(e.back());
+        }
     }
 
-    boss= new Boss(5, 4, true);
-    boss->setPos(SCREEN_WIDTH/2, BASE_ENEMY_HEIGHT/2);
-    scene->addItem(boss);
+    // designing the boss with increased health, thus making the boss more difficult to kill
+    for (unsigned int i = 0; i < level; ++i) {
+        boss= new Boss(5 * level, 4, rand() % 2);
+        boss->setPos(SCREEN_WIDTH * (i + 1) / (level + 1), BASE_ENEMY_HEIGHT/2);
+        scene->addItem(boss);
+    }
 
-    int random= rand()% SCREEN_WIDTH;
-    tt.push_back(new tool_life());
-    tt.back()->setPos(random, 0);
-    scene->addItem(tt.back());
+    //more pick-ups as levels become more difficult
+    for (unsigned int i = 0; i < level; ++i) {
+        int random= rand()% SCREEN_WIDTH;
+        tt.push_back(new tool_life());
+        tt.back()->setPos(random, 0);
+        scene->addItem(tt.back());
 
-    int random1= rand()% SCREEN_WIDTH;
-    tt.push_back(new tool_atk());
-    tt.back()->setPos(random1, 0);
-    scene->addItem(tt.back());
+        int random1= rand()% SCREEN_WIDTH;
+        tt.push_back(new tool_atk());
+        tt.back()->setPos(random1, 0);
+        scene->addItem(tt.back());
+    }
 
 
 }
@@ -143,9 +147,10 @@ void GameScene::newPlayer() {
     health->reset();
 }
 
-bool GameScene::enemyExist() {
+int GameScene::enemyExist() {
     QList<QGraphicsItem *> objectList = items();
     int size = objectList.size();
+    int count = 0;
     for (int i = 0; i < size; ++i){
         // check enemy types
         if (
@@ -153,9 +158,9 @@ bool GameScene::enemyExist() {
                 typeid(*objectList[i]) == typeid(Enemy) ||
                 typeid(*objectList[i]) == typeid(abstractEnemy)
                 ){
-            return true;
+            ++count;
         }
     }
     // if no more enemies exist, return false and go on to win screen
-    return false;
+    return count;
 }

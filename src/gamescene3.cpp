@@ -11,7 +11,7 @@ gamescene3::gamescene3(QWidget *parent)
 
     screen_construction();
 
-    character_construction();
+    character_construction(3);
 
     show();
 }
