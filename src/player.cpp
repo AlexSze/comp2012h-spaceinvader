@@ -122,3 +122,8 @@ int Player::get_atk()
 {
     return atk;
 }
+
+void Player::reset_atk()
+{
+    atk = 1;
+}

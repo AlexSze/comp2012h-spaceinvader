@@ -3,8 +3,10 @@
 
 #include <QDialog>
 #include "gamescene.h"
+#include "mainwindow.h"
 
 extern GameScene* s;
+extern MainWindow* m;
 
 namespace Ui {
 class win_scene_gs3;
@@ -22,6 +24,8 @@ private slots:
     void on_pushButton_restart_game_clicked();
 
     void on_pushButton_restart_level_clicked();
+
+    void on_pushButton_backToMain_clicked();
 
     void on_pushButton_quit_clicked();
 

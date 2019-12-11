@@ -36,7 +36,7 @@ p, li { white-space: pre-wrap; }
      <x>140</x>
      <y>130</y>
      <width>124</width>
-     <height>109</height>
+     <height>135</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout">
@@ -51,6 +51,13 @@ p, li { white-space: pre-wrap; }
      <widget class="QPushButton" name="pushButton_restart_game">
       <property name="text">
        <string>Restart Game</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="pushButton_backToMain">
+      <property name="text">
+       <string>Back to Main</string>
       </property>
      </widget>
     </item>

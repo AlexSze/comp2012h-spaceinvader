@@ -38,6 +38,7 @@ class Player : public abstractobjects, public QGraphicsPixmapItem{
 
         void increase_atk();
         int get_atk();
+        void reset_atk();
 
         // overriding key event handler
         void keyPressEvent(QKeyEvent* event);

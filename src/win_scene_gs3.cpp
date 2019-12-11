@@ -47,6 +47,21 @@ void win_scene_gs3::on_pushButton_restart_level_clicked()
     delete this;
 }
 
+void win_scene_gs3::on_pushButton_backToMain_clicked()
+{
+    s->player->reset_atk();
+    score->reset();
+    while (lifes->get_life() > 2)
+        lifes->decrease();
+    while (lifes->get_life() < 2)
+        lifes->increase();
+    m = new MainWindow;
+    this->close();
+    m->show();
+    delete s;
+    delete this;
+}
+
 void win_scene_gs3::on_pushButton_quit_clicked()
 {
     delete s;

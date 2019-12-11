@@ -48,6 +48,7 @@ void defeat_screen::on_pushButton_quit_clicked()
 
 void defeat_screen::on_pushButton_backToMain_clicked()
 {
+    s->player->reset_atk();
     score->reset();
     while (lifes->get_life() > 2)
         lifes->decrease();

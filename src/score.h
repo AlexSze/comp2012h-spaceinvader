@@ -10,7 +10,7 @@ public:
     void reset();
 
 private:
-    int score;
+    unsigned int score;
 };
 
 
