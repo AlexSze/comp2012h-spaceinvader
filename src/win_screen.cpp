@@ -23,15 +23,17 @@ void win_screen::on_pushButton_restart_clicked()
     //TODO change it for all three scene
     s->close();
 
-    if (typeid (*s)==typeid(GameScene)){
-        delete s;
-        s= new GameScene;}
-    if (typeid (*s)==typeid(gamescene2)){
-        delete s;
-        s= new gamescene2;}
+    // create new game
+    delete s;
+    s= new GameScene;
 
+    // show new scene
     s->show();
+
+    // reset game state
     s->health->reset();
+    score->reset();
+    lifes->reset();
 
     this->close();
     delete this;

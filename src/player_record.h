@@ -15,12 +15,15 @@ public:
     unsigned int get_score() const;
     QStringList get_name() const;
 
+    // operators to compare scores
     bool operator>(player_record&);
     bool operator<(player_record&);
     bool operator>=(player_record&);
     bool operator<=(player_record&);
     bool operator==(player_record&);
     bool operator!=(player_record&);
+    // conversion operator
+    operator QString() const;
 
     // concat
     player_record& operator+=(player_record&);

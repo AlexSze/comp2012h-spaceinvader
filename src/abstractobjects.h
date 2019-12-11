@@ -18,11 +18,12 @@ class abstractobjects : public QObject {
         abstractobjects();
         // health, attack_type, defense_type, speed
         abstractobjects(unsigned int, int, int, int);
-
+        // destructor
         ~abstractobjects();
 
         bool alive();
         void attack();
+        // function of object being hurt, to be implemented by derived classes
         virtual bool hurt()=0;
 };
 

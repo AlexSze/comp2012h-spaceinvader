@@ -32,6 +32,7 @@ void win_scene_gs3::on_pushButton_restart_game_clicked()
         s= new GameScene;
         s->show();
 
+        // reset game state
         score->reset();
         s->health->reset();
         lifes->reset();

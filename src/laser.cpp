@@ -101,7 +101,7 @@ void Laser::move() {
             if (s->health->get_health()==0) {
                 if (!(static_cast <Player*>(colliding[i])->hurt())) {
                     //show defeat screen
-                    defeat_screen* n = new defeat_screen(s);
+                    defeat_screen* n = new defeat_screen;
                     n->show();
 
                     s->close();

@@ -3,32 +3,30 @@
 
 life::life(QGraphicsItem *parent)
 {
-    // initialize the score to 0
-    lifes = playerlife;
-
-    // draw the text
-    setPlainText(QString("Live(s): ") + QString::number(lifes)); // Life=2
-    setDefaultTextColor(Qt::red);
-    setFont(QFont("times",16));
+    // setup life object
+    reset();
 }
 
 void life::decrease()
 {
-    lifes--;
-
+    if (lifes > 0)
+        lifes--;
+    // draw the text
     setPlainText(QString("Live(s): ") + QString::number(lifes));
 }
 
 void life::increase()
 {
     lifes++;
+    // draw the text
     setPlainText(QString("Live(s): ") + QString::number(lifes));
 }
 
 void life::reset()
 {
-    lifes=playerlife;
-
+    // set initial life
+    lifes = PLAYER_LIFE;
+    // draw the text
     setPlainText(QString("Live(s): ") + QString::number(lifes));
     setDefaultTextColor(Qt::red);
     setFont(QFont("times",16));

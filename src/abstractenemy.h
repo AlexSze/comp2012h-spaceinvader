@@ -21,6 +21,7 @@ class abstractEnemy : public abstractobjects, public QGraphicsPixmapItem{
 
         // constructor
         abstractEnemy(unsigned int health=1, int speed=10, bool dir=true, QGraphicsItem* parent=nullptr);
+        // destructor
         ~abstractEnemy();
 
         unsigned int get_health() const;

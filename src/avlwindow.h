@@ -43,9 +43,9 @@ private slots:
 
     void on_pushButton_score_clicked();
 
-    void on_actionOpen_triggered();
+    void on_actionImport_triggered();
 
-    void on_actionSave_triggered();
+    void on_actionExport_triggered();
 
     void on_actionAbout_triggered();
 

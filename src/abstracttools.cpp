@@ -8,6 +8,7 @@
 #include <QTimer>
 
 #include "player.h"
+#include "constants.h"
 
 abstracttools::abstracttools(QGraphicsItem* parent) {
 
@@ -25,5 +26,6 @@ void abstracttools::move_timer()
 
 void abstracttools::move()
 {
-    setPos(x(), y()+10);
+    // move vertically down
+    setPos(x(), y()+ABSTRACT_TOOL_SPEED);
 }

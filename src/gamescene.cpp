@@ -28,9 +28,11 @@ GameScene::GameScene(QWidget* parent) {
 
     //create score
     score->setPos(score->x(), score->y());
+    score->reset();
 
     //create life
     lifes->setPos(0, 50);
+    lifes->reset();
 
     screen_construction();
 

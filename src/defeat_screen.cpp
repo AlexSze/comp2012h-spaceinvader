@@ -22,19 +22,16 @@ void defeat_screen::on_pushButton_restart_clicked()
     //TODO player cannot move, player health is not acting normal
     s->close();
 
-    if (typeid (*s)==typeid(GameScene)){
-        delete s;
-        s= new GameScene;}
-    if (typeid (*s)==typeid(gamescene2)){
-        delete s;
-        s= new gamescene2;}
-    if (typeid (*s)==typeid(gamescene3)){
-        delete s;
-        s= new gamescene3;}
+    // create new game
+    delete s;
+    s= new GameScene;
 
     s->show();
 
+    // reset game state
     s->health->reset();
+    score->reset();
+    lifes->reset();
 
     this->close();
     delete this;

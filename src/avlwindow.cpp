@@ -177,13 +177,13 @@ void avlWindow::on_pushButton_score_clicked()
     ui->plainTextEdit->setPlainText(boolText);
 
 }
-void avlWindow::on_actionOpen_triggered()
-{
+void avlWindow::on_actionImport_triggered()
+{ // read file with prompt = true
     read_file(true);
 }
 
-void avlWindow::on_actionSave_triggered()
-{ /* save to file */
+void avlWindow::on_actionExport_triggered()
+{ // write to file with prompt = true
     write_file(true);
 }
 

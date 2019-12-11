@@ -8,7 +8,7 @@ extern Score* score;
 
 Health::Health(QGraphicsItem *parent): QGraphicsTextItem(parent){
     // initialize the score to 0
-    health = playerhealth;
+    health = PLAYER_HEALTH;
 
     // draw the text
     setPlainText(QString("Health: ") + QString::number(health)); // Health: 3
@@ -32,7 +32,7 @@ void Health::increase()
 
 void Health::reset()
 {
-    health = playerhealth;
+    health = PLAYER_HEALTH;
 
     setPlainText(QString("Health: ") + QString::number(health)); // Health: 3
     setDefaultTextColor(Qt::red);

@@ -27,7 +27,7 @@ bool player_record::operator>(player_record& p) {
     return score > p.score;
 }
 
-bool player_record::operator<(player_record& p){
+bool player_record::operator<(player_record& p) {
     return score < p.score;
 }
 
@@ -45,6 +45,12 @@ bool player_record::operator==(player_record& p) {
 
 bool player_record::operator!=(player_record& p) {
     return score != p.score;
+}
+
+// conversion operator to output as QString
+player_record::operator QString() const{
+    // print object as one line of csv
+    return (QString::number(score) + "," + name.join(",") + "\n");
 }
 
 player_record& player_record::operator+=(player_record& p) {
