@@ -5,6 +5,9 @@
 #include "gamescene2.h"
 #include "gamescene3.h"
 
+#include <QInputDialog>
+
+
 win_scene_gs3::win_scene_gs3(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::win_scene_gs3)
@@ -34,20 +37,27 @@ void win_scene_gs3::on_pushButton_restart_game_clicked()
         delete this;
 }
 
-void win_scene_gs3::on_pushButton_restart_level_clicked()
+void win_scene_gs3::on_pushButton_record_score_clicked()
 {
-    delete s;
+    QStringList playerName;
 
-    s= new gamescene3;
-    s->show();
+    // prompt for player name
+    playerName.append(QInputDialog::getText(this,
+                                            "Record Score", //&title
+                                            "Player Name:" //&label
+                                            //QLineEdit::EchoMode mode = QLineEdit::Normal, const QString &text = QString(), bool *ok = nullptr, Qt::WindowFlags flags = Qt::WindowFlags(), Qt::InputMethodHints inputMethodHints = Qt::ImhNone)
+                                            ));
 
-    s->health->reset();
+    avl_tree.insert(player_record(score->get_score(), playerName));
 
-    this->close();
-    delete this;
+    if (w==nullptr) {
+        // create avl window if doesn't already exist
+        w= new avlWindow(this);
+        w->show();
+    }
 }
 
-void win_scene_gs3::on_pushButton_backToMain_clicked()
+void win_scene_gs3::on_pushButton_backToMenu_clicked()
 {
     s->player->reset_atk();
     score->reset();

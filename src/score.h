@@ -8,6 +8,7 @@ public:
     Score(QGraphicsItem * parent=0);
     void increase();
     void reset();
+    unsigned int get_score() const { return score; }
 
 private:
     unsigned int score;

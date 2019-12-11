@@ -27,8 +27,8 @@ public:
     avlWindow(QWidget *parent = nullptr);
     ~avlWindow();
 
-    void read_file();
-    void write_file();
+    void read_file(bool prompt = false);
+    void write_file(bool prompt = false);
     //void insert_num_to_avl();
     void print_avl();
 

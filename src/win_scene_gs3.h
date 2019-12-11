@@ -21,11 +21,11 @@ public:
     ~win_scene_gs3();
 
 private slots:
+    void on_pushButton_record_score_clicked();
+
     void on_pushButton_restart_game_clicked();
 
-    void on_pushButton_restart_level_clicked();
-
-    void on_pushButton_backToMain_clicked();
+    void on_pushButton_backToMenu_clicked();
 
     void on_pushButton_quit_clicked();
 
