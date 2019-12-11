@@ -70,13 +70,13 @@ void Player::keyPressEvent(QKeyEvent* event) {
         break;
     }
     // move laser gun to the left
-    case Qt::Key_Up:
+    case Qt::Key_Left:
         // change angle of laser gun
         if (horizontal_beam > -20)
             horizontal_beam -= 5;
         break;
     // move laser gun to the right
-    case Qt::Key_Down:
+    case Qt::Key_Right:
         // change angle of laser gun
         if (horizontal_beam < 20)
             horizontal_beam += 5;

@@ -58,13 +58,11 @@ void Laser::move() {
             score->increase();
 
             // remove both laser and colliding object
-            // delete colliding object
 
-            if (static_cast <abstractEnemy*>
-                    (colliding[i])->get_health()==1){
-                static_cast <abstractEnemy*>
-                    (colliding[i])->hurt();
-            }
+            // hurt colliding object
+            static_cast <abstractEnemy*>
+                (colliding[i])->hurt();
+
             // delete laser
             delete this;
             return;
@@ -97,15 +95,8 @@ void Laser::move() {
             delete this;
             return;
         }
-        else {
-                static_cast <abstractEnemy*>
-                    (colliding[i])->hurt();
-            }
-
-              // delete laser
-              delete this;
-              return;
-        }
+    }
+    /*
 
     // check if all enemies are killed
     if (!s->enemyExist()){
@@ -122,6 +113,7 @@ void Laser::move() {
         //delete s; it is deleted on win_screen
         return;
     }
+    */
 
     // move laser
     setPos(x() + this->horizontal_speed, y() + this->speed);
