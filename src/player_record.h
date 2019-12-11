@@ -23,9 +23,9 @@ public:
     bool operator==(player_record&);
     bool operator!=(player_record&);
     // conversion operator
-    operator QString() const;
+    explicit operator QString() const;
 
-    // concat
+    // concat to nQStringList name
     player_record& operator+=(player_record&);
 
 private:

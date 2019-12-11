@@ -7,15 +7,11 @@
 
 #include <QInputDialog>
 
-
-extern Score* score;
 win_scene_gs3::win_scene_gs3(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::win_scene_gs3)
 {
     ui->setupUi(this);
-    // reset score
-    score->reset();
 }
 
 extern win_scene_gs3* u;

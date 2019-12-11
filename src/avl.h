@@ -210,7 +210,7 @@ QString AVL<T>::dump_csv() const {
     // add the larger values
     output.append(right_subtree().dump_csv());
     // add this data
-    output.append(root->value);
+    output.append(QString(root->value));
     // add the lower values
     output.append(left_subtree().dump_csv());
     return output;
