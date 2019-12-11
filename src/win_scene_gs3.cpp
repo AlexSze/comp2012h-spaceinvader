@@ -12,12 +12,14 @@ win_scene_gs3::win_scene_gs3(QWidget *parent) :
     ui->setupUi(this);
 }
 
+extern win_scene_gs3* u;
 win_scene_gs3::~win_scene_gs3()
 {
     delete ui;
+    u=nullptr;
 }
 
-void win_scene_gs3::on_pushButton_clicked()
+void win_scene_gs3::on_pushButton_restart_game_clicked()
 {
         delete s;
 
@@ -32,14 +34,7 @@ void win_scene_gs3::on_pushButton_clicked()
         delete this;
 }
 
-void win_scene_gs3::on_pushButton_2_clicked()
-{
-    delete s;
-    delete this;
-    exit(0);
-}
-
-void win_scene_gs3::on_pushButton_3_clicked()
+void win_scene_gs3::on_pushButton_restart_level_clicked()
 {
     delete s;
 
@@ -50,4 +45,11 @@ void win_scene_gs3::on_pushButton_3_clicked()
 
     this->close();
     delete this;
+}
+
+void win_scene_gs3::on_pushButton_quit_clicked()
+{
+    delete s;
+    delete this;
+    exit(0);
 }

@@ -14,11 +14,11 @@ win_screen::win_screen(QWidget *parent) :
 extern win_screen* a;
 win_screen::~win_screen()
 {
-    a = nullptr;
     delete ui;
+    a = nullptr;
 }
 
-void win_screen::on_pushButton_clicked()
+void win_screen::on_pushButton_restart_clicked()
 {
     //TODO change it for all three scene
     s->close();
@@ -37,7 +37,7 @@ void win_screen::on_pushButton_clicked()
     delete this;
 }
 
-void win_screen::on_pushButton_2_clicked()
+void win_screen::on_pushButton_next_clicked()
 {
     //generate another game, there are three scene
     if (typeid (* s)==typeid(GameScene)){
@@ -66,7 +66,7 @@ void win_screen::on_pushButton_2_clicked()
     }
 }
 
-void win_screen::on_pushButton_3_clicked()
+void win_screen::on_pushButton_quit_clicked()
 {
     delete s;
     delete this;

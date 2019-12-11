@@ -19,11 +19,11 @@ public:
     ~win_scene_gs3();
 
 private slots:
-    void on_pushButton_clicked();
+    void on_pushButton_restart_game_clicked();
 
-    void on_pushButton_2_clicked();
+    void on_pushButton_restart_level_clicked();
 
-    void on_pushButton_3_clicked();
+    void on_pushButton_quit_clicked();
 
 private:
     Ui::win_scene_gs3 *ui;
