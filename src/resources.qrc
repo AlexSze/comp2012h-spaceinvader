@@ -10,5 +10,6 @@
         <file>images/tool_defense.png</file>
         <file>images/tool_life.png</file>
         <file>images/tool_weapon.png</file>
+        <file>images/boss.png</file>
     </qresource>
 </RCC>

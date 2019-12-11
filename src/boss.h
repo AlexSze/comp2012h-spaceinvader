@@ -4,13 +4,14 @@
 #endif // BOSS_H
 
 #include "abstractenemy.h"
+#include "constants.h"
 
 class Boss : public abstractEnemy {
 public:
     explicit Boss(unsigned int health=5, int speed=10, bool dir=true, QGraphicsItem* parent=nullptr) : abstractEnemy(health, speed, dir, parent) {
         // draw the character
-        // TODO: switch the image to boss
-        setPixmap(QPixmap(":/src/images/base_enemy.png"));
-        setTransformOriginPoint(50,50);
+        // switch the image to boss
+        setPixmap(QPixmap(":/src/images/boss.png"));
+        setTransformOriginPoint(BASE_ENEMY_WIDTH * 7 / 5, ADVANCED_ENEMY_WIDTH * 7 / 5);
     }
 };
