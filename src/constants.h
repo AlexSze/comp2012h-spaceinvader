@@ -14,7 +14,7 @@ const unsigned int ADVANCED_ENEMY_HEIGHT = 60;
 const unsigned int playerhealth = 10;
 const unsigned int playerlife=2;
 const int PENALTY_WASTING_BULLET = -1;
-const int PENALTY_GETTING_HIT = -5;
+const int PENALTY_GETTING_HIT = -2;
 
 const QString ABOUT_MSG = "Space Invader++\n"
                           "\n"
