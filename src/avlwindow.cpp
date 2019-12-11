@@ -16,7 +16,7 @@ avlWindow::~avlWindow()
     delete ui;
 }
 
-void avlWindow::read_as_num()
+void avlWindow::read_file()
 {
     // create pop-up to prompt for filename with full directory
     QString filename =
@@ -57,7 +57,6 @@ void avlWindow::read_as_num()
         tmpNames.removeAll(QString(""));
         player_record* tmp_player = new player_record(tmpScore, tmpNames);
         // add to data
-        data.push_back(*tmp_player);
         avl_tree.insert(*tmp_player);
     }
     // close file
@@ -66,7 +65,7 @@ void avlWindow::read_as_num()
     print_avl();
 }
 
-void avlWindow::write_to_file()
+void avlWindow::write_file()
 { // TODO create popup dialog and write as csv
     QString filename =
         QFileDialog::getSaveFileName(this,
@@ -97,14 +96,6 @@ void avlWindow::write_to_file()
     file.close();
 }
 
-void avlWindow::insert_num_to_avl()
-{
-    list<player_record>::const_iterator p;
-    for (p= data.begin(); p!= data.end(); ++p){
-        avl_tree.insert(*p);
-    }
-}
-
 void avlWindow::print_avl()
 {
     // create temp text string
@@ -123,17 +114,13 @@ void avlWindow::print_avl()
 }
 
 void avlWindow::on_pushButton_write_clicked(){
-    write_to_file();
+    write_file();
 
-    read_as_num();
-
-    insert_num_to_avl();
+    //read_as_num();
 }
 
 void avlWindow::on_pushButton_print_clicked(){
     print_avl();
-
-    insert_num_to_avl();
 }
 
 
@@ -173,12 +160,12 @@ void avlWindow::on_pushButton_score_clicked()
 }
 void avlWindow::on_actionOpen_triggered()
 {
-    read_as_num();
+    read_file();
 }
 
 void avlWindow::on_actionSave_triggered()
 { /* save to file */
-    write_to_file();
+    write_file();
 }
 
 void avlWindow::on_actionAbout_triggered()

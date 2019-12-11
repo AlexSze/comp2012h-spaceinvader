@@ -27,9 +27,9 @@ public:
     avlWindow(QWidget *parent = nullptr);
     ~avlWindow();
 
-    void read_as_num();
-    void write_to_file();
-    void insert_num_to_avl();
+    void read_file();
+    void write_file();
+    //void insert_num_to_avl();
     void print_avl();
 
 private slots:
@@ -52,7 +52,7 @@ private slots:
 private:
     Ui::avlWindow *ui;
 
-    list<player_record> data;
+    //list<player_record> data;
 
     int tempnum;
     string temptext;

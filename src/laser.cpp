@@ -63,6 +63,36 @@ void Laser::move() {
             static_cast <abstractEnemy*>
                 (colliding[i])->hurt();
 
+
+
+            /* TODO */
+
+
+            // check if all enemies are killed
+            if (!(s->enemyExist())) {
+                //show win_screen
+                if (typeid (*s)==typeid(gamescene3)) {
+                    // player reached the end, show ultimate win screen
+                    if (u == nullptr) {
+                        u = new win_scene_gs3;
+                        u->show();
+                    }
+                }
+                else {
+                    // show win screen to proceed to next level
+                    if (a == nullptr) {
+                        a= new win_screen;
+                        a->show();
+                    }
+                }
+
+                s->close();
+                //delete s; it is deleted on win_screen
+                return;
+            }
+
+
+
             // delete laser
             delete this;
             return;
@@ -78,7 +108,7 @@ void Laser::move() {
             if (s->health->get_health()==0) {
                 if (!(static_cast <Player*>(colliding[i])->hurt())) {
                     //show defeat screen
-                    defeat_screen* n = new defeat_screen;
+                    defeat_screen* n = new defeat_screen(s);
                     n->show();
 
                     s->close();
@@ -96,24 +126,6 @@ void Laser::move() {
             return;
         }
     }
-    /*
-
-    // check if all enemies are killed
-    if (!s->enemyExist()){
-        //show win_screen
-        if (typeid (*s)==typeid(gamescene3)){
-            u= new win_scene_gs3;
-            u->show();
-        }else{
-            a= new win_screen;
-            a->show();
-        }
-
-        s->close();
-        //delete s; it is deleted on win_screen
-        return;
-    }
-    */
 
     // move laser
     setPos(x() + this->horizontal_speed, y() + this->speed);

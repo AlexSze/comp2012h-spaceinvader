@@ -11,8 +11,10 @@ win_screen::win_screen(QWidget *parent) :
     ui->setupUi(this);
 }
 
+extern win_screen* a;
 win_screen::~win_screen()
 {
+    a = nullptr;
     delete ui;
 }
 

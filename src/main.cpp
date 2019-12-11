@@ -12,12 +12,13 @@
 #include <QWidget>
 //#include "KeyPress.h"
 
-MainWindow* m;
-GameScene* s;
-avlWindow* w;
-win_screen* a;
-defeat_screen* n;
-win_scene_gs3* u;
+MainWindow* m{nullptr};
+GameScene* s{nullptr};
+avlWindow* w{nullptr};
+win_screen* a{nullptr};
+defeat_screen* n{nullptr};
+win_scene_gs3* u{nullptr};
+
 Score* score;
 life* lifes;
 

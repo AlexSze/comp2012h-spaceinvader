@@ -5,7 +5,6 @@
 #include "gamescene2.h"
 #include "gamescene3.h"
 
-
 win_scene_gs3::win_scene_gs3(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::win_scene_gs3)

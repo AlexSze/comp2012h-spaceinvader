@@ -148,7 +148,11 @@ bool GameScene::enemyExist() {
     int size = objectList.size();
     for (int i = 0; i < size; ++i){
         // check enemy types
-        if (typeid (objectList[i]) == typeid(Boss) || typeid(objectList[i]) == typeid(Enemy)){
+        if (
+                typeid(*objectList[i]) == typeid(Boss) ||
+                typeid(*objectList[i]) == typeid(Enemy) ||
+                typeid(*objectList[i]) == typeid(abstractEnemy)
+                ){
             return true;
         }
     }

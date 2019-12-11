@@ -10,7 +10,8 @@
 
 #include "player.h"
 #include "gamescene.h"
-#include "defeat_screen.h"
+
+extern GameScene* s;
 
 using namespace std;
 
