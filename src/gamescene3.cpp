@@ -16,4 +16,16 @@ gamescene3::gamescene3(QWidget *parent)
     show();
 }
 
-//TODO destructor;
+extern GameScene* s;
+gamescene3::~gamescene3()
+{
+    delete health;
+    delete player;
+    delete scene;
+    foreach ( QGraphicsItem* i, items() )
+        delete i;
+    e.clear();
+    boss.clear();
+    tt.clear();
+    s = nullptr;
+}

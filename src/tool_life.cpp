@@ -1,7 +1,7 @@
 #include "tool_life.h"
 
 tool_life::tool_life(QGraphicsItem *parent)
-{
+    : abstracttools (parent) {
     setPixmap(QPixmap(":/src/images/tool_defense.png"));
     setTransformOriginPoint(50,50);
 

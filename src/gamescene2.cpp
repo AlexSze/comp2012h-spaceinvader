@@ -16,3 +16,17 @@ gamescene2::gamescene2(QWidget *parent)
 
     show();
 }
+
+extern GameScene* s;
+gamescene2::~gamescene2()
+{
+    delete health;
+    delete player;
+    delete scene;
+    foreach ( QGraphicsItem* i, items() )
+        delete i;
+    e.clear();
+    boss.clear();
+    tt.clear();
+    s = nullptr;
+}

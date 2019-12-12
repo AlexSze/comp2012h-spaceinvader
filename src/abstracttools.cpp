@@ -10,9 +10,8 @@
 #include "player.h"
 #include "constants.h"
 
-abstracttools::abstracttools(QGraphicsItem* parent) {
-
-}
+abstracttools::abstracttools(QGraphicsItem* parent)
+    : QGraphicsPixmapItem(parent) {}
 
 void abstracttools::move_timer()
 {

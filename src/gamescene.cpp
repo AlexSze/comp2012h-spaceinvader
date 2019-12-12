@@ -46,14 +46,8 @@ GameScene::~GameScene()
     delete health;
     delete player;
     delete scene;
-    /*
-    foreach ( abstractEnemy* a, e )
-        delete a;
-    foreach ( abstracttools* t, tt )
-        delete t;
-    foreach ( abstractEnemy* b, boss )
-        delete b;
-    */
+    foreach ( QGraphicsItem* i, items() )
+        delete i;
     e.clear();
     boss.clear();
     tt.clear();
@@ -87,7 +81,7 @@ void GameScene::character_construction(unsigned int level)
     // designing each level with increased difficulty, with an increased amount of enemies
     for (unsigned int i = 0; i < 8; ++i) {
         for (unsigned int j = level + 1; j > 0; --j) {
-            e.push_back(new Enemy(j, 10, (j + 1) % 2));
+            e.push_back(new Enemy(j, 10, (j + 1) % 2, dynamic_cast<QGraphicsItem*>(this)));
             e.back()->setPos(i*SCREEN_WIDTH/8, BASE_ENEMY_HEIGHT*(2 * level - 2 * j + 3)/2);
             scene->addItem(e.back());
         }
@@ -95,7 +89,7 @@ void GameScene::character_construction(unsigned int level)
 
     // designing the boss with increased health, thus making the boss more difficult to kill
     for (unsigned int i = 0; i < level; ++i) {
-        boss.push_back(new Boss(5 * level, 4, rand() % 2));
+        boss.push_back(new Boss(5 * level, 4, rand() % 2, dynamic_cast<QGraphicsItem*>(this)));
         boss.back()->setPos(SCREEN_WIDTH * (i + 1) / (level + 1), BASE_ENEMY_HEIGHT/2);
         scene->addItem(boss.back());
     }
@@ -103,12 +97,12 @@ void GameScene::character_construction(unsigned int level)
     //more pick-ups as levels become more difficult
     for (unsigned int i = 0; i < (level + 1) / 2; ++i) {
         int random= rand()% SCREEN_WIDTH;
-        tt.push_back(new tool_life());
+        tt.push_back(new tool_life(dynamic_cast<QGraphicsItem*>(this)));
         tt.back()->setPos(random, 0);
         scene->addItem(tt.back());
 
         int random1= rand()% SCREEN_WIDTH;
-        tt.push_back(new tool_atk());
+        tt.push_back(new tool_atk(dynamic_cast<QGraphicsItem*>(this)));
         tt.back()->setPos(random1, 0);
         scene->addItem(tt.back());
     }

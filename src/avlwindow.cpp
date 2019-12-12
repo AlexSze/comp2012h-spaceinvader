@@ -71,9 +71,9 @@ void avlWindow::read_file(bool prompt)
         }
         // remove null strings
         tmpNames.removeAll(QString(""));
-        player_record* tmp_player = new player_record(tmpScore, tmpNames);
+        player_record tmp_player(tmpScore, tmpNames);
         // add to data
-        avl_tree.insert(*tmp_player);
+        avl_tree.insert(tmp_player);
     }
     // close file
     file.close();

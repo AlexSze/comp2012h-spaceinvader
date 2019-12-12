@@ -1,7 +1,7 @@
 #include "tool_atk.h"
 
 tool_atk::tool_atk(QGraphicsItem *parent)
-{
+    : abstracttools (parent) {
     setPixmap(QPixmap(":/src/images/tool_weapon.png"));
     setTransformOriginPoint(50,50);
 
