@@ -1,4 +1,5 @@
 #include "avlwindow.h"
+#include "avlwindow.h"
 #include "ui_avlwindow.h"
 #include "main.cpp"
 #include "constants.h"

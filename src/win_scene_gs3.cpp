@@ -4,6 +4,7 @@
 #include "gamescene.h"
 #include "gamescene2.h"
 #include "gamescene3.h"
+#include "cleanup.h"
 
 #include <QInputDialog>
 
@@ -74,7 +75,7 @@ void win_scene_gs3::on_pushButton_backToMenu_clicked()
 
 void win_scene_gs3::on_pushButton_quit_clicked()
 {
-    delete s;
-    delete this;
+    // cleanup
+    cleanup();
     exit(0);
 }

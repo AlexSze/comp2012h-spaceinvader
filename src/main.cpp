@@ -5,6 +5,7 @@
 #include "defeat_screen.h"
 #include "win_scene_gs3.h"
 #include "gamemode.h"
+#include "cleanup.h"
 
 #include <QApplication>
 #include <QPushButton>
@@ -36,8 +37,11 @@ int main(int argc, char *argv[])
     m= new MainWindow;
     m->show();
 
-    //KeyPress *keyPress = new KeyPress();
-    return a.exec();
+    int out = a.exec();
 
+    // cleanup
+    cleanup();
+
+    return out;
 }
 

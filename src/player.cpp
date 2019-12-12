@@ -91,7 +91,6 @@ bool Player::hurt() {
     lifes->decrease();
 
     if (lifes->get_life() != 0) {
-        // end scene
 
         // spawn a new player if there's extra life left
         s->newPlayer();
@@ -99,10 +98,13 @@ bool Player::hurt() {
         // signal revival, reset health
         return true;
     }
+
+    // end scene
     return false;
 }
 
 Player::~Player() {
+    delete pew_sound;
     // prepare removal from scene
     QGraphicsItem::prepareGeometryChange();
 }

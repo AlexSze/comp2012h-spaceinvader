@@ -5,13 +5,14 @@
 
 class Score: public QGraphicsTextItem{
 public:
-    Score(QGraphicsItem * parent=0);
+    Score(QGraphicsItem * parent = nullptr);
+    ~Score();
     void increase(int=1);
     void reset();
-    unsigned int get_score() const { return score; }
+    unsigned int get_score() const { return score_count; }
 
 private:
-    unsigned int score;
+    unsigned int score_count;
 };
 
 

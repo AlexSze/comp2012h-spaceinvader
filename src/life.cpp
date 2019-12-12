@@ -7,32 +7,37 @@ life::life(QGraphicsItem *parent)
     reset();
 }
 
+extern life* lifes;
+life::~life() {
+    lifes = nullptr;
+}
+
 void life::decrease()
 {
-    if (lifes > 0)
-        lifes--;
+    if (life_count > 0)
+        life_count--;
     // draw the text
-    setPlainText(QString("Live(s): ") + QString::number(lifes));
+    setPlainText(QString("Live(s): ") + QString::number(life_count));
 }
 
 void life::increase()
 {
-    lifes++;
+    life_count++;
     // draw the text
-    setPlainText(QString("Live(s): ") + QString::number(lifes));
+    setPlainText(QString("Live(s): ") + QString::number(life_count));
 }
 
 void life::reset()
 {
     // set initial life
-    lifes = PLAYER_LIFE;
+    life_count = PLAYER_LIFE;
     // draw the text
-    setPlainText(QString("Live(s): ") + QString::number(lifes));
+    setPlainText(QString("Live(s): ") + QString::number(life_count));
     setDefaultTextColor(Qt::red);
     setFont(QFont("times",16));
 }
 
 int life::get_life()
 {
-    return lifes;
+    return life_count;
 }

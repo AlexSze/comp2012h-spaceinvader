@@ -48,7 +48,8 @@ SOURCES += \
     tool_life.cpp \
     win_scene_gs3.cpp \
     win_screen.cpp \
-    abstracttools.cpp
+    abstracttools.cpp \
+    cleanup.cpp
 
 
 HEADERS += \
@@ -76,7 +77,8 @@ HEADERS += \
     tool_life.h \
     win_scene_gs3.h \
     win_screen.h \
-    abstracttools.h
+    abstracttools.h \
+    cleanup.h
 
 FORMS += \
         defeat_screen.ui \

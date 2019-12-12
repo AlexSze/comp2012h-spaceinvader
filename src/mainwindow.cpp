@@ -3,6 +3,7 @@
 #include "ui_mainwindow.h"
 #include "constants.h"
 #include "gamemode.h"
+#include "cleanup.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -11,9 +12,11 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
 }
 
+extern MainWindow* m;
 MainWindow::~MainWindow()
 {
     delete ui;
+    m = nullptr;
 }
 
 void MainWindow::on_pushButton_game_clicked()
@@ -33,7 +36,8 @@ void MainWindow::on_pushButton_scoreboard_clicked()
 
 void MainWindow::on_pushButton_quit_clicked()
 {
-    delete this;
+    // cleanup
+    cleanup();
     exit(0);
 }
 

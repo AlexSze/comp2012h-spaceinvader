@@ -45,8 +45,19 @@ GameScene::~GameScene()
 {
     delete health;
     delete player;
+    delete scene;
+    /*
+    foreach ( abstractEnemy* a, e )
+        delete a;
+    foreach ( abstracttools* t, tt )
+        delete t;
+    foreach ( abstractEnemy* b, boss )
+        delete b;
+    */
     e.clear();
     boss.clear();
+    tt.clear();
+    s = nullptr;
 }
 
 void GameScene::screen_construction()

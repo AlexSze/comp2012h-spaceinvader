@@ -1,0 +1,230 @@
+./defeat_screen.cpp:    ui->setupUi(this);
+./defeat_screen.cpp:    score->reset();
+./defeat_screen.cpp:    s->close();
+./defeat_screen.cpp:    s->show();
+./defeat_screen.cpp:    s->health->reset();
+./defeat_screen.cpp:    score->reset();
+./defeat_screen.cpp:    lifes->reset();
+./defeat_screen.cpp:    this->close();
+./defeat_screen.cpp:    this->close();
+./defeat_screen.cpp:    s->player->reset_atk();
+./defeat_screen.cpp:    score->reset();
+./defeat_screen.cpp:    while (lifes->get_life() > 2)
+./defeat_screen.cpp:        lifes->decrease();
+./defeat_screen.cpp:    while (lifes->get_life() < 2)
+./defeat_screen.cpp:        lifes->increase();
+./defeat_screen.cpp:    this->close();
+./defeat_screen.cpp:    m->show();
+./health.cpp:    health--;
+./health.cpp:    score->increase(PENALTY_GETTING_HIT);
+./avl.h:        AVL& right_subtree() { return root->right; }
+./avl.h:        AVL& left_subtree() { return root->left; }
+./avl.h:        const AVL& right_subtree() const { return root->right; }
+./avl.h:        const AVL& left_subtree() const { return root->left; }
+./avl.h:// accessor for height with -1 to indicate empty
+./avl.h:    return is_empty() ? -1 : root->height;
+./avl.h:    return is_empty() ? 0: right_subtree().height() - left_subtree().height();
+./avl.h:        root->height = 1 + max(left_avl_height, right_avl_height);
+./avl.h:    right_subtree()=b->left;
+./avl.h:    b->left=*this;
+./avl.h:    this->root=b;
+./avl.h:    left_subtree() = b->right;
+./avl.h:    b->right = *this;
+./avl.h:    this->root = b;
+./avl.h:    else if (balance_factor == -2){
+./avl.h:        return root->value;
+./avl.h:        return root->value;
+./avl.h:    else if (x == root->value)
+./avl.h:    else if (x < root->value)
+./avl.h:    else if (x > root->value)
+./avl.h:    else if (x < root->value)
+./avl.h:    else /* x == root->value */ {
+./avl.h:        root->value += x;
+./avl.h:    if (x < root->value)
+./avl.h:    else if (x > root->value)
+./avl.h:    else /* x == root->value */ {
+./avl.h:            root->value = right_avl.find_min();
+./avl.h:            right_avl.remove(root->value);
+./avl.h:    output.append(QString(root->value));
+./win_screen.ui:<?xml version="1.0" encoding="UTF-8"?>
+./win_screen.ui:    <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+./win_screen.ui:p, li { white-space: pre-wrap; }
+./win_screen.ui:&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Cantarell'; font-size:11pt; font-weight:400; font-style:normal;&quot;&gt;
+./win_screen.ui:&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'.AppleSystemUIFont'; font-size:22pt; font-weight:600; font-style:italic;&quot;&gt;Levels ahead!&lt;/span&gt;&lt;/p&gt;
+./win_screen.ui:&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'.AppleSystemUIFont'; font-size:22pt; font-weight:600; font-style:italic;&quot;&gt;Just Do It!&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+./gamescene3.cpp:    scene->setSceneRect(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
+./game_mode.ui:<?xml version="1.0" encoding="UTF-8"?>
+./win_scene_gs3.ui:<?xml version="1.0" encoding="UTF-8"?>
+./win_scene_gs3.ui:    <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+./win_scene_gs3.ui:p, li { white-space: pre-wrap; }
+./win_scene_gs3.ui:&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Cantarell'; font-size:11pt; font-weight:400; font-style:normal;&quot;&gt;
+./win_scene_gs3.ui:&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'.AppleSystemUIFont'; font-size:22pt; font-weight:600; font-style:italic;&quot;&gt;Congrats!&lt;/span&gt;&lt;/p&gt;
+./win_scene_gs3.ui:&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'.AppleSystemUIFont'; font-size:22pt; font-weight:600; font-style:italic;&quot;&gt;You Won!&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+./mainwindow.cpp:    ui->setupUi(this);
+./mainwindow.cpp:    s->show();
+./mainwindow.cpp:    this->close();
+./mainwindow.cpp:    w->show();
+./player.cpp:        pew_sound->setMedia(QUrl("qrc:/src/sounds/pew.wav"));
+./player.cpp:    switch (event->key()) {
+./player.cpp:            setPos(x()-this->speed, y());
+./player.cpp:        if (x() <= SCREEN_WIDTH - PLAYER_WIDTH)
+./player.cpp:            setPos(x()+this->speed, y());
+./player.cpp:            setPos(x(), y()-this->speed);
+./player.cpp:        if (y() <= SCREEN_HEIGHT - PLAYER_HEIGHT)
+./player.cpp:            setPos(x(), y()+this->speed);
+./player.cpp:        Laser* l = new Laser(-10, horizontal_beam);
+./player.cpp:        l->setPos(this->x() + PLAYER_WIDTH/2, this->y() - PLAYER_HEIGHT/2);
+./player.cpp:        scene()->addItem(l);
+./player.cpp:        if (pew_sound->state() == QMediaPlayer::StoppedState)
+./player.cpp:            pew_sound->play();
+./player.cpp:            pew_sound->setPosition(0);
+./player.cpp:        if (horizontal_beam > -20)
+./player.cpp:            horizontal_beam -= 5;
+./player.cpp:    lifes->decrease();
+./player.cpp:    if (lifes->get_life() != 0) {
+./player.cpp:        s->newPlayer();
+./defeat_screen.ui:<?xml version="1.0" encoding="UTF-8"?>
+./defeat_screen.ui:    <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+./defeat_screen.ui:p, li { white-space: pre-wrap; }
+./defeat_screen.ui:&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Cantarell'; font-size:11pt; font-weight:400; font-style:normal;&quot;&gt;
+./defeat_screen.ui:&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'.AppleSystemUIFont'; font-size:24pt; font-weight:600; font-style:italic;&quot;&gt;HAHA! You lost!&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+./tool_atk.cpp:           s->player->increase_atk();
+./abstractenemy.cpp:        t->start(100);
+./abstractenemy.cpp:        t->start((rand()%20 + 1) * 300);
+./abstractenemy.cpp:    l->setPos(this->x() + BASE_ENEMY_WIDTH/2, this->y() + BASE_ENEMY_HEIGHT);
+./abstractenemy.cpp:    scene()->addItem(l);
+./abstractenemy.cpp:            x() + this->speed > SCREEN_WIDTH)
+./abstractenemy.cpp:            x() - this->speed <= 0)
+./abstractenemy.cpp:        setPos(x() + this->speed * (horizontal_dir? 1: -1), y());
+./abstractenemy.cpp:            s->health->decrease();
+./abstractenemy.cpp:            if (s->health->get_health()==0) {
+./abstractenemy.cpp:                if (!(static_cast <Player*>(colliding[i])->hurt())) {
+./abstractenemy.cpp:                    n->show();
+./abstractenemy.cpp:                    s->close();
+./abstractenemy.cpp:        s->health->decrease();
+./abstractenemy.cpp:    health= health - s->player->get_atk();
+./mainwindow.ui:<?xml version="1.0" encoding="UTF-8"?>
+./gamemode.cpp:    ui->setupUi(this);
+./gamemode.cpp:    this->close();
+./gamemode.cpp:    s->show();
+./gamemode.cpp:    this->close();
+./gamemode.cpp:    s->show();
+./gamemode.cpp:    this->close();
+./gamemode.cpp:    m->show();
+./win_screen.cpp:    ui->setupUi(this);
+./win_screen.cpp:    s->close();
+./win_screen.cpp:    s->show();
+./win_screen.cpp:    s->health->reset();
+./win_screen.cpp:    score->reset();
+./win_screen.cpp:    lifes->reset();
+./win_screen.cpp:    this->close();
+./win_screen.cpp:        s->show();
+./win_screen.cpp:        s->health->reset();
+./win_screen.cpp:        this->close();
+./win_screen.cpp:        s->show();
+./win_screen.cpp:        s->health->reset();
+./win_screen.cpp:        this->close();
+./COMP2012H_Group_H20.pro.user:<?xml version="1.0" encoding="UTF-8"?>
+./COMP2012H_Group_H20.pro.user:<!-- Written by QtCreator 4.8.2, 2019-12-12T10:25:13. -->
+./COMP2012H_Group_H20.pro.user:  <value type="QByteArray">{a828e4a9-b03b-495e-89b2-c7b75e21079c}</value>
+./COMP2012H_Group_H20.pro.user:   <value type="QByteArray" key="EditorConfiguration.Codec">UTF-8</value>
+./COMP2012H_Group_H20.pro.user:   <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">{827d74a3-ede3-4695-8a45-3e470ad82cde}</value>
+./COMP2012H_Group_H20.pro.user:    <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory">/home/harry/comp2012h/project/build-COMP2012H_Group_H20-Desktop-Debug</value>
+./COMP2012H_Group_H20.pro.user:    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Qt4ProjectManager.Qt4RunConfiguration:/home/harry/comp2012h/project/spaceinvader-/src/COMP2012H_Group_H20.pro</value>
+./COMP2012H_Group_H20.pro.user:    <value type="QString" key="RunConfiguration.WorkingDirectory.default">/home/harry/comp2012h/project/build-COMP2012H_Group_H20-Desktop-Debug</value>
+./abstracttools.cpp:    t->start(100);
+./COMP2012H_Group_H20.pro:#-------------------------------------------------
+./COMP2012H_Group_H20.pro:# Project created by QtCreator 2019-11-30T10:31:10
+./COMP2012H_Group_H20.pro:#-------------------------------------------------
+./gamesceneinfinity.cpp:    scene->setSceneRect(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
+./avlwindow.ui:<?xml version="1.0" encoding="UTF-8"?>
+Binary file ./sounds/pew.wav matches
+./tool_life.cpp:          lifes->increase();
+./win_scene_gs3.cpp:    ui->setupUi(this);
+./win_scene_gs3.cpp:        s->show();
+./win_scene_gs3.cpp:        score->reset();
+./win_scene_gs3.cpp:        s->health->reset();
+./win_scene_gs3.cpp:        lifes->reset();
+./win_scene_gs3.cpp:        this->close();
+./win_scene_gs3.cpp:    avl_tree.insert(player_record(score->get_score(), playerName));
+./win_scene_gs3.cpp:        w->show();
+./win_scene_gs3.cpp:    s->player->reset_atk();
+./win_scene_gs3.cpp:    score->reset();
+./win_scene_gs3.cpp:    while (lifes->get_life() > 2)
+./win_scene_gs3.cpp:        lifes->decrease();
+./win_scene_gs3.cpp:    while (lifes->get_life() < 2)
+./win_scene_gs3.cpp:        lifes->increase();
+./win_scene_gs3.cpp:    this->close();
+./win_scene_gs3.cpp:    m->show();
+./avlwindow.cpp:    ui->setupUi(this);
+./avlwindow.cpp:    // create pop-up to prompt for filename with full directory
+./avlwindow.cpp:            tmpNames.append(QString::fromLocal8Bit(item).trimmed()); // Assuming local 8-bit.
+./avlwindow.cpp:    //QString text = ui->plainTextEdit->toPlainText();
+./avlwindow.cpp:                    + treeData[rank-1].split(",").first() + " Player: "
+./avlwindow.cpp:                    + treeData[rank-1].split(",").mid(1).join(" ") + "\n"
+./avlwindow.cpp:    ui->plainTextEdit->setPlainText(text);
+./avlwindow.cpp:        ui->plainTextEdit->setPlainText("");
+./avlwindow.cpp:    ui->plainTextEdit->setPlainText(text);
+./avlwindow.cpp:        ui->plainTextEdit->setPlainText("");
+./avlwindow.cpp:    ui->plainTextEdit->setPlainText(text);
+./avlwindow.cpp:    QString text = ui->plainTextEdit->toPlainText();
+./avlwindow.cpp:    ui->plainTextEdit->setPlainText(boolText);
+./laser.cpp:    t->start(40);
+./laser.cpp:            score->increase();
+./laser.cpp:                (colliding[i])->hurt();
+./laser.cpp:            if (!(s->enemyCount())) {
+./laser.cpp:                        u->show();
+./laser.cpp:                        a->show();
+./laser.cpp:                s->close();
+./laser.cpp:            s->health->decrease();
+./laser.cpp:            if (s->health->get_health()==0) {
+./laser.cpp:                if (!(static_cast <Player*>(colliding[i])->hurt())) {
+./laser.cpp:                    n->show();
+./laser.cpp:                    s->close();
+./laser.cpp:    setPos(x() + this->horizontal_speed, y() + this->speed);
+./laser.cpp:            score->increase(PENALTY_WASTING_BULLET);
+./laser.cpp:        scene()->removeItem(this);
+./main.cpp:    m->show();
+./constants.h:const int PENALTY_WASTING_BULLET = -1;
+./constants.h:const int PENALTY_GETTING_HIT = -2;
+./gamescene.cpp:    scene->setSceneRect(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
+./gamescene.cpp:    score->setPos(score->x(), score->y());
+./gamescene.cpp:    score->reset();
+./gamescene.cpp:    lifes->setPos(0, 50);
+./gamescene.cpp:    lifes->reset();
+./gamescene.cpp:    scene->addItem(score);
+./gamescene.cpp:    scene->addItem(lifes);
+./gamescene.cpp:    health->setPos(health->x(), health->y() + 25);
+./gamescene.cpp:    scene->addItem(health);
+./gamescene.cpp:        for (unsigned int j = level + 1; j > 0; --j) {
+./gamescene.cpp:            e.back()->setPos(i*SCREEN_WIDTH/8, BASE_ENEMY_HEIGHT*(2 * level - 2 * j + 3)/2);
+./gamescene.cpp:            scene->addItem(e.back());
+./gamescene.cpp:        boss->setPos(SCREEN_WIDTH * (i + 1) / (level + 1), BASE_ENEMY_HEIGHT/2);
+./gamescene.cpp:        scene->addItem(boss);
+./gamescene.cpp:    //more pick-ups as levels become more difficult
+./gamescene.cpp:        tt.back()->setPos(random, 0);
+./gamescene.cpp:        scene->addItem(tt.back());
+./gamescene.cpp:        tt.back()->setPos(random1, 0);
+./gamescene.cpp:        scene->addItem(tt.back());
+./gamescene.cpp:    panel->setBrush(brush);
+./gamescene.cpp:    panel->setOpacity(opacity);
+./gamescene.cpp:    scene->addItem(panel);
+./gamescene.cpp:    start->setPos(410,300);
+./gamescene.cpp:    scene->addItem(start);
+./gamescene.cpp:    player->setPos(SCREEN_WIDTH/2, SCREEN_HEIGHT - PLAYER_HEIGHT);
+./gamescene.cpp:    player->setFlag(QGraphicsItem::ItemIsFocusable);
+./gamescene.cpp:    player->setFocus();
+./gamescene.cpp:    scene->addItem(player);
+./gamescene.cpp:    health->reset();
+./gamescene2.cpp:    scene->setSceneRect(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
+./abstractenemy.h:        // false = move left (-ve)
+./life.cpp:        lifes--;
+Binary file ./images/tool_weapon.png matches
+Binary file ./images/tool_life.png matches
+Binary file ./images/tool_defense.png matches
+Binary file ./images/base_enemy.png matches
+Binary file ./images/background.png matches
+Binary file ./images/player.png matches
+Binary file ./images/boss.png matches
+Binary file ./images/background2.png matches
+Binary file ./images/background3.png matches

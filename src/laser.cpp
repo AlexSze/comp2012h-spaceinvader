@@ -21,6 +21,7 @@
 extern GameScene* s;
 extern win_screen* a;
 extern win_scene_gs3* u;
+extern defeat_screen* n;
 
 Laser::Laser(int speed, int horizontal_speed, QGraphicsPixmapItem* parent)
     : QObject(),
@@ -87,7 +88,7 @@ void Laser::move() {
                 else {
                     // show win screen to proceed to next level
                     if (a == nullptr) {
-                        a= new win_screen;
+                        a = new win_screen;
                         a->show();
                     }
                 }
@@ -112,11 +113,12 @@ void Laser::move() {
             if (s->health->get_health()==0) {
                 if (!(static_cast <Player*>(colliding[i])->hurt())) {
                     //show defeat screen
-                    defeat_screen* n = new defeat_screen;
-                    n->show();
+                    if (n == nullptr) {
+                        n = new defeat_screen;
+                        n->show();
 
-                    s->close();
-                    //delete s; it is deleted on defeat screen
+                        s->close();
+                    }
                 }
             }
             // delete laser

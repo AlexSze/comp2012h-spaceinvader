@@ -28,5 +28,11 @@ void tool_atk::move()
 {
     setPos(x(), y()+10);
 
+    // check out of bounce
+    if (y() > SCREEN_HEIGHT) {
+        delete this;
+        return;
+    }
+
     collide_action();
 }

@@ -3,6 +3,7 @@
 #include "gamescene.h"
 #include "gamescene2.h"
 #include "gamescene3.h"
+#include "cleanup.h"
 
 win_screen::win_screen(QWidget *parent) :
     QDialog(parent),
@@ -42,35 +43,24 @@ void win_screen::on_pushButton_restart_clicked()
 void win_screen::on_pushButton_next_clicked()
 {
     //generate another game, there are three scene
-    if (typeid (* s)==typeid(GameScene)){
-        delete s;
+    delete s;
 
-        s= new gamescene2;
-        s->show();
+    if (typeid (* s)==typeid(GameScene))
+        s = new gamescene2;
+    else
+        s = new gamescene3;
 
-        s->health->reset();
+    s->show();
 
-        this->close();
-        delete this;
+    s->health->reset();
 
-    }else if (typeid (* s)==typeid(gamescene2)){
-        delete s;
-
-        s= new gamescene3;
-        s->show();
-
-        s->health->reset();
-
-        //TODO write score into record
-
-        this->close();
-        delete this;
-    }
+    this->close();
+    delete this;
 }
 
 void win_screen::on_pushButton_quit_clicked()
 {
-    delete s;
-    delete this;
+    // cleanup
+    cleanup();
     exit(0);
 }

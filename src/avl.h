@@ -1,4 +1,4 @@
-#include <iostream>
+#include <QString>
 
 #include "player_record.h"
 

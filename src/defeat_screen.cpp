@@ -1,5 +1,6 @@
 #include "defeat_screen.h"
 #include "ui_defeat_screen.h"
+#include "cleanup.h"
 
 extern Score* score;
 defeat_screen::defeat_screen(QWidget *parent) :
@@ -11,9 +12,11 @@ defeat_screen::defeat_screen(QWidget *parent) :
     score->reset();
 }
 
+extern defeat_screen* n;
 defeat_screen::~defeat_screen()
 {
     delete ui;
+    n = nullptr;
 }
 
 void defeat_screen::on_pushButton_restart_clicked()
@@ -39,9 +42,8 @@ void defeat_screen::on_pushButton_restart_clicked()
 
 void defeat_screen::on_pushButton_quit_clicked()
 {
-    delete s;
-    this->close();
-    delete this;
+    // cleanup
+    cleanup();
     exit(0);
 }
 

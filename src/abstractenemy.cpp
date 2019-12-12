@@ -16,6 +16,7 @@
 #include <QDebug>
 
 extern GameScene* s;
+extern defeat_screen* n;
 
 // constructor
 abstractEnemy::abstractEnemy(unsigned int health, int speed, bool dir, QGraphicsItem* parent)
@@ -101,16 +102,16 @@ void abstractEnemy::move() {
             if (s->health->get_health()==0) {
                 if (!(static_cast <Player*>(colliding[i])->hurt())) {
                     //show defeat screen
-                    defeat_screen* n= new defeat_screen;
-                    n->show();
+                    if (n == nullptr) {
+                        n = new defeat_screen;
+                        n->show();
 
-                    s->close();
+                        s->close();
+                    }
+
                     //delete s; it is deleted on defeat screen
                 }
             }
-            // delete enemy do not need to delete enemy
-            //delete this;
-            //return;
         }
     }
 
