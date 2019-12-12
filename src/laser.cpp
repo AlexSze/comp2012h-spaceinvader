@@ -63,6 +63,17 @@ void Laser::move() {
             static_cast <abstractEnemy*>
                 (colliding[i])->hurt();
 
+            // uncomment if develop infinity mode
+            /*
+            // if in infinity mode, regenerate enemies
+            if (typeid(*s) == typeid(GameSceneInfinity)) {
+                // regenerate enemies when there are not enough
+                if (s->enemyCount() <= 8) {
+                    reinterpret_cast<GameSceneInfinity*>(s)->regenerate_enemy();
+                }
+            }
+            */
+
             // check if all enemies are killed
             if (!(s->enemyCount())) {
                 //show win_screen

@@ -4,11 +4,11 @@
 #include <QMainWindow>
 
 #include <avlwindow.h>
-#include <gamemode.h>
+#include "gamemode.h"
 #include <gamescene.h>
 
 extern avlWindow* w;
-extern GameScene* s;
+extern GameMode* g;
 
 namespace Ui {
 class MainWindow;

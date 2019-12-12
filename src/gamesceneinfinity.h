@@ -10,7 +10,6 @@ public:
     void next_level();
     void reset_level();
 
-public slots:
     void regenerate_enemy();
 
 private:

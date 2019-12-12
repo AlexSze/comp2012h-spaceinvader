@@ -9,6 +9,8 @@ GameSceneInfinity::GameSceneInfinity(QWidget *parent)
 
     setBackgroundBrush(QBrush(QImage(":/src/images/background.png")));
 
+    reset_level();
+
     screen_construction();
 
     character_construction();
@@ -18,7 +20,7 @@ GameSceneInfinity::GameSceneInfinity(QWidget *parent)
 
 void GameSceneInfinity::regenerate_enemy()
 {
-    if (enemyCount() <= 8) {
+    if (this->enemyCount() <= 8) {
         next_level();
         character_construction(level);
     }

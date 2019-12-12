@@ -28,9 +28,9 @@ public:
     QGraphicsScene* scene{nullptr};
     Player* player{nullptr};
     Health* health{nullptr};
-    abstractEnemy* boss;
     list<abstractEnemy*> e;
     list<abstracttools*> tt;
+    list<abstractEnemy*> boss;
 
     void drawPanel(int x, int y, int width, int height, QColor color, double opacity);
     void mainwindow();

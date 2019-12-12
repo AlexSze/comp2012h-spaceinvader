@@ -46,6 +46,7 @@ GameScene::~GameScene()
     delete health;
     delete player;
     e.clear();
+    boss.clear();
 }
 
 void GameScene::screen_construction()
@@ -83,9 +84,9 @@ void GameScene::character_construction(unsigned int level)
 
     // designing the boss with increased health, thus making the boss more difficult to kill
     for (unsigned int i = 0; i < level; ++i) {
-        boss= new Boss(5 * level, 4, rand() % 2);
-        boss->setPos(SCREEN_WIDTH * (i + 1) / (level + 1), BASE_ENEMY_HEIGHT/2);
-        scene->addItem(boss);
+        boss.push_back(new Boss(5 * level, 4, rand() % 2));
+        boss.back()->setPos(SCREEN_WIDTH * (i + 1) / (level + 1), BASE_ENEMY_HEIGHT/2);
+        scene->addItem(boss.back());
     }
 
     //more pick-ups as levels become more difficult
@@ -152,7 +153,7 @@ void GameScene::newPlayer() {
 unsigned int GameScene::enemyCount() {
     QList<QGraphicsItem *> objectList = items();
     int size = objectList.size();
-    int count = 0;
+    unsigned int count = 0;
     for (int i = 0; i < size; ++i){
         // check enemy types
         if (

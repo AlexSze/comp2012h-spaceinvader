@@ -80,7 +80,7 @@ HEADERS += \
 
 FORMS += \
         defeat_screen.ui \
-        game_mode.ui \
+        gamemode.ui \
         mainwindow.ui \
         avlwindow.ui \
         win_scene_gs3.ui \

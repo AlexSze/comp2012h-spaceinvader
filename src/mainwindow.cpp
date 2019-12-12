@@ -18,8 +18,8 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_pushButton_game_clicked()
 {
-    s= new GameScene;
-    s->show();
+    g= new GameMode;
+    g->show();
 
     this->close();
     delete this;

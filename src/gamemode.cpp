@@ -1,8 +1,8 @@
 #include "gamemode.h"
-#include "ui_game_mode.h"
+#include "ui_gamemode.h"
 
 GameMode::GameMode(QWidget *parent) :
-    QMainWindow(parent),
+    QDialog(parent),
     ui(new Ui::GameMode)
 {
     ui->setupUi(this);
@@ -15,25 +15,16 @@ GameMode::~GameMode()
 
 void GameMode::on_pushButton_normal_clicked()
 {
-    s = new GameScene;
+    s = new GameScene();
     this->close();
     s->show();
     delete this;
 }
 
 void GameMode::on_pushButton_infinity_clicked()
-{
-    s = new GameSceneInfinity;
+{/*
+    s = new GameSceneInfinity();
     this->close();
     s->show();
-    delete this;
+    delete this;    */
 }
-
-void GameMode::on_pushButton_backToMain_clicked()
-{/*
-    m = new MainWindow;
-    this->close();
-    m->show();
-    delete this;
-*/}
-
