@@ -1,6 +1,6 @@
 #ifndef CLEANUP_H
 #define CLEANUP_H
 
-void cleanup();
+void cleanup(int);
 
 #endif // CLEANUP_H

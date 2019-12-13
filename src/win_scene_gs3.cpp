@@ -62,10 +62,7 @@ void win_scene_gs3::on_pushButton_backToMenu_clicked()
 {
     s->player->reset_atk();
     score->reset();
-    while (lifes->get_life() > 2)
-        lifes->decrease();
-    while (lifes->get_life() < 2)
-        lifes->increase();
+    lifes->reset();
     m = new MainWindow;
     this->close();
     m->show();
@@ -76,6 +73,5 @@ void win_scene_gs3::on_pushButton_backToMenu_clicked()
 void win_scene_gs3::on_pushButton_quit_clicked()
 {
     // cleanup
-    cleanup();
-    exit(0);
+    cleanup(0);
 }

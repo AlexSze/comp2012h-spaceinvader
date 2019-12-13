@@ -13,18 +13,22 @@ GameMode::~GameMode()
     delete ui;
 }
 
+extern GameMode* g;
 void GameMode::on_pushButton_normal_clicked()
 {
     s = new GameScene();
     this->close();
     s->show();
     delete this;
+    g = nullptr;
 }
 
 void GameMode::on_pushButton_infinity_clicked()
-{/*
+{
+    /*
     s = new GameSceneInfinity();
     this->close();
     s->show();
-    delete this;    */
+    delete this;
+    */
 }

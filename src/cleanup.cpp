@@ -17,22 +17,14 @@ extern GameMode* g;
 extern Score* score;
 extern life* lifes;
 
-void cleanup() {
+void cleanup(int status) {
     delete m;
-    qDebug() << "m";
-    s->deleteLater();
-    qDebug() << "s";
+    delete s;
     delete w;
-    qDebug() << "w";
     delete n;
-    qDebug() << "n";
     delete u;
-    qDebug() << "u";
     //delete g;
-    qDebug() << "g";
     delete score;
-    qDebug() << "score";
     delete lifes;
-    qDebug() << "lifes";
-
+    exit(status);
 }

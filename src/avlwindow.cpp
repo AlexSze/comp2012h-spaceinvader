@@ -6,8 +6,8 @@
 #include <QFileDialog>
 
 avlWindow::avlWindow(QWidget *parent)
-    : QMainWindow(parent)
-    , ui(new Ui::avlWindow)
+    : QMainWindow(parent) ,
+    ui(new Ui::avlWindow)
 {
     ui->setupUi(this);
 

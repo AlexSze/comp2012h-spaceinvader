@@ -93,6 +93,8 @@ void Laser::move() {
                     }
                 }
 
+                s->scene->removeItem(score);
+                s->scene->removeItem(lifes);
                 s->close();
                 //delete s; it is deleted on win_screen
                 return;
@@ -117,6 +119,8 @@ void Laser::move() {
                         n = new defeat_screen;
                         n->show();
 
+                        s->scene->removeItem(score);
+                        s->scene->removeItem(lifes);
                         s->close();
                     }
                 }
@@ -127,7 +131,6 @@ void Laser::move() {
         }
         else if (typeid(*(colliding[i])) == typeid(Laser)) {
             // delete laser
-            // only deleting one laser creates randomness
             delete this;
             return;
         }

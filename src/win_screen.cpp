@@ -21,9 +21,7 @@ win_screen::~win_screen()
 
 void win_screen::on_pushButton_restart_clicked()
 {
-    //TODO change it for all three scene
-    s->close();
-    s->deleteLater();
+    delete s;
 
     // create new game
     s = new GameScene;
@@ -42,17 +40,17 @@ void win_screen::on_pushButton_restart_clicked()
 
 void win_screen::on_pushButton_next_clicked()
 {
-    //generate another game, there are three scene
-    s->close();
+    //generate another game, there are two scenes after first level
     if (typeid (*s)==typeid(GameScene)) {
+        delete s;
         s = new gamescene2;
     }
     else {
+        delete s;
         s = new gamescene3;
     }
 
     s->show();
-        qDebug() << "show done";
 
     s->health->reset();
 
@@ -63,6 +61,5 @@ void win_screen::on_pushButton_next_clicked()
 void win_screen::on_pushButton_quit_clicked()
 {
     // cleanup
-    cleanup();
-    exit(0);
+    cleanup(0);
 }

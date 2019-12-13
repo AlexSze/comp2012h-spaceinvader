@@ -21,9 +21,7 @@ defeat_screen::~defeat_screen()
 
 void defeat_screen::on_pushButton_restart_clicked()
 {
-    //TODO change it for all three scene
-    s->close();
-    s->deleteLater();
+    delete s;
 
     // create new game
     s = new GameScene;
@@ -43,21 +41,20 @@ void defeat_screen::on_pushButton_restart_clicked()
 void defeat_screen::on_pushButton_quit_clicked()
 {
     // cleanup
-    cleanup();
-    exit(0);
+    cleanup(0);
 }
 
 void defeat_screen::on_pushButton_backToMain_clicked()
 {
-    s->player->reset_atk();
+    //s->player->reset_atk();
     score->reset();
-    while (lifes->get_life() > 2)
-        lifes->decrease();
-    while (lifes->get_life() < 2)
-        lifes->increase();
+    lifes->reset();
     m = new MainWindow;
     this->close();
     m->show();
+
     delete s;
+    s = nullptr;
     delete this;
+    n = nullptr;
 }

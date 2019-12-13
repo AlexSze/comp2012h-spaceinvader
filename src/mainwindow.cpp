@@ -26,6 +26,7 @@ void MainWindow::on_pushButton_game_clicked()
 
     this->close();
     delete this;
+    m = nullptr;
 }
 
 void MainWindow::on_pushButton_scoreboard_clicked()
@@ -37,8 +38,7 @@ void MainWindow::on_pushButton_scoreboard_clicked()
 void MainWindow::on_pushButton_quit_clicked()
 {
     // cleanup
-    cleanup();
-    exit(0);
+    cleanup(0);
 }
 
 void MainWindow::on_actionAbout_triggered()

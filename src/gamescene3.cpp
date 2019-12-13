@@ -15,13 +15,3 @@ gamescene3::gamescene3(QWidget *parent)
 
     show();
 }
-
-extern GameScene* s;
-gamescene3::~gamescene3()
-{
-    delete player;
-    delete scene;
-    foreach ( QGraphicsItem* i, items() )
-        delete i;
-    s = nullptr;
-}

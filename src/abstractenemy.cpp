@@ -106,6 +106,8 @@ void abstractEnemy::move() {
                         n = new defeat_screen;
                         n->show();
 
+                        s->scene->removeItem(score);
+                        s->scene->removeItem(lifes);
                         s->close();
                     }
 

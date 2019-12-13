@@ -40,8 +40,6 @@ int main(int argc, char *argv[])
     int out = a.exec();
 
     // cleanup
-    cleanup();
-
-    return out;
+    cleanup(0);
 }
 

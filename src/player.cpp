@@ -18,7 +18,7 @@ using namespace std;
 
 // constructor
 Player::Player(QGraphicsItem* parent)
-    : QGraphicsPixmapItem(),
+    : QGraphicsPixmapItem(parent),
     //proporty setup
     abstractobjects (1, 0, 0, 20) {
         // set the character in the bottom middle of the screen

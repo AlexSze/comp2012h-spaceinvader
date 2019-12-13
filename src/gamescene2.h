@@ -7,7 +7,6 @@ class gamescene2: public GameScene
 {
 public:
     gamescene2(QWidget* parent = nullptr);
-    ~gamescene2();
 };
 
 #endif // GAMESCENE2_H
