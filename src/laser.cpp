@@ -76,7 +76,7 @@ void Laser::move() {
             */
 
             // check if all enemies are killed
-            if (!(s->enemyCount())) {
+            if (s->enemyCount() == 0) {
                 //show win_screen
                 if (typeid (*s)==typeid(gamescene3)) {
                     // player reached the end, show ultimate win screen

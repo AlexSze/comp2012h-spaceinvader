@@ -48,9 +48,6 @@ GameScene::~GameScene()
     delete scene;
     foreach ( QGraphicsItem* i, items() )
         delete i;
-    e.clear();
-    boss.clear();
-    tt.clear();
     s = nullptr;
 }
 
@@ -81,30 +78,30 @@ void GameScene::character_construction(unsigned int level)
     // designing each level with increased difficulty, with an increased amount of enemies
     for (unsigned int i = 0; i < 8; ++i) {
         for (unsigned int j = level + 1; j > 0; --j) {
-            e.push_back(new Enemy(j, 10, (j + 1) % 2, dynamic_cast<QGraphicsItem*>(this)));
-            e.back()->setPos(i*SCREEN_WIDTH/8, BASE_ENEMY_HEIGHT*(2 * level - 2 * j + 3)/2);
-            scene->addItem(e.back());
+            Enemy* e = new Enemy(j, 10, (j + 1) % 2, dynamic_cast<QGraphicsItem*>(this));
+            e->setPos(i*SCREEN_WIDTH/8, BASE_ENEMY_HEIGHT*(2 * level - 2 * j + 3)/2);
+            scene->addItem(e);
         }
     }
 
     // designing the boss with increased health, thus making the boss more difficult to kill
     for (unsigned int i = 0; i < level; ++i) {
-        boss.push_back(new Boss(5 * level, 4, rand() % 2, dynamic_cast<QGraphicsItem*>(this)));
-        boss.back()->setPos(SCREEN_WIDTH * (i + 1) / (level + 1), BASE_ENEMY_HEIGHT/2);
-        scene->addItem(boss.back());
+        Boss* b = new Boss(5 * level, 4, rand() % 2, dynamic_cast<QGraphicsItem*>(this));
+        b->setPos(SCREEN_WIDTH * (i + 1) / (level + 1), BASE_ENEMY_HEIGHT/2);
+        scene->addItem(b);
     }
 
     //more pick-ups as levels become more difficult
     for (unsigned int i = 0; i < (level + 1) / 2; ++i) {
         int random= rand()% SCREEN_WIDTH;
-        tt.push_back(new tool_life(dynamic_cast<QGraphicsItem*>(this)));
-        tt.back()->setPos(random, 0);
-        scene->addItem(tt.back());
+        tool_life* tl = new tool_life(dynamic_cast<QGraphicsItem*>(this));
+        tl->setPos(random, 0);
+        scene->addItem(tl);
 
         int random1= rand()% SCREEN_WIDTH;
-        tt.push_back(new tool_atk(dynamic_cast<QGraphicsItem*>(this)));
-        tt.back()->setPos(random1, 0);
-        scene->addItem(tt.back());
+        tool_atk* ta = new tool_atk(dynamic_cast<QGraphicsItem*>(this));
+        ta->setPos(random1, 0);
+        scene->addItem(ta);
     }
 
 

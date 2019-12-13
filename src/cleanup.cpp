@@ -20,7 +20,7 @@ extern life* lifes;
 void cleanup() {
     delete m;
     qDebug() << "m";
-    delete s;
+    s->deleteLater();
     qDebug() << "s";
     delete w;
     qDebug() << "w";

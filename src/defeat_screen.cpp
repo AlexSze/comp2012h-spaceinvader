@@ -22,13 +22,13 @@ defeat_screen::~defeat_screen()
 void defeat_screen::on_pushButton_restart_clicked()
 {
     //TODO change it for all three scene
-    //TODO player cannot move, player health is not acting normal
     s->close();
+    s->deleteLater();
 
     // create new game
-    delete s;
-    s= new GameScene;
+    s = new GameScene;
 
+    // show new scene
     s->show();
 
     // reset game state
