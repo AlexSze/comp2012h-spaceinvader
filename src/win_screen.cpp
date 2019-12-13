@@ -5,14 +5,16 @@
 #include "gamescene3.h"
 #include "cleanup.h"
 
+extern win_screen* a;
 win_screen::win_screen(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::win_screen)
 {
+    // delete existing if exist
+    delete a;
     ui->setupUi(this);
 }
 
-extern win_screen* a;
 win_screen::~win_screen()
 {
     delete ui;
@@ -21,8 +23,6 @@ win_screen::~win_screen()
 
 void win_screen::on_pushButton_restart_clicked()
 {
-    delete s;
-
     // create new game
     s = new GameScene;
 
@@ -42,11 +42,9 @@ void win_screen::on_pushButton_next_clicked()
 {
     //generate another game, there are two scenes after first level
     if (typeid (*s)==typeid(GameScene)) {
-        delete s;
         s = new gamescene2;
     }
     else {
-        delete s;
         s = new gamescene3;
     }
 

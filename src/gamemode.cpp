@@ -1,26 +1,30 @@
 #include "gamemode.h"
 #include "ui_gamemode.h"
 
+extern GameMode* g;
+
 GameMode::GameMode(QWidget *parent) :
-    QDialog(parent),
-    ui(new Ui::GameMode)
+    QDialog(parent)
 {
+    // delete existing if exist
+    delete g;
+
+    ui = new Ui::GameMode;
     ui->setupUi(this);
 }
 
 GameMode::~GameMode()
 {
     delete ui;
+    g = nullptr;
 }
 
-extern GameMode* g;
 void GameMode::on_pushButton_normal_clicked()
 {
     s = new GameScene();
     this->close();
     s->show();
     delete this;
-    g = nullptr;
 }
 
 void GameMode::on_pushButton_infinity_clicked()

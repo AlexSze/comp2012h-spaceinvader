@@ -31,15 +31,15 @@ int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
 
-    score=new Score;
-    lifes=new life;
+    score = new Score;
+    lifes = new life;
 
-    m= new MainWindow;
+    m = new MainWindow;
     m->show();
 
     int out = a.exec();
 
     // cleanup
-    cleanup(0);
+    cleanup(out);
 }
 

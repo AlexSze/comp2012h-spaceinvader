@@ -5,14 +5,17 @@
 #include "gamemode.h"
 #include "cleanup.h"
 
+extern MainWindow* m;
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
+    // delete if already exist
+    delete m;
+
     ui->setupUi(this);
 }
 
-extern MainWindow* m;
 MainWindow::~MainWindow()
 {
     delete ui;
@@ -21,12 +24,11 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_pushButton_game_clicked()
 {
-    g= new GameMode;
+    g = new GameMode;
     g->show();
 
     this->close();
     delete this;
-    m = nullptr;
 }
 
 void MainWindow::on_pushButton_scoreboard_clicked()

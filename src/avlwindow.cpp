@@ -9,6 +9,8 @@ avlWindow::avlWindow(QWidget *parent)
     : QMainWindow(parent) ,
     ui(new Ui::avlWindow)
 {
+    // delete existing if exist
+    delete w;
     ui->setupUi(this);
 
     // read existing record into AVL tree

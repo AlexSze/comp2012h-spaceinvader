@@ -8,14 +8,16 @@
 
 #include <QInputDialog>
 
+extern win_scene_gs3* u;
 win_scene_gs3::win_scene_gs3(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::win_scene_gs3)
 {
+    // delete existing if exist
+    delete u;
     ui->setupUi(this);
 }
 
-extern win_scene_gs3* u;
 win_scene_gs3::~win_scene_gs3()
 {
     delete ui;
@@ -24,9 +26,7 @@ win_scene_gs3::~win_scene_gs3()
 
 void win_scene_gs3::on_pushButton_restart_game_clicked()
 {
-        delete s;
-
-        s= new GameScene;
+        s = new GameScene;
         s->show();
 
         // reset game state
@@ -53,7 +53,7 @@ void win_scene_gs3::on_pushButton_record_score_clicked()
 
     if (w==nullptr) {
         // create avl window if doesn't already exist
-        w= new avlWindow(this);
+        w = new avlWindow(this);
         w->show();
     }
 }
@@ -66,6 +66,7 @@ void win_scene_gs3::on_pushButton_backToMenu_clicked()
     m = new MainWindow;
     this->close();
     m->show();
+
     delete s;
     delete this;
 }

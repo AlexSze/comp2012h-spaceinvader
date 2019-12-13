@@ -22,8 +22,9 @@ void cleanup(int status) {
     delete s;
     delete w;
     delete n;
+    delete a;
     delete u;
-    //delete g;
+    delete g;
     delete score;
     delete lifes;
     exit(status);

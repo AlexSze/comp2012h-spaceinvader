@@ -1,13 +1,16 @@
 #include "life.h"
 #include <QFont>
 
+extern life* lifes;
 life::life(QGraphicsItem *parent)
 {
+    // delete existing if exist
+    delete lifes;
+
     // setup life object
     reset();
 }
 
-extern life* lifes;
 life::~life() {
     lifes = nullptr;
 }

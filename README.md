@@ -74,3 +74,12 @@ During the project's creation, one of our teammates are in a vastly different ti
 ### Version control and importance of off-site backing up
 
 At one stage of development, one of our teammates pushed known crashing code into the repository, overwriting previous work and rendered other progress untestable. It is especially problematic since the crash will effect the display session of the entire desktop so we cannot read the error code or debugging information effectively. Fortunately, we have periodically backup the project at every milestone. It is very valuable to be able to compare the problem code with known working versions and pinpoint where are the bugs. With this incident in mind, we think we will be able to make better use of branching and version control of git in the future as well as having backup on past and current projects.
+
+## Potential for future work on the project
+
+### Memory Leak
+
+In the process of debugging the project, there is a consistant set size of memory leak when we are testing it. The majority of which are found to be a bug in QT's Media Player for the audio aspect of the project, which we have yet to test every versions of. In the future, we can setup various QT versions to find out which would have the best memory leak prevention. However, since the leak is not in the scope of our code, memory leak at the scale of the size of media we uses is the best we can deliver.
+
+As pointed out in the following [QT Forum discussion](https://forum.qt.io/topic/84048/memory-leak-on-empty-qt-widgets-application), memory leak at this scale are likely false positive especially when objects are allocated and deallocated frequently without increase in memory leak.
+

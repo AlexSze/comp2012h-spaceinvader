@@ -3,16 +3,19 @@
 #include "cleanup.h"
 
 extern Score* score;
+extern defeat_screen* n;
 defeat_screen::defeat_screen(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::defeat_screen)
 {
+    // delete existing if exist
+    delete n;
+
     ui->setupUi(this);
     // reset score
     score->reset();
 }
 
-extern defeat_screen* n;
 defeat_screen::~defeat_screen()
 {
     delete ui;
@@ -21,8 +24,6 @@ defeat_screen::~defeat_screen()
 
 void defeat_screen::on_pushButton_restart_clicked()
 {
-    delete s;
-
     // create new game
     s = new GameScene;
 
@@ -54,7 +55,5 @@ void defeat_screen::on_pushButton_backToMain_clicked()
     m->show();
 
     delete s;
-    s = nullptr;
     delete this;
-    n = nullptr;
 }

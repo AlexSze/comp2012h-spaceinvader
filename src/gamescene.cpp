@@ -19,6 +19,8 @@
 
 /* game element classes here */
 GameScene::GameScene(QWidget* parent) {
+    // delete existing scene if exist
+    delete s;
     // allocate scene for game
     scene = new QGraphicsScene(parent);
     // set window size and coordinate

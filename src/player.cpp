@@ -104,6 +104,7 @@ bool Player::hurt() {
 }
 
 Player::~Player() {
+    pew_sound->stop();
     delete pew_sound;
     // prepare removal from scene
     QGraphicsItem::prepareGeometryChange();
@@ -129,5 +130,5 @@ int Player::get_atk()
 
 void Player::reset_atk()
 {
-    atk = 1;
+    atk = PLAYER_ATTACH;
 }

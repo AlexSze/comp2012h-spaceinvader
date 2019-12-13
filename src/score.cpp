@@ -1,7 +1,10 @@
 #include "score.h"
 #include <QFont>
 
+extern Score* score;
 Score::Score(QGraphicsItem *parent): QGraphicsTextItem(parent){
+    // delete existing if exist
+    delete score;
     // initialize the score to 0
     score_count = 0;
 
@@ -11,7 +14,6 @@ Score::Score(QGraphicsItem *parent): QGraphicsTextItem(parent){
     setFont(QFont("times",16));
 }
 
-extern Score* score;
 Score::~Score() {
     score = nullptr;
 }
