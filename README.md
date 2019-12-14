@@ -20,9 +20,9 @@ Space Invader++ is a modern replica of a classic arcade game, Space Invader writ
 | A           	| Move Player to the Left                  	|
 | S           	| Move Player Downwards                    	|
 | D           	| Move Player to the Right                 	|
-| Space       	| Shoot Laser Beam                         	|
-| Left Arrow  	| Adjust Laser Beam Direction to the Left  	|
-| Right Arrow 	| Adjust Laser Beam Direction to the Right 	|
+| Space       	| Shoot Missiles                         	|
+| Left Arrow  	| Adjust Missile Direction to the Left  	|
+| Right Arrow 	| Adjust Missile Beam Direction to the Right 	|
 
 ## File Structure
 
@@ -44,6 +44,8 @@ Space Invader++ is a modern replica of a classic arcade game, Space Invader writ
 2. Level Design
 
 3. Boss Design
+
+4. Game Flow Design
 
 ### Sze Yuk Yin
 
@@ -77,9 +79,13 @@ At one stage of development, one of our teammates pushed known crashing code int
 
 ## Potential for future work on the project
 
+### Infinity Mode
+
+The key feature in the next update would be the introduction of the Infinity Mode. Under Infinity Mode, a scene the same as level 1 will be established. As the current enemy squad nears elimination, a new wave with an increase in enemy rows and an increment of bosses will spawn, resulting in a never-ending game until the player is overwhelmed by the sheer number of enemy firepower. A new derived class GameSceneInfinity depicted in “gamesceneinfinity.h” inherits the GameScene class, yet during initial design of the base class functions, we had yet to conjure this idea. We were ultimately unable to fully implement Infinity Mode within our limited time span, and its prototypical design details are left as “Easter Eggs” for passionate gamers to explore.
+
 ### Memory Leak
 
-In the process of debugging the project, there is a consistant set size of memory leak when we are testing it. The majority of which are found to be a bug in QT's Media Player for the audio aspect of the project, which we have yet to test every versions of. In the future, we can setup various QT versions to find out which would have the best memory leak prevention. However, since the leak is not in the scope of our code, memory leak at the scale of the size of media we uses is the best we can deliver.
+In the process of debugging the project, there is a consistent set size of memory leak when we are testing it. The majority of which are found to be a bug in QT's Media Player for the audio aspect of the project, which we have yet to test every versions of. In the future, we can setup various QT versions to find out which would have the best memory leak prevention. However, since the leak is not in the scope of our code, memory leak at the scale of the size of media we uses is the best we can deliver.
 
 As pointed out in the following [QT Forum discussion](https://forum.qt.io/topic/84048/memory-leak-on-empty-qt-widgets-application), memory leak at this scale are likely false positives especially when objects are allocated and deallocated frequently without increase in the indicated memory leak.
 
