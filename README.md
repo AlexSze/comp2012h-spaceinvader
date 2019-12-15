@@ -49,11 +49,13 @@ Space Invader++ is a modern replica of a classic arcade game, Space Invader writ
 
 ### Sze Yuk Yin
 
-1. Scoreboard Design
+1. Game Flow Backend (boss, gamescene, health, score, life, tools)
 
-2. AVL Scoreboard data structure
+2. Scoreboard Backend (AVl data structure)
 
-3. Enemy Design
+3. Game UI design (win screen, defeat screen, main screen, avl scene)
+
+4. Game Logic (Control, Scene settings)
 
 ### Tsang Cheuk Nam
 
