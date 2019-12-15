@@ -21,13 +21,6 @@
        <widget class="QPlainTextEdit" name="plainTextEdit"/>
       </item>
       <item>
-       <widget class="QPushButton" name="pushButton_write">
-        <property name="text">
-         <string>Write</string>
-        </property>
-       </widget>
-      </item>
-      <item>
        <widget class="QPushButton" name="pushButton_print">
         <property name="text">
          <string>Print</string>

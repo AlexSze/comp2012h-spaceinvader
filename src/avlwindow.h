@@ -33,8 +33,6 @@ public:
     void print_avl();
 
 private slots:
-    void on_pushButton_write_clicked();
-
     void on_pushButton_print_clicked();
 
     void on_pushButton_max_clicked();

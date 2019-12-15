@@ -135,12 +135,6 @@ void avlWindow::print_avl()
     ui->plainTextEdit->setPlainText(text);
 }
 
-void avlWindow::on_pushButton_write_clicked(){
-    write_file();
-
-    //read_as_num();
-}
-
 void avlWindow::on_pushButton_print_clicked(){
     print_avl();
 }
