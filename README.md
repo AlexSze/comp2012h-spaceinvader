@@ -49,7 +49,7 @@ Space Invader++ is a modern replica of a classic arcade game, Space Invader writ
 
 ### Sze Yuk Yin
 
-1. Game Flow Backend (boss, gamescene, health, score, life, tools)
+1. Game Flow Backend (gamescene, boss, health, score, life, tools)
 
 2. Scoreboard Backend (AVl data structure)
 
